@@ -1,0 +1,26 @@
+@import '~@angular/material/theming';
+@include mat-core();
+@import 'themes';
+@import 'colors-css-vars';
+
+.dark-theme {
+    @include angular-material-theme($adventureworks-dark-theme);
+    @include cssColorVariables(
+    map-get($adventureworks-dark-theme, foreground),
+    map-get($adventureworks-dark-theme, background),
+    map-get($adventureworks-dark-theme, primary),
+    map-get($adventureworks-dark-theme, accent),
+    map-get($adventureworks-dark-theme, warn)
+  );
+}
+
+.light-theme {
+    @include angular-material-theme($adventureworks-light-theme);
+    @include cssColorVariables(
+    map-get($adventureworks-light-theme, foreground),
+    map-get($adventureworks-light-theme, background),
+    map-get($adventureworks-light-theme, primary),
+    map-get($adventureworks-light-theme, accent),
+    map-get($adventureworks-light-theme, warn)
+  );
+}

@@ -1,0 +1,44 @@
+@import '~@angular/material/theming';
+
+$font-family-base: Roboto, "Helvetica Neue", sans-serif !default;
+
+// Dark theme
+$adventureworks-dark-primary: mat-palette($mat-blue, 500, 100, 900);
+$adventureworks-dark-accent: mat-palette($mat-pink, A200, A100, A400);
+$adventureworks-dark-warn: mat-palette($mat-red);
+
+$adventureworks-dark-theme: mat-dark-theme(( color: ( primary: $adventureworks-dark-primary, accent: $adventureworks-dark-accent, warn: $adventureworks-dark-warn, ) ));
+
+// Light theme
+$adventureworks-light-primary: mat-palette($mat-blue);
+$adventureworks-light-accent: mat-palette($mat-pink, A200, A100, A400);
+$adventureworks-light-warn: mat-palette($mat-red);
+
+$adventureworks-light-theme: mat-light-theme(( color: ( primary: $adventureworks-light-primary, accent: $adventureworks-light-accent, warn: $adventureworks-light-warn, ) ));
+
+// Default (if no theme name adventureworks-dark-theme or adventureworks-light-theme is included in class element on html element)
+$mat-primary: map-get($adventureworks-dark-theme, primary);
+$mat-accent: map-get($adventureworks-dark-theme, accent);
+$mat-warn: map-get($adventureworks-dark-theme, warn);
+$background: map-get($adventureworks-dark-theme, background);
+$foreground: map-get($adventureworks-dark-theme, foreground);
+
+@mixin selectedTheme() {
+  .dark-theme {
+    $mat-primary: map-get($adventureworks-dark-theme, primary);
+    $mat-accent: map-get($adventureworks-dark-theme, accent);
+    $mat-warn: map-get($adventureworks-dark-theme, warn);
+    $background: map-get($adventureworks-dark-theme, background) !global;
+    $foreground: map-get($adventureworks-dark-theme, foreground) !global;
+    @content;
+  }
+
+  .light-theme {
+    $mat-primary: map-get($adventureworks-light-theme, primary);
+    $mat-accent: map-get($adventureworks-light-theme, accent);
+    $mat-warn: map-get($adventureworks-light-theme, warn);
+    $background: map-get($adventureworks-light-theme, background) !global;
+    $foreground: map-get($adventureworks-light-theme, foreground) !global;
+    @content;
+  }
+}
