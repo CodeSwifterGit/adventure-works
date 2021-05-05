@@ -42,7 +42,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             .HasDefaultValue("(getdate())");
 
             // Indexes and Foreign Keys
-            builder.HasIndex(e => new { e.ShoppingCartID, e.ProductID })
+            builder.HasIndex(e => new { e.ProductID, e.ShoppingCartID })
             .HasDatabaseName("IX_ShoppingCartItem_ShoppingCartID_ProductID");
 
             builder.HasIndex(e => new { e.ProductID })

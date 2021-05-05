@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.WorkOrderRouting.Commands.UpdateWorkOrderRouting
 {
-    public partial class UpdateWorkOrderRoutingCommand : BaseWorkOrderRouting, IRequest<WorkOrderRoutingLookupModel>, IHaveCustomMapping
+    public partial class UpdateWorkOrderRoutingCommand : IRequest<WorkOrderRoutingLookupModel>, IHaveCustomMapping
     {
         public int WorkOrderID { get; set; }
         public int ProductID { get; set; }

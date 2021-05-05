@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Person.StateProvince.Commands.UpdateStateProvince
 {
-    public partial class UpdateStateProvinceCommand : BaseStateProvince, IRequest<StateProvinceLookupModel>, IHaveCustomMapping
+    public partial class UpdateStateProvinceCommand : IRequest<StateProvinceLookupModel>, IHaveCustomMapping
     {
         public int StateProvinceID { get; set; }
         public string StateProvinceCode { get; set; }

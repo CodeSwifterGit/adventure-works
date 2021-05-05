@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.HumanResources.EmployeeAddress.Commands.UpdateEmployeeAddress
 {
-    public partial class UpdateEmployeeAddressCommand : BaseEmployeeAddress, IRequest<EmployeeAddressLookupModel>, IHaveCustomMapping
+    public partial class UpdateEmployeeAddressCommand : IRequest<EmployeeAddressLookupModel>, IHaveCustomMapping
     {
         public int EmployeeID { get; set; }
         public int AddressID { get; set; }

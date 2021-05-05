@@ -99,7 +99,7 @@ namespace AdventureWorks.Persistence.Configurations.HumanResources
             .HasDatabaseName("FK_Employee_Contact_Contact");
 
             builder.HasIndex(e => new { e.ManagerID })
-            .HasDatabaseName("FK_Employee_Employee_Employee");
+            .HasDatabaseName("FK_Employee_Manager_Employee");
 
             builder.HasOne(e => e.Contact)
             .WithMany(p => p.Employees)
@@ -111,7 +111,7 @@ namespace AdventureWorks.Persistence.Configurations.HumanResources
             .WithMany()
             .HasForeignKey(e => new { e.ManagerID })
             .OnDelete(DeleteBehavior.Cascade)
-            .HasConstraintName("FK_Employee_Employee_Employee_Constraint");
+            .HasConstraintName("FK_Employee_Manager_Employee_Constraint");
 
             // Complex Types (Owned properties as tables)
 

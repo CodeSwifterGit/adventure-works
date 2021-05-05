@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Purchasing.ShipMethod.Commands.UpdateShipMethod
 {
-    public partial class UpdateShipMethodCommand : BaseShipMethod, IRequest<ShipMethodLookupModel>, IHaveCustomMapping
+    public partial class UpdateShipMethodCommand : IRequest<ShipMethodLookupModel>, IHaveCustomMapping
     {
         public int ShipMethodID { get; set; }
         public string Name { get; set; }

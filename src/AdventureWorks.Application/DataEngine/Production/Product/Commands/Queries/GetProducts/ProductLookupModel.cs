@@ -11,6 +11,7 @@ using AdventureWorks.Application.DataEngine.Purchasing.ProductVendor.Queries.Get
 using AdventureWorks.Application.DataEngine.Purchasing.PurchaseOrderDetail.Queries.GetPurchaseOrderDetails;
 using AdventureWorks.Application.DataEngine.Sales.ShoppingCartItem.Queries.GetShoppingCartItems;
 using AdventureWorks.Application.DataEngine.Sales.SpecialOfferProduct.Queries.GetSpecialOfferProducts;
+
 namespace AdventureWorks.Application.DataEngine.Production.Product.Queries.GetProducts
 {
     public partial class ProductLookupModel : IHaveCustomMapping

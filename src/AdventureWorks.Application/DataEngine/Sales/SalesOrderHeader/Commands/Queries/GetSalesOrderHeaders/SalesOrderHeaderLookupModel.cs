@@ -10,6 +10,7 @@ using AdventureWorks.BaseDomain.CustomTypes;
 using AdventureWorks.Application.DataEngine.Person.Address.Queries.GetAddresses;
 using AdventureWorks.Application.DataEngine.Person.Contact.Queries.GetContacts;
 using AdventureWorks.Application.DataEngine.Purchasing.ShipMethod.Queries.GetShipMethods;
+
 namespace AdventureWorks.Application.DataEngine.Sales.SalesOrderHeader.Queries.GetSalesOrderHeaders
 {
     public partial class SalesOrderHeaderLookupModel : IHaveCustomMapping

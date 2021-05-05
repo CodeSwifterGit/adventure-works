@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Person.ContactType.Commands.UpdateContactType
 {
-    public partial class UpdateContactTypeCommand : BaseContactType, IRequest<ContactTypeLookupModel>, IHaveCustomMapping
+    public partial class UpdateContactTypeCommand : IRequest<ContactTypeLookupModel>, IHaveCustomMapping
     {
         public int ContactTypeID { get; set; }
         public string Name { get; set; }

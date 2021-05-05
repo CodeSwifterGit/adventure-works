@@ -78,7 +78,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             .HasConstraintName("FK_SalesOrderDetail_SalesOrderHeader_SalesOrderHeader_Constraint");
 
             builder.HasOne(e => e.SpecialOfferProduct)
-            .WithMany(p => p.SalesOrderDetails)
+            .WithMany(p => p.SalesOrderSpecialProductDetails)
             .HasForeignKey(e => new { e.ProductID, e.SpecialOfferID })
             .OnDelete(DeleteBehavior.Cascade)
             .HasConstraintName("FK_SalesOrderDetail_SpecialOfferProduct_SpecialOfferProduct_Constraint");

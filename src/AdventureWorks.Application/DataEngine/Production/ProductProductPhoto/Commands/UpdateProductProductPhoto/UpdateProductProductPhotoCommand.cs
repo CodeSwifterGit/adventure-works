@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.ProductProductPhoto.Commands.UpdateProductProductPhoto
 {
-    public partial class UpdateProductProductPhotoCommand : BaseProductProductPhoto, IRequest<ProductProductPhotoLookupModel>, IHaveCustomMapping
+    public partial class UpdateProductProductPhotoCommand : IRequest<ProductProductPhotoLookupModel>, IHaveCustomMapping
     {
         public int ProductID { get; set; }
         public int ProductPhotoID { get; set; }

@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.ProductInventory.Commands.UpdateProductInventory
 {
-    public partial class UpdateProductInventoryCommand : BaseProductInventory, IRequest<ProductInventoryLookupModel>, IHaveCustomMapping
+    public partial class UpdateProductInventoryCommand : IRequest<ProductInventoryLookupModel>, IHaveCustomMapping
     {
         public int ProductID { get; set; }
         public short LocationID { get; set; }

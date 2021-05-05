@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Sales.SalesTerritory.Commands.UpdateSalesTerritory
 {
-    public partial class UpdateSalesTerritoryCommand : BaseSalesTerritory, IRequest<SalesTerritoryLookupModel>, IHaveCustomMapping
+    public partial class UpdateSalesTerritoryCommand : IRequest<SalesTerritoryLookupModel>, IHaveCustomMapping
     {
         public int TerritoryID { get; set; }
         public string Name { get; set; }

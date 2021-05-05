@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.ScrapReason.Commands.UpdateScrapReason
 {
-    public partial class UpdateScrapReasonCommand : BaseScrapReason, IRequest<ScrapReasonLookupModel>, IHaveCustomMapping
+    public partial class UpdateScrapReasonCommand : IRequest<ScrapReasonLookupModel>, IHaveCustomMapping
     {
         public short ScrapReasonID { get; set; }
         public string Name { get; set; }

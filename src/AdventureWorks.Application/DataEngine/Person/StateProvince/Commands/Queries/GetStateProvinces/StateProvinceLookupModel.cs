@@ -9,6 +9,7 @@ using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 using AdventureWorks.Application.DataEngine.Sales.SalesTaxRate.Queries.GetSalesTaxRates;
 using AdventureWorks.Application.DataEngine.Sales.SalesTerritory.Queries.GetSalesTerritories;
+
 namespace AdventureWorks.Application.DataEngine.Person.StateProvince.Queries.GetStateProvinces
 {
     public partial class StateProvinceLookupModel : IHaveCustomMapping

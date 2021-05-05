@@ -16,7 +16,6 @@ export interface IContactUpdateModel {
   emailAddress: string;
   emailPromotion: number;
   phone: string;
-  passwordHash: string;
   passwordSalt: string;
   additionalContactInfo: string;
   rowguid: string;
@@ -39,7 +38,6 @@ export class ContactUpdateModel implements IContactUpdateModel {
   emailAddress: string;
   emailPromotion: number;
   phone: string;
-  passwordHash: string;
   passwordSalt: string;
   additionalContactInfo: string;
   rowguid: string;

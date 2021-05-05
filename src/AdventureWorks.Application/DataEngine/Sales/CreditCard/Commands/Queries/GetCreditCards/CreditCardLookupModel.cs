@@ -8,6 +8,7 @@ using AdventureWorks.BaseDomain.Enums;
 using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 
+
 namespace AdventureWorks.Application.DataEngine.Sales.CreditCard.Queries.GetCreditCards
 {
     public partial class CreditCardLookupModel : IHaveCustomMapping

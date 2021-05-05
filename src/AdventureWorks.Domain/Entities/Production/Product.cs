@@ -26,7 +26,9 @@ namespace AdventureWorks.Domain.Entities.Production
 
         public virtual ProductSubcategory ProductSubcategory { get; set; }
 
-        public virtual UnitMeasure UnitMeasure { get; set; }
+        public virtual UnitMeasure UnitMeasureSize { get; set; }
+
+        public virtual UnitMeasure UnitMeasureWeight { get; set; }
         public virtual ICollection<BillOfMaterials> BillOfMaterials { get; set; } = new List<BillOfMaterials>();
 
         public virtual ICollection<ProductCostHistory> ProductCostHistories { get; set; } = new List<ProductCostHistory>();

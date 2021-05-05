@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.TransactionHistoryArchive.Commands.UpdateTransactionHistoryArchive
 {
-    public partial class UpdateTransactionHistoryArchiveCommand : BaseTransactionHistoryArchive, IRequest<TransactionHistoryArchiveLookupModel>, IHaveCustomMapping
+    public partial class UpdateTransactionHistoryArchiveCommand : IRequest<TransactionHistoryArchiveLookupModel>, IHaveCustomMapping
     {
         public int TransactionID { get; set; }
         public int ProductID { get; set; }

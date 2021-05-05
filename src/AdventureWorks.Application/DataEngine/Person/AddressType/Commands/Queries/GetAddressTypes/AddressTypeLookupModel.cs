@@ -9,6 +9,7 @@ using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 using AdventureWorks.Application.DataEngine.Purchasing.VendorAddress.Queries.GetVendorAddresses;
 using AdventureWorks.Application.DataEngine.Sales.CustomerAddress.Queries.GetCustomerAddresses;
+
 namespace AdventureWorks.Application.DataEngine.Person.AddressType.Queries.GetAddressTypes
 {
     public partial class AddressTypeLookupModel : IHaveCustomMapping

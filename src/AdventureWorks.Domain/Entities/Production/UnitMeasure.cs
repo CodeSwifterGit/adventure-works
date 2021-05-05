@@ -24,7 +24,9 @@ namespace AdventureWorks.Domain.Entities.Production
 
         public virtual ICollection<BillOfMaterials> BillOfMaterials { get; set; } = new List<BillOfMaterials>();
 
-        public virtual ICollection<Product> Products { get; set; } = new List<Product>();
+        public virtual ICollection<Product> ProductWeights { get; set; } = new List<Product>();
+
+        public virtual ICollection<Product> SizesProducts { get; set; } = new List<Product>();
 
         public virtual ICollection<ProductVendor> ProductVendors { get; set; } = new List<ProductVendor>();
 

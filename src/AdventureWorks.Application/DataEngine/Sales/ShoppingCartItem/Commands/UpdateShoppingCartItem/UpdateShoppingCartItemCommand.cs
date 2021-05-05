@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Sales.ShoppingCartItem.Commands.UpdateShoppingCartItem
 {
-    public partial class UpdateShoppingCartItemCommand : BaseShoppingCartItem, IRequest<ShoppingCartItemLookupModel>, IHaveCustomMapping
+    public partial class UpdateShoppingCartItemCommand : IRequest<ShoppingCartItemLookupModel>, IHaveCustomMapping
     {
         public int ShoppingCartItemID { get; set; }
         public string ShoppingCartID { get; set; }

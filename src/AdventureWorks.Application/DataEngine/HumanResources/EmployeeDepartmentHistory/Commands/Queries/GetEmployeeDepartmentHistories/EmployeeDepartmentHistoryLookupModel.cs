@@ -8,6 +8,7 @@ using AdventureWorks.BaseDomain.Enums;
 using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 
+
 namespace AdventureWorks.Application.DataEngine.HumanResources.EmployeeDepartmentHistory.Queries.GetEmployeeDepartmentHistories
 {
     public partial class EmployeeDepartmentHistoryLookupModel : IHaveCustomMapping

@@ -27,7 +27,7 @@ namespace AdventureWorks.Persistence.Configurations.Person
             .HasDefaultValue("((0))");
 
             builder.Property(p => p.Title)
-            .HasColumnType("nvarchar(8)");
+            .HasColumnType("varchar(255)");
 
             builder.Property(p => p.FirstName)
             .HasColumnType("nvarchar(50)")
@@ -54,7 +54,7 @@ namespace AdventureWorks.Persistence.Configurations.Person
             .HasColumnType("nvarchar(25)");
 
             builder.Property(p => p.PasswordHash)
-            .HasColumnType("varchar(128)")
+            .HasColumnType("varchar(255)")
             .IsRequired();
 
             builder.Property(p => p.PasswordSalt)

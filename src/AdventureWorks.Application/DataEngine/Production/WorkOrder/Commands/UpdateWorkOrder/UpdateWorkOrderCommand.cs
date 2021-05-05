@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.WorkOrder.Commands.UpdateWorkOrder
 {
-    public partial class UpdateWorkOrderCommand : BaseWorkOrder, IRequest<WorkOrderLookupModel>, IHaveCustomMapping
+    public partial class UpdateWorkOrderCommand : IRequest<WorkOrderLookupModel>, IHaveCustomMapping
     {
         public int WorkOrderID { get; set; }
         public int ProductID { get; set; }

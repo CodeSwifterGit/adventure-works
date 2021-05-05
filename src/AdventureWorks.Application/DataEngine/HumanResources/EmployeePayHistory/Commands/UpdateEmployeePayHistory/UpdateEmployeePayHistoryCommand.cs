@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.HumanResources.EmployeePayHistory.Commands.UpdateEmployeePayHistory
 {
-    public partial class UpdateEmployeePayHistoryCommand : BaseEmployeePayHistory, IRequest<EmployeePayHistoryLookupModel>, IHaveCustomMapping
+    public partial class UpdateEmployeePayHistoryCommand : IRequest<EmployeePayHistoryLookupModel>, IHaveCustomMapping
     {
         public int EmployeeID { get; set; }
         public DateTime RateChangeDate { get; set; }

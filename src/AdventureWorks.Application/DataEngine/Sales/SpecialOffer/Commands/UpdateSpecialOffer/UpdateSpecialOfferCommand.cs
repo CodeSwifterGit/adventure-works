@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Sales.SpecialOffer.Commands.UpdateSpecialOffer
 {
-    public partial class UpdateSpecialOfferCommand : BaseSpecialOffer, IRequest<SpecialOfferLookupModel>, IHaveCustomMapping
+    public partial class UpdateSpecialOfferCommand : IRequest<SpecialOfferLookupModel>, IHaveCustomMapping
     {
         public int SpecialOfferID { get; set; }
         public string Description { get; set; }

@@ -24,7 +24,7 @@ namespace AdventureWorks.Domain.Entities.Sales
         public virtual Product Product { get; set; }
 
         public virtual SpecialOffer SpecialOffer { get; set; }
-        public virtual ICollection<SalesOrderDetail> SalesOrderDetails { get; set; } = new List<SalesOrderDetail>();
+        public virtual ICollection<SalesOrderDetail> SalesOrderSpecialProductDetails { get; set; } = new List<SalesOrderDetail>();
 
         #endregion
     }

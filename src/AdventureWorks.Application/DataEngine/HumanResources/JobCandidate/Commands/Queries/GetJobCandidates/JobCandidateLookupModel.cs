@@ -8,6 +8,7 @@ using AdventureWorks.BaseDomain.Enums;
 using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 
+
 namespace AdventureWorks.Application.DataEngine.HumanResources.JobCandidate.Queries.GetJobCandidates
 {
     public partial class JobCandidateLookupModel : IHaveCustomMapping

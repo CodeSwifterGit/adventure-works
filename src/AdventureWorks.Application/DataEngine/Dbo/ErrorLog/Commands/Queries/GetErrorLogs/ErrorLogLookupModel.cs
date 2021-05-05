@@ -8,6 +8,7 @@ using AdventureWorks.BaseDomain.Enums;
 using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 
+
 namespace AdventureWorks.Application.DataEngine.Dbo.ErrorLog.Queries.GetErrorLogs
 {
     public partial class ErrorLogLookupModel : IHaveCustomMapping

@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.Culture.Commands.UpdateCulture
 {
-    public partial class UpdateCultureCommand : BaseCulture, IRequest<CultureLookupModel>, IHaveCustomMapping
+    public partial class UpdateCultureCommand : IRequest<CultureLookupModel>, IHaveCustomMapping
     {
         public string CultureID { get; set; }
         public string Name { get; set; }

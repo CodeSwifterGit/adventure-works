@@ -8,6 +8,7 @@ using AdventureWorks.BaseDomain.Enums;
 using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 using AdventureWorks.Application.DataEngine.Person.StateProvince.Queries.GetStateProvinces;
+
 namespace AdventureWorks.Application.DataEngine.Sales.SalesTerritory.Queries.GetSalesTerritories
 {
     public partial class SalesTerritoryLookupModel : IHaveCustomMapping

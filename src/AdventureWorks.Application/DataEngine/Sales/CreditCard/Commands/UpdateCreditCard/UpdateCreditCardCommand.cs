@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Sales.CreditCard.Commands.UpdateCreditCard
 {
-    public partial class UpdateCreditCardCommand : BaseCreditCard, IRequest<CreditCardLookupModel>, IHaveCustomMapping
+    public partial class UpdateCreditCardCommand : IRequest<CreditCardLookupModel>, IHaveCustomMapping
     {
         public int CreditCardID { get; set; }
         public string CardType { get; set; }

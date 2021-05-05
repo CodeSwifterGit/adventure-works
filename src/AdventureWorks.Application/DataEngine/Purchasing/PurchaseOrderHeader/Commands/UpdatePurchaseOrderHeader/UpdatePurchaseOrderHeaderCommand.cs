@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Purchasing.PurchaseOrderHeader.Commands.UpdatePurchaseOrderHeader
 {
-    public partial class UpdatePurchaseOrderHeaderCommand : BasePurchaseOrderHeader, IRequest<PurchaseOrderHeaderLookupModel>, IHaveCustomMapping
+    public partial class UpdatePurchaseOrderHeaderCommand : IRequest<PurchaseOrderHeaderLookupModel>, IHaveCustomMapping
     {
         public int PurchaseOrderID { get; set; }
         public byte RevisionNumber { get; set; }

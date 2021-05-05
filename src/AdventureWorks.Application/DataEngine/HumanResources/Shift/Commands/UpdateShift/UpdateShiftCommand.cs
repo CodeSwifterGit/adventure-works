@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.HumanResources.Shift.Commands.UpdateShift
 {
-    public partial class UpdateShiftCommand : BaseShift, IRequest<ShiftLookupModel>, IHaveCustomMapping
+    public partial class UpdateShiftCommand : IRequest<ShiftLookupModel>, IHaveCustomMapping
     {
         public byte ShiftID { get; set; }
         public string Name { get; set; }

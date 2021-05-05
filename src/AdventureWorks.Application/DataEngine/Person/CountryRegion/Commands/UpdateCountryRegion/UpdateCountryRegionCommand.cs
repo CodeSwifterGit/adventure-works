@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Person.CountryRegion.Commands.UpdateCountryRegion
 {
-    public partial class UpdateCountryRegionCommand : BaseCountryRegion, IRequest<CountryRegionLookupModel>, IHaveCustomMapping
+    public partial class UpdateCountryRegionCommand : IRequest<CountryRegionLookupModel>, IHaveCustomMapping
     {
         public string CountryRegionCode { get; set; }
         public string Name { get; set; }

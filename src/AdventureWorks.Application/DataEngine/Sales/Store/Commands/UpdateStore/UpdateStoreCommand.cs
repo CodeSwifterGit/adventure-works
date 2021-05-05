@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Sales.Store.Commands.UpdateStore
 {
-    public partial class UpdateStoreCommand : BaseStore, IRequest<StoreLookupModel>, IHaveCustomMapping
+    public partial class UpdateStoreCommand : IRequest<StoreLookupModel>, IHaveCustomMapping
     {
         public int CustomerID { get; set; }
         public string Name { get; set; }

@@ -58,10 +58,10 @@ namespace AdventureWorks.Web.Api.Controllers.Api.Production
         }
 
         [Authorize(Policy = SecurityPolicy.SampleSecurityPolicyForReads)]
-        [HttpGet("[action]/{sizeUnitMeasureCode}/{weightUnitMeasureCode}")]
+        [HttpGet("[action]/{sizeUnitMeasureCode}")]
         [ProducesResponseType(typeof(ProductsListViewModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<ProductsListViewModel>> GetProductsByUnitMeasure(
-            string sizeUnitMeasureCode, string weightUnitMeasureCode,
+        public async Task<ActionResult<ProductsListViewModel>> GetProductsByUnitMeasureSize(
+            string sizeUnitMeasureCode,
             [FromQuery] string[] sortByExpression,
             [FromQuery] string filterQuery,
             [FromQuery] string[] filterParameters,
@@ -71,6 +71,23 @@ namespace AdventureWorks.Web.Api.Controllers.Api.Production
             return Ok(await Mediator.Send(new GetProductsByUnitMeasureListQuery()
             {
                 SizeUnitMeasureCode = sizeUnitMeasureCode,
+                DataTable = DataTableInfo<ProductSummary>.CreateInstance(sortByExpression, filterQuery, filterParameters, pageIndex, pageSize)
+            }, cancellationToken));
+        }
+
+        [Authorize(Policy = SecurityPolicy.SampleSecurityPolicyForReads)]
+        [HttpGet("[action]/{weightUnitMeasureCode}")]
+        [ProducesResponseType(typeof(ProductsListViewModel), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<ProductsListViewModel>> GetProductsByUnitMeasureWeight(
+            string weightUnitMeasureCode,
+            [FromQuery] string[] sortByExpression,
+            [FromQuery] string filterQuery,
+            [FromQuery] string[] filterParameters,
+            [FromQuery] int pageIndex,
+            [FromQuery] int pageSize, CancellationToken cancellationToken)
+        {
+            return Ok(await Mediator.Send(new GetProductsByUnitMeasureListQuery()
+            {
                 WeightUnitMeasureCode = weightUnitMeasureCode,
                 DataTable = DataTableInfo<ProductSummary>.CreateInstance(sortByExpression, filterQuery, filterParameters, pageIndex, pageSize)
             }, cancellationToken));

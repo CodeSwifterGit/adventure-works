@@ -8,6 +8,7 @@ using AdventureWorks.BaseDomain.Enums;
 using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 
+
 namespace AdventureWorks.Application.DataEngine.Production.ProductDescription.Queries.GetProductDescriptions
 {
     public partial class ProductDescriptionLookupModel : IHaveCustomMapping

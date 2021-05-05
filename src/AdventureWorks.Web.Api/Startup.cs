@@ -94,7 +94,7 @@ namespace AdventureWorks.Web.Api
             {
                 services.Configure<MvcOptions>(o => o.Filters.Add(new RequireHttpsAttribute()));
 
-                // TODO: We need to register adventure-works.com to the list of hsts preloaded domains https://hstspreload.org/
+                // TODO: We need to register adventureworks.com to the list of hsts preloaded domains https://hstspreload.org/
                 services.AddHsts(o =>
                 {
                     o.MaxAge = TimeSpan.FromDays(365);
@@ -237,7 +237,10 @@ namespace AdventureWorks.Web.Api
             if (RuntimeEnvironment.IsDevelopment() ||
                 RuntimeEnvironment.EnvironmentName.Equals("Local", StringComparison.InvariantCultureIgnoreCase))
             {
-                services.AddSwaggerDocument();
+                services.AddSwaggerDocument(settings =>
+                {
+                    settings.Title = "AdventureWorks API";
+                });
             }
 
             // Customise default API behavour
@@ -298,6 +301,7 @@ namespace AdventureWorks.Web.Api
                             .From("http://localhost:4200")
                             .From("https://localhost:6220")
                             .From("http://localhost:6221")
+                            .From("https://www.googletagmanager.com")
                             .AllowUnsafeInline()
                             .AllowUnsafeEval();
                         csp.AllowStyles
@@ -319,6 +323,7 @@ namespace AdventureWorks.Web.Api
                     {
                         csp.AllowScripts
                             .FromSelf()
+                            .From("https://www.googletagmanager.com")
                             .AllowUnsafeInline()
                             .AllowUnsafeEval();
                         csp.AllowStyles
@@ -351,13 +356,17 @@ namespace AdventureWorks.Web.Api
                     c.WithOrigins("http://localhost:4200", "https://localhost:6220", "http://localhost:6221"));
             }
 
-            app.UseOpenApi();
-
             // Consider making this publicly available
             if (RuntimeEnvironment.IsDevelopment() ||
                 RuntimeEnvironment.EnvironmentName.Equals("Local", StringComparison.InvariantCultureIgnoreCase))
             {
-                app.UseSwaggerUi3();
+                app.UseOpenApi();
+
+                // Access Swagger UI using https://localhost:6220/swagger/v1/swagger.json
+                app.UseSwaggerUi3(s =>
+                {
+                    s.DocumentTitle = "AdventureWorks API";
+                });
             }
 
             if (RuntimeEnvironment.IsDevelopment())

@@ -8,6 +8,7 @@ using AdventureWorks.BaseDomain.Enums;
 using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 
+
 namespace AdventureWorks.Application.DataEngine.Production.Illustration.Queries.GetIllustrations
 {
     public partial class IllustrationLookupModel : IHaveCustomMapping

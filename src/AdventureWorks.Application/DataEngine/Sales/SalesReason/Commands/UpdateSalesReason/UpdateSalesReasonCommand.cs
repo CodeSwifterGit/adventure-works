@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Sales.SalesReason.Commands.UpdateSalesReason
 {
-    public partial class UpdateSalesReasonCommand : BaseSalesReason, IRequest<SalesReasonLookupModel>, IHaveCustomMapping
+    public partial class UpdateSalesReasonCommand : IRequest<SalesReasonLookupModel>, IHaveCustomMapping
     {
         public int SalesReasonID { get; set; }
         public string Name { get; set; }

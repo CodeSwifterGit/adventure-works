@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Sales.SalesTaxRate.Commands.UpdateSalesTaxRate
 {
-    public partial class UpdateSalesTaxRateCommand : BaseSalesTaxRate, IRequest<SalesTaxRateLookupModel>, IHaveCustomMapping
+    public partial class UpdateSalesTaxRateCommand : IRequest<SalesTaxRateLookupModel>, IHaveCustomMapping
     {
         public int SalesTaxRateID { get; set; }
         public int StateProvinceID { get; set; }

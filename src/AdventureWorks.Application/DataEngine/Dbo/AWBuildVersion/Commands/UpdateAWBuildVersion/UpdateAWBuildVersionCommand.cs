@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Dbo.AWBuildVersion.Commands.UpdateAWBuildVersion
 {
-    public partial class UpdateAWBuildVersionCommand : BaseAWBuildVersion, IRequest<AWBuildVersionLookupModel>, IHaveCustomMapping
+    public partial class UpdateAWBuildVersionCommand : IRequest<AWBuildVersionLookupModel>, IHaveCustomMapping
     {
         public byte SystemInformationID { get; set; }
         public string DatabaseVersion { get; set; }

@@ -54,7 +54,7 @@ namespace AdventureWorks.Persistence.Configurations.Person
             .IsUnique()
             .HasDatabaseName("AK_Address_rowguid");
 
-            builder.HasIndex(e => new { e.AddressLine1, e.AddressLine2, e.City, e.StateProvinceID, e.PostalCode })
+            builder.HasIndex(e => new { e.AddressLine1, e.AddressLine2, e.City, e.PostalCode, e.StateProvinceID })
             .IsUnique()
             .HasDatabaseName("IX_Address_AddressLine1_AddressLine2_City_StateProvinceID_PostalCode");
 

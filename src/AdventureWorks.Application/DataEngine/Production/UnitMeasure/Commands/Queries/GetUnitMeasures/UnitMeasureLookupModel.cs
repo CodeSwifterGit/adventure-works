@@ -8,6 +8,7 @@ using AdventureWorks.BaseDomain.Enums;
 using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 using AdventureWorks.Application.DataEngine.Purchasing.ProductVendor.Queries.GetProductVendors;
+
 namespace AdventureWorks.Application.DataEngine.Production.UnitMeasure.Queries.GetUnitMeasures
 {
     public partial class UnitMeasureLookupModel : IHaveCustomMapping

@@ -8,6 +8,7 @@ using AdventureWorks.BaseDomain.Enums;
 using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 using AdventureWorks.Application.DataEngine.Sales.SalesOrderHeader.Queries.GetSalesOrderHeaders;
+
 namespace AdventureWorks.Application.DataEngine.Purchasing.ShipMethod.Queries.GetShipMethods
 {
     public partial class ShipMethodLookupModel : IHaveCustomMapping

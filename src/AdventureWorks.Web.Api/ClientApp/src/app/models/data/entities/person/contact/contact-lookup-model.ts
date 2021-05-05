@@ -16,7 +16,6 @@ export interface IContactLookupModel {
   emailAddress: string;
   emailPromotion: number;
   phone: string;
-  passwordHash: string;
   passwordSalt: string;
   additionalContactInfo: string;
   rowguid: string;
@@ -39,7 +38,6 @@ export class ContactLookupModel implements IContactLookupModel {
   emailAddress: string;
   emailPromotion: number;
   phone: string;
-  passwordHash: string;
   passwordSalt: string;
   additionalContactInfo: string;
   rowguid: string;

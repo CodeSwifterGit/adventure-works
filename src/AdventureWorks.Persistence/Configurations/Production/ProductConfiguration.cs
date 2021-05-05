@@ -121,10 +121,10 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .HasDatabaseName("FK_Product_ProductSubcategory_ProductSubcategory");
 
             builder.HasIndex(e => new { e.SizeUnitMeasureCode })
-            .HasDatabaseName("FK_Product_UnitMeasure_UnitMeasure");
+            .HasDatabaseName("FK_Product_UnitMeasureSize_UnitMeasure");
 
             builder.HasIndex(e => new { e.WeightUnitMeasureCode })
-            .HasDatabaseName("FK_Product_UnitMeasure_UnitMeasure");
+            .HasDatabaseName("FK_Product_UnitMeasureWeight_UnitMeasure");
 
             builder.HasOne(e => e.ProductModel)
             .WithMany()
@@ -138,17 +138,17 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .OnDelete(DeleteBehavior.Cascade)
             .HasConstraintName("FK_Product_ProductSubcategory_ProductSubcategory_Constraint");
 
-            builder.HasOne(e => e.UnitMeasure)
+            builder.HasOne(e => e.UnitMeasureSize)
             .WithMany()
             .HasForeignKey(e => new { e.SizeUnitMeasureCode })
             .OnDelete(DeleteBehavior.Cascade)
-            .HasConstraintName("FK_Product_UnitMeasure_UnitMeasure_Constraint");
+            .HasConstraintName("FK_Product_UnitMeasureSize_UnitMeasure_Constraint");
 
-            builder.HasOne(e => e.UnitMeasure)
+            builder.HasOne(e => e.UnitMeasureWeight)
             .WithMany()
             .HasForeignKey(e => new { e.WeightUnitMeasureCode })
             .OnDelete(DeleteBehavior.Cascade)
-            .HasConstraintName("FK_Product_UnitMeasure_UnitMeasure_Constraint");
+            .HasConstraintName("FK_Product_UnitMeasureWeight_UnitMeasure_Constraint");
 
             // Complex Types (Owned properties as tables)
 

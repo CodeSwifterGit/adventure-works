@@ -15,7 +15,7 @@ namespace AdventureWorks.Common.Extensions
         private const string Staging = null;
         private const string Production = null;
         private const string DockerSeqInstance = "http://localhost:5341";
-        private const string LiveSeqInstance = "http://seq.adventure-works.com:5341";
+        private const string LiveSeqInstance = "http://seq.adventureworks.com:5341";
 
         public static LoggerConfiguration WriteForEnvironment(this LoggerConfiguration configuration, string seqKey = null)
         {

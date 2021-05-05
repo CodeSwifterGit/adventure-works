@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.UnitMeasure.Commands.UpdateUnitMeasure
 {
-    public partial class UpdateUnitMeasureCommand : BaseUnitMeasure, IRequest<UnitMeasureLookupModel>, IHaveCustomMapping
+    public partial class UpdateUnitMeasureCommand : IRequest<UnitMeasureLookupModel>, IHaveCustomMapping
     {
         public string UnitMeasureCode { get; set; }
         public string Name { get; set; }

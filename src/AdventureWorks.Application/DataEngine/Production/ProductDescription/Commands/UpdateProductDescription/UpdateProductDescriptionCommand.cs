@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.ProductDescription.Commands.UpdateProductDescription
 {
-    public partial class UpdateProductDescriptionCommand : BaseProductDescription, IRequest<ProductDescriptionLookupModel>, IHaveCustomMapping
+    public partial class UpdateProductDescriptionCommand : IRequest<ProductDescriptionLookupModel>, IHaveCustomMapping
     {
         public int ProductDescriptionID { get; set; }
         public string Description { get; set; }

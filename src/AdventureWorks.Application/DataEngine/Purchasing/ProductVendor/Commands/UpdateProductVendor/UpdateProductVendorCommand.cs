@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Purchasing.ProductVendor.Commands.UpdateProductVendor
 {
-    public partial class UpdateProductVendorCommand : BaseProductVendor, IRequest<ProductVendorLookupModel>, IHaveCustomMapping
+    public partial class UpdateProductVendorCommand : IRequest<ProductVendorLookupModel>, IHaveCustomMapping
     {
         public int ProductID { get; set; }
         public int VendorID { get; set; }

@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Dbo.DatabaseLog.Commands.UpdateDatabaseLog
 {
-    public partial class UpdateDatabaseLogCommand : BaseDatabaseLog, IRequest<DatabaseLogLookupModel>, IHaveCustomMapping
+    public partial class UpdateDatabaseLogCommand : IRequest<DatabaseLogLookupModel>, IHaveCustomMapping
     {
         public int DatabaseLogID { get; set; }
         public DateTime PostTime { get; set; }

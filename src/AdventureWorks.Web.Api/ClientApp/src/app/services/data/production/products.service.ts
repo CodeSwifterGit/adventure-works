@@ -133,12 +133,21 @@ export class ProductsService {
 
     return this.apiClient.get<IProductsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
-  getByUnitMeasure(sizeUnitMeasureCode: string, weightUnitMeasureCode: string, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductsListViewModel>;
-  getByUnitMeasure(sizeUnitMeasureCode: string, weightUnitMeasureCode: string, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductsListViewModel>>;
-  getByUnitMeasure(sizeUnitMeasureCode: string, weightUnitMeasureCode: string, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IProductsListViewModel>>;
-  getByUnitMeasure(sizeUnitMeasureCode: string, weightUnitMeasureCode: string, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
-    let apiUrlBuilder = new ApiUrlBuilder('Products/GetProductsByUnitMeasure', {
+  getByUnitMeasureSize(sizeUnitMeasureCode: string, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductsListViewModel>;
+  getByUnitMeasureSize(sizeUnitMeasureCode: string, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductsListViewModel>>;
+  getByUnitMeasureSize(sizeUnitMeasureCode: string, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IProductsListViewModel>>;
+  getByUnitMeasureSize(sizeUnitMeasureCode: string, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+    let apiUrlBuilder = new ApiUrlBuilder('Products/GetProductsByUnitMeasureSize', {
       sizeUnitMeasureCode,
+    });
+
+    return this.apiClient.get<IProductsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
+  }
+  getByUnitMeasureWeight(weightUnitMeasureCode: string, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductsListViewModel>;
+  getByUnitMeasureWeight(weightUnitMeasureCode: string, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductsListViewModel>>;
+  getByUnitMeasureWeight(weightUnitMeasureCode: string, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IProductsListViewModel>>;
+  getByUnitMeasureWeight(weightUnitMeasureCode: string, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+    let apiUrlBuilder = new ApiUrlBuilder('Products/GetProductsByUnitMeasureWeight', {
       weightUnitMeasureCode,
     });
 

@@ -55,7 +55,7 @@ namespace AdventureWorks.Persistence.Configurations.Person
             .IsUnique()
             .HasDatabaseName("AK_StateProvince_Name");
 
-            builder.HasIndex(e => new { e.StateProvinceCode, e.CountryRegionCode })
+            builder.HasIndex(e => new { e.CountryRegionCode, e.StateProvinceCode })
             .IsUnique()
             .HasDatabaseName("AK_StateProvince_StateProvinceCode_CountryRegionCode");
 

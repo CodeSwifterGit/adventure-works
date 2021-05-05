@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Person.Contact.Commands.UpdateContact
 {
-    public partial class UpdateContactCommand : BaseContact, IRequest<ContactLookupModel>, IHaveCustomMapping
+    public partial class UpdateContactCommand : IRequest<ContactLookupModel>, IHaveCustomMapping
     {
         public int ContactID { get; set; }
         public bool NameStyle { get; set; }
@@ -24,7 +24,6 @@ namespace AdventureWorks.Application.DataEngine.Person.Contact.Commands.UpdateCo
         public string EmailAddress { get; set; }
         public int EmailPromotion { get; set; }
         public string Phone { get; set; }
-        public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
         public string AdditionalContactInfo { get; set; }
         public Guid Rowguid { get; set; }

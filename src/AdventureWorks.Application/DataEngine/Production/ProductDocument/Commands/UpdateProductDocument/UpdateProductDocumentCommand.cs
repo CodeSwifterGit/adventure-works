@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.ProductDocument.Commands.UpdateProductDocument
 {
-    public partial class UpdateProductDocumentCommand : BaseProductDocument, IRequest<ProductDocumentLookupModel>, IHaveCustomMapping
+    public partial class UpdateProductDocumentCommand : IRequest<ProductDocumentLookupModel>, IHaveCustomMapping
     {
         public int ProductID { get; set; }
         public int DocumentID { get; set; }

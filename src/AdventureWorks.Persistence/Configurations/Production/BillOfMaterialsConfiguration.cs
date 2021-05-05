@@ -51,7 +51,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .HasDefaultValue("(getdate())");
 
             // Indexes and Foreign Keys
-            builder.HasIndex(e => new { e.ProductAssemblyID, e.ComponentID, e.StartDate })
+            builder.HasIndex(e => new { e.ComponentID, e.ProductAssemblyID, e.StartDate })
             .IsUnique()
             .IsClustered()
             .HasDatabaseName("AK_BillOfMaterials_ProductAssemblyID_ComponentID_StartDate");

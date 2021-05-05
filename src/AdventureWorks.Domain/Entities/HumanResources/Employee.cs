@@ -26,7 +26,7 @@ namespace AdventureWorks.Domain.Entities.HumanResources
         public virtual Contact Contact { get; set; }
 
         public virtual Employee Manager { get; set; }
-        public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
+        public virtual ICollection<Employee> Managers { get; set; } = new List<Employee>();
 
         public virtual ICollection<EmployeeAddress> EmployeeAddresses { get; set; } = new List<EmployeeAddress>();
 

@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.HumanResources.EmployeeDepartmentHistory.Commands.UpdateEmployeeDepartmentHistory
 {
-    public partial class UpdateEmployeeDepartmentHistoryCommand : BaseEmployeeDepartmentHistory, IRequest<EmployeeDepartmentHistoryLookupModel>, IHaveCustomMapping
+    public partial class UpdateEmployeeDepartmentHistoryCommand : IRequest<EmployeeDepartmentHistoryLookupModel>, IHaveCustomMapping
     {
         public int EmployeeID { get; set; }
         public short DepartmentID { get; set; }

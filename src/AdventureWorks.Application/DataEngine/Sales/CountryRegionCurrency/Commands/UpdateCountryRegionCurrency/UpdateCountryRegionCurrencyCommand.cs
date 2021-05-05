@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Sales.CountryRegionCurrency.Commands.UpdateCountryRegionCurrency
 {
-    public partial class UpdateCountryRegionCurrencyCommand : BaseCountryRegionCurrency, IRequest<CountryRegionCurrencyLookupModel>, IHaveCustomMapping
+    public partial class UpdateCountryRegionCurrencyCommand : IRequest<CountryRegionCurrencyLookupModel>, IHaveCustomMapping
     {
         public string CountryRegionCode { get; set; }
         public string CurrencyCode { get; set; }

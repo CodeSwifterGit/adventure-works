@@ -9,6 +9,7 @@ using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 using AdventureWorks.Application.DataEngine.Person.Contact.Queries.GetContacts;
 using AdventureWorks.Application.DataEngine.Person.ContactType.Queries.GetContactTypes;
+
 namespace AdventureWorks.Application.DataEngine.Purchasing.VendorContact.Queries.GetVendorContacts
 {
     public partial class VendorContactLookupModel : IHaveCustomMapping

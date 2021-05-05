@@ -9,6 +9,7 @@ using AdventureWorks.Application.DataEngine.HumanResources.Employee.Queries.GetE
 using AdventureWorks.Application.Interfaces;
 using AdventureWorks.Application.Services;
 using AdventureWorks.Domain;
+using AdventureWorks.Common.Interfaces;
 using Microsoft.Extensions.Logging;
 using Entities = AdventureWorks.Domain.Entities.HumanResources;
 
@@ -21,15 +22,19 @@ namespace AdventureWorks.Application.DataEngine.HumanResources.Employee.Queries.
         private readonly IAuthenticatedUserService _authenticatedUserService;
         private readonly ILogger<EmployeesQueryManager> _logger;
         private readonly IFileStorageService _fileStorageService;
+        private readonly IDateTime _machineDateTime;
+        private readonly INotificationService _notificationService;
 
         public EmployeesQueryManager(IAdventureWorksContext context, IMapper mapper, IAuthenticatedUserService authenticatedUserService, IFileStorageService fileStorageService,
-            ILogger<EmployeesQueryManager> logger) : base(context, mapper)
+            ILogger<EmployeesQueryManager> logger, INotificationService notificationService, IDateTime machineDateTime) : base(context, mapper)
         {
             _context = context;
             _mapper = mapper;
             _authenticatedUserService = authenticatedUserService;
             _fileStorageService = fileStorageService;
             _logger = logger;
+            _machineDateTime = machineDateTime;
+            _notificationService = notificationService;
         }
 
         public override async Task<List<EmployeeLookupModel>> RequestData(

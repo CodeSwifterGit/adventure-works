@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.BillOfMaterials.Commands.UpdateBillOfMaterials
 {
-    public partial class UpdateBillOfMaterialsCommand : BaseBillOfMaterials, IRequest<BillOfMaterialsLookupModel>, IHaveCustomMapping
+    public partial class UpdateBillOfMaterialsCommand : IRequest<BillOfMaterialsLookupModel>, IHaveCustomMapping
     {
         public int BillOfMaterialsID { get; set; }
         public int? ProductAssemblyID { get; set; }

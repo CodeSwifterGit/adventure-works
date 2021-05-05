@@ -8,6 +8,7 @@ using AdventureWorks.BaseDomain.Enums;
 using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 using AdventureWorks.Application.DataEngine.HumanResources.Employee.Queries.GetEmployees;
+
 namespace AdventureWorks.Application.DataEngine.Sales.SalesPerson.Queries.GetSalesPeople
 {
     public partial class SalesPersonLookupModel : IHaveCustomMapping

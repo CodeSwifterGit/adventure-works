@@ -123,11 +123,11 @@ export class EmployeesService {
 
     return this.apiClient.get<IEmployeesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
-  getByEmployee(managerID: number | null, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IEmployeesListViewModel>;
-  getByEmployee(managerID: number | null, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IEmployeesListViewModel>>;
-  getByEmployee(managerID: number | null, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IEmployeesListViewModel>>;
-  getByEmployee(managerID: number | null, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
-    let apiUrlBuilder = new ApiUrlBuilder('Employees/GetEmployeesByEmployee', {
+  getByManager(managerID: number | null, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IEmployeesListViewModel>;
+  getByManager(managerID: number | null, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IEmployeesListViewModel>>;
+  getByManager(managerID: number | null, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IEmployeesListViewModel>>;
+  getByManager(managerID: number | null, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+    let apiUrlBuilder = new ApiUrlBuilder('Employees/GetEmployeesByManager', {
       managerID,
     });
 

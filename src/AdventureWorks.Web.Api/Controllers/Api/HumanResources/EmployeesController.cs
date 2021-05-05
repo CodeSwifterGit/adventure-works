@@ -42,7 +42,7 @@ namespace AdventureWorks.Web.Api.Controllers.Api.HumanResources
         [Authorize(Policy = SecurityPolicy.SampleSecurityPolicyForReads)]
         [HttpGet("[action]/{managerID}")]
         [ProducesResponseType(typeof(EmployeesListViewModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<EmployeesListViewModel>> GetEmployeesByEmployee(
+        public async Task<ActionResult<EmployeesListViewModel>> GetEmployeesByManager(
             int? managerID,
             [FromQuery] string[] sortByExpression,
             [FromQuery] string filterQuery,

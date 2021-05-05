@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.ProductCostHistory.Commands.UpdateProductCostHistory
 {
-    public partial class UpdateProductCostHistoryCommand : BaseProductCostHistory, IRequest<ProductCostHistoryLookupModel>, IHaveCustomMapping
+    public partial class UpdateProductCostHistoryCommand : IRequest<ProductCostHistoryLookupModel>, IHaveCustomMapping
     {
         public int ProductID { get; set; }
         public DateTime StartDate { get; set; }

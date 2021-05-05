@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.HumanResources.JobCandidate.Commands.UpdateJobCandidate
 {
-    public partial class UpdateJobCandidateCommand : BaseJobCandidate, IRequest<JobCandidateLookupModel>, IHaveCustomMapping
+    public partial class UpdateJobCandidateCommand : IRequest<JobCandidateLookupModel>, IHaveCustomMapping
     {
         public int JobCandidateID { get; set; }
         public int? EmployeeID { get; set; }

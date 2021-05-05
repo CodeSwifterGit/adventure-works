@@ -41,7 +41,7 @@ namespace AdventureWorks.Persistence.Configurations.HumanResources
             .IsUnique()
             .HasDatabaseName("AK_Shift_Name");
 
-            builder.HasIndex(e => new { e.StartTime, e.EndTime })
+            builder.HasIndex(e => new { e.EndTime, e.StartTime })
             .IsUnique()
             .HasDatabaseName("AK_Shift_StartTime_EndTime");
 

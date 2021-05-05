@@ -9,6 +9,7 @@ using AdventureWorks.BaseDomain.Interfaces;
 using AdventureWorks.BaseDomain.CustomTypes;
 using AdventureWorks.Application.DataEngine.Production.Product.Queries.GetProducts;
 using AdventureWorks.Application.DataEngine.Production.UnitMeasure.Queries.GetUnitMeasures;
+
 namespace AdventureWorks.Application.DataEngine.Purchasing.ProductVendor.Queries.GetProductVendors
 {
     public partial class ProductVendorLookupModel : IHaveCustomMapping

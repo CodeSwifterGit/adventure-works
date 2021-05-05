@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.ProductPhoto.Commands.UpdateProductPhoto
 {
-    public partial class UpdateProductPhotoCommand : BaseProductPhoto, IRequest<ProductPhotoLookupModel>, IHaveCustomMapping
+    public partial class UpdateProductPhotoCommand : IRequest<ProductPhotoLookupModel>, IHaveCustomMapping
     {
         public int ProductPhotoID { get; set; }
         public byte[] ThumbNailPhoto { get; set; }

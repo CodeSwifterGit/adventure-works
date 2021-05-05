@@ -11,6 +11,7 @@ using AdventureWorks.Application.DataEngine.HumanResources.EmployeeAddress.Queri
 using AdventureWorks.Application.DataEngine.Purchasing.VendorAddress.Queries.GetVendorAddresses;
 using AdventureWorks.Application.DataEngine.Sales.CustomerAddress.Queries.GetCustomerAddresses;
 using AdventureWorks.Application.DataEngine.Sales.SalesOrderHeader.Queries.GetSalesOrderHeaders;
+
 namespace AdventureWorks.Application.DataEngine.Person.Address.Queries.GetAddresses
 {
     public partial class AddressLookupModel : IHaveCustomMapping

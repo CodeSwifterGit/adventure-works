@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Person.AddressType.Commands.UpdateAddressType
 {
-    public partial class UpdateAddressTypeCommand : BaseAddressType, IRequest<AddressTypeLookupModel>, IHaveCustomMapping
+    public partial class UpdateAddressTypeCommand : IRequest<AddressTypeLookupModel>, IHaveCustomMapping
     {
         public int AddressTypeID { get; set; }
         public string Name { get; set; }

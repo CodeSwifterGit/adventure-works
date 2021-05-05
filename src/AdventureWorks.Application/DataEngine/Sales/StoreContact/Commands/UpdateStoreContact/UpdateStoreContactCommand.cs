@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Sales.StoreContact.Commands.UpdateStoreContact
 {
-    public partial class UpdateStoreContactCommand : BaseStoreContact, IRequest<StoreContactLookupModel>, IHaveCustomMapping
+    public partial class UpdateStoreContactCommand : IRequest<StoreContactLookupModel>, IHaveCustomMapping
     {
         public int CustomerID { get; set; }
         public int ContactID { get; set; }

@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.Illustration.Commands.UpdateIllustration
 {
-    public partial class UpdateIllustrationCommand : BaseIllustration, IRequest<IllustrationLookupModel>, IHaveCustomMapping
+    public partial class UpdateIllustrationCommand : IRequest<IllustrationLookupModel>, IHaveCustomMapping
     {
         public int IllustrationID { get; set; }
         public string Diagram { get; set; }

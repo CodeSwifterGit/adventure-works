@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Sales.SalesPersonQuotaHistory.Commands.UpdateSalesPersonQuotaHistory
 {
-    public partial class UpdateSalesPersonQuotaHistoryCommand : BaseSalesPersonQuotaHistory, IRequest<SalesPersonQuotaHistoryLookupModel>, IHaveCustomMapping
+    public partial class UpdateSalesPersonQuotaHistoryCommand : IRequest<SalesPersonQuotaHistoryLookupModel>, IHaveCustomMapping
     {
         public int SalesPersonID { get; set; }
         public DateTime QuotaDate { get; set; }

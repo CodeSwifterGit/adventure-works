@@ -32,16 +32,16 @@
   "jenkins-jack.jenkins.connections": [
     {
       "name": "Remote Jenkins Build Server",
-      "uri": "https://jenkins.adventure-works.com",
+      "uri": "https://jenkins.adventureworks.com",
       "username": "MY_REMOTE_USERNAME",
       "password": "MY_REMOTE_PASSWORD",
       "active": true
     }
   ],
-  "jenkins.pipeline.linter.connector.url": "https://jenkins.adventure-works.com/pipeline-model-converter/validate",
+  "jenkins.pipeline.linter.connector.url": "https://jenkins.adventureworks.com/pipeline-model-converter/validate",
   "jenkins.pipeline.linter.connector.user": "MY_REMOTE_USERNAME",
   "jenkins.pipeline.linter.connector.token": "MY_REMOTE_TOKEN",
   "jenkins.pipeline.linter.connector.pass": "MY_REMOTE_PASSWORD",
-  "jenkins.pipeline.linter.connector.crumbUrl": "https://jenkins.adventure-works.com/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb))",
+  "jenkins.pipeline.linter.connector.crumbUrl": "https://jenkins.adventureworks.com/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb))",
   "jenkins.pipeline.linter.connector.strictssl": true,
 }

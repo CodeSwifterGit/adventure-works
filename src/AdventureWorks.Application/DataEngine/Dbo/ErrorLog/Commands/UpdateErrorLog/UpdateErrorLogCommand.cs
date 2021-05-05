@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Dbo.ErrorLog.Commands.UpdateErrorLog
 {
-    public partial class UpdateErrorLogCommand : BaseErrorLog, IRequest<ErrorLogLookupModel>, IHaveCustomMapping
+    public partial class UpdateErrorLogCommand : IRequest<ErrorLogLookupModel>, IHaveCustomMapping
     {
         public int ErrorLogID { get; set; }
         public DateTime ErrorTime { get; set; }

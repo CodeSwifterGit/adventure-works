@@ -12,7 +12,7 @@ using AdventureWorks.Common.Extensions;
 
 namespace AdventureWorks.Application.DataEngine.Production.Location.Commands.UpdateLocation
 {
-    public partial class UpdateLocationCommand : BaseLocation, IRequest<LocationLookupModel>, IHaveCustomMapping
+    public partial class UpdateLocationCommand : IRequest<LocationLookupModel>, IHaveCustomMapping
     {
         public short LocationID { get; set; }
         public string Name { get; set; }
