@@ -3,7 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdventureWorks.Application.DataEngine.DataEngine;
 using AdventureWorks.Application.DataEngine.HumanResources.Employee.Queries.QueryManager;
-using Entities = AdventureWorks.Domain.Entities.HumanResources;
 
 namespace AdventureWorks.Application.DataEngine.HumanResources.Employee.Queries.GetEmployees
 {

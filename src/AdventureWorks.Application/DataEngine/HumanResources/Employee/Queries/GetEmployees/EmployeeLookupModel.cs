@@ -2,14 +2,9 @@ using System;
 using AutoMapper;
 using AdventureWorks.Application.Interfaces.Mapping;
 using AdventureWorks.BaseDomain.Entities.HumanResources;
-using System.Collections.Generic;
 using AdventureWorks.Common.Extensions;
-using AdventureWorks.BaseDomain.Enums;
-using AdventureWorks.BaseDomain.Interfaces;
-using AdventureWorks.BaseDomain.CustomTypes;
-using AdventureWorks.Application.DataEngine.Person.Contact.Queries.GetContacts;
-using AdventureWorks.Application.DataEngine.Purchasing.PurchaseOrderHeader.Queries.GetPurchaseOrderHeaders;
-using AdventureWorks.Application.DataEngine.Sales.SalesPerson.Queries.GetSalesPeople;
+// ReSharper disable InconsistentNaming
+
 namespace AdventureWorks.Application.DataEngine.HumanResources.Employee.Queries.GetEmployees
 {
     public partial class EmployeeLookupModel : IHaveCustomMapping
