@@ -33,6 +33,7 @@ export class IllustrationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Illustrations', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IIllustration, IIllustrationLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class IllustrationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Illustrations/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IIllustration>, Array<IIllustrationLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class IllustrationsService {
     let apiUrlBuilder = new ApiUrlBuilder('Illustrations', {
       illustrationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class IllustrationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Illustrations/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IIllustrationPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class IllustrationsService {
     let apiUrlBuilder = new ApiUrlBuilder('Illustrations', {
       illustrationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IIllustrationUpdateModel, IIllustrationLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class IllustrationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Illustrations/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IIllustrationUpdateItem>, Array<IIllustrationLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class IllustrationsService {
     let apiUrlBuilder = new ApiUrlBuilder('Illustrations', {
       illustrationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IIllustrationLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class IllustrationsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IIllustrationsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('Illustrations/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IIllustrationsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

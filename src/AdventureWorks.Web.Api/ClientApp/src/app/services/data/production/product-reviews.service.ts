@@ -33,6 +33,7 @@ export class ProductReviewsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductReviews', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IProductReview, IProductReviewLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class ProductReviewsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductReviews/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IProductReview>, Array<IProductReviewLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class ProductReviewsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductReviews', {
       productReviewID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class ProductReviewsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductReviews/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IProductReviewPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class ProductReviewsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductReviews', {
       productReviewID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IProductReviewUpdateModel, IProductReviewLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class ProductReviewsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductReviews/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IProductReviewUpdateItem>, Array<IProductReviewLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class ProductReviewsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductReviews', {
       productReviewID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductReviewLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class ProductReviewsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductReviews/GetProductReviewsByProduct', {
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductReviewsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -22,10 +22,28 @@ namespace AdventureWorks.Web.Api.Controllers.Api.Production
     public partial class BillOfMaterialsController : BaseApiController
     {
         [Authorize(Policy = SecurityPolicy.SampleSecurityPolicyForReads)]
-        [HttpGet("[action]/{productAssemblyID}/{componentID}")]
+        [HttpGet("[action]/{componentID}")]
         [ProducesResponseType(typeof(BillOfMaterialsListViewModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<BillOfMaterialsListViewModel>> GetBillOfMaterialsByProduct(
-            int? productAssemblyID, int componentID,
+        public async Task<ActionResult<BillOfMaterialsListViewModel>> GetBillOfMaterialsByComponentProduct(
+            int componentID,
+            [FromQuery] string[] sortByExpression,
+            [FromQuery] string filterQuery,
+            [FromQuery] string[] filterParameters,
+            [FromQuery] int pageIndex,
+            [FromQuery] int pageSize, CancellationToken cancellationToken)
+        {
+            return Ok(await Mediator.Send(new GetBillOfMaterialsByProductListQuery()
+            {
+                ComponentID = componentID,
+                DataTable = DataTableInfo<BillOfMaterialsSummary>.CreateInstance(sortByExpression, filterQuery, filterParameters, pageIndex, pageSize)
+            }, cancellationToken));
+        }
+
+        [Authorize(Policy = SecurityPolicy.SampleSecurityPolicyForReads)]
+        [HttpGet("[action]/{productAssemblyID}")]
+        [ProducesResponseType(typeof(BillOfMaterialsListViewModel), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<BillOfMaterialsListViewModel>> GetBillOfMaterialsByAssemblyProduct(
+            int? productAssemblyID,
             [FromQuery] string[] sortByExpression,
             [FromQuery] string filterQuery,
             [FromQuery] string[] filterParameters,
@@ -35,7 +53,6 @@ namespace AdventureWorks.Web.Api.Controllers.Api.Production
             return Ok(await Mediator.Send(new GetBillOfMaterialsByProductListQuery()
             {
                 ProductAssemblyID = productAssemblyID,
-                ComponentID = componentID,
                 DataTable = DataTableInfo<BillOfMaterialsSummary>.CreateInstance(sortByExpression, filterQuery, filterParameters, pageIndex, pageSize)
             }, cancellationToken));
         }

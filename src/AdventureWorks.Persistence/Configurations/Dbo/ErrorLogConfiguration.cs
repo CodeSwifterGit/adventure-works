@@ -24,7 +24,7 @@ namespace AdventureWorks.Persistence.Configurations.Dbo
 
             builder.Property(p => p.ErrorTime)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             builder.Property(p => p.UserName)
             .HasColumnType("nvarchar(128)")

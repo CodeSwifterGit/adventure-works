@@ -34,6 +34,7 @@ export class ContactCreditCardsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ContactCreditCards', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IContactCreditCard, IContactCreditCardLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class ContactCreditCardsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ContactCreditCards/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IContactCreditCard>, Array<IContactCreditCardLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class ContactCreditCardsService {
       contactID,
       creditCardID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class ContactCreditCardsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ContactCreditCards/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IContactCreditCardPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class ContactCreditCardsService {
       contactID,
       creditCardID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IContactCreditCardUpdateModel, IContactCreditCardLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class ContactCreditCardsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ContactCreditCards/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IContactCreditCardUpdateItem>, Array<IContactCreditCardLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class ContactCreditCardsService {
       contactID,
       creditCardID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IContactCreditCardLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class ContactCreditCardsService {
     let apiUrlBuilder = new ApiUrlBuilder('ContactCreditCards/GetContactCreditCardsByContact', {
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IContactCreditCardsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class ContactCreditCardsService {
     let apiUrlBuilder = new ApiUrlBuilder('ContactCreditCards/GetContactCreditCardsByCreditCard', {
       creditCardID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IContactCreditCardsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

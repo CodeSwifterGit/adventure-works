@@ -33,6 +33,7 @@ export class SalesPeopleService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesPeople', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ISalesPerson, ISalesPersonLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class SalesPeopleService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesPeople/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ISalesPerson>, Array<ISalesPersonLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class SalesPeopleService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesPeople', {
       salesPersonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class SalesPeopleService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesPeople/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ISalesPersonPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class SalesPeopleService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesPeople', {
       salesPersonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ISalesPersonUpdateModel, ISalesPersonLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class SalesPeopleService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesPeople/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ISalesPersonUpdateItem>, Array<ISalesPersonLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class SalesPeopleService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesPeople', {
       salesPersonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesPersonLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class SalesPeopleService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesPeople/GetSalesPeopleByEmployee', {
       salesPersonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesPeopleListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -130,6 +138,7 @@ export class SalesPeopleService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesPeople/GetSalesPeopleBySalesTerritory', {
       territoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesPeopleListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

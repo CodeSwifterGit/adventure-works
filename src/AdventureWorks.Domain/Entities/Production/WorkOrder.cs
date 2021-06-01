@@ -21,10 +21,10 @@ namespace AdventureWorks.Domain.Entities.Production
 
         #region Navigation Properties
 
-        public virtual Product Product { get; set; }
+        public Product Product { get; set; }
 
-        public virtual ScrapReason ScrapReason { get; set; }
-        public virtual ICollection<WorkOrderRouting> WorkOrderRoutings { get; set; } = new List<WorkOrderRouting>();
+        public ScrapReason ScrapReason { get; set; }
+        public ICollection<WorkOrderRouting> WorkOrderRoutings { get; set; } = new List<WorkOrderRouting>();
 
         #endregion
     }

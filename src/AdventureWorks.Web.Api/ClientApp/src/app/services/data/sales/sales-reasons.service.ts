@@ -33,6 +33,7 @@ export class SalesReasonsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesReasons', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ISalesReason, ISalesReasonLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class SalesReasonsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesReasons/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ISalesReason>, Array<ISalesReasonLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class SalesReasonsService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesReasons', {
       salesReasonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class SalesReasonsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesReasons/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ISalesReasonPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class SalesReasonsService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesReasons', {
       salesReasonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ISalesReasonUpdateModel, ISalesReasonLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class SalesReasonsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesReasons/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ISalesReasonUpdateItem>, Array<ISalesReasonLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class SalesReasonsService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesReasons', {
       salesReasonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesReasonLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class SalesReasonsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ISalesReasonsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('SalesReasons/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesReasonsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

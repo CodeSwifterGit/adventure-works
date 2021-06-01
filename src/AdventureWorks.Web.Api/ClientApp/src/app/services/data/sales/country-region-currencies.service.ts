@@ -34,6 +34,7 @@ export class CountryRegionCurrenciesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegionCurrencies', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ICountryRegionCurrency, ICountryRegionCurrencyLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class CountryRegionCurrenciesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegionCurrencies/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ICountryRegionCurrency>, Array<ICountryRegionCurrencyLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class CountryRegionCurrenciesService {
       countryRegionCode,
       currencyCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class CountryRegionCurrenciesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegionCurrencies/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ICountryRegionCurrencyPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class CountryRegionCurrenciesService {
       countryRegionCode,
       currencyCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ICountryRegionCurrencyUpdateModel, ICountryRegionCurrencyLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class CountryRegionCurrenciesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegionCurrencies/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ICountryRegionCurrencyUpdateItem>, Array<ICountryRegionCurrencyLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class CountryRegionCurrenciesService {
       countryRegionCode,
       currencyCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICountryRegionCurrencyLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class CountryRegionCurrenciesService {
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegionCurrencies/GetCountryRegionCurrenciesByCountryRegion', {
       countryRegionCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICountryRegionCurrenciesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class CountryRegionCurrenciesService {
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegionCurrencies/GetCountryRegionCurrenciesByCurrency', {
       currencyCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICountryRegionCurrenciesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

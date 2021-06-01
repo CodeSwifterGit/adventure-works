@@ -21,9 +21,11 @@ namespace AdventureWorks.Domain.Entities.Production
 
         #region Navigation Properties
 
-        public virtual Product Product { get; set; }
+        public Product AssemblyProduct { get; set; }
 
-        public virtual UnitMeasure UnitMeasure { get; set; }
+        public Product ComponentProduct { get; set; }
+
+        public UnitMeasure UnitMeasure { get; set; }
 
 
         #endregion

@@ -24,17 +24,17 @@ namespace AdventureWorks.Domain.Entities.Person
         #region Navigation Properties
 
 
-        public virtual ICollection<ContactCreditCard> ContactCreditCards { get; set; } = new List<ContactCreditCard>();
+        public ICollection<ContactCreditCard> ContactCreditCards { get; set; } = new List<ContactCreditCard>();
 
-        public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
+        public ICollection<Employee> Employees { get; set; } = new List<Employee>();
 
-        public virtual ICollection<Individual> Individuals { get; set; } = new List<Individual>();
+        public ICollection<Individual> Individuals { get; set; } = new List<Individual>();
 
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
+        public ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
 
-        public virtual ICollection<StoreContact> StoreContacts { get; set; } = new List<StoreContact>();
+        public ICollection<StoreContact> StoreContacts { get; set; } = new List<StoreContact>();
 
-        public virtual ICollection<VendorContact> VendorContacts { get; set; } = new List<VendorContact>();
+        public ICollection<VendorContact> VendorContacts { get; set; } = new List<VendorContact>();
 
         #endregion
     }

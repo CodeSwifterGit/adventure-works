@@ -33,6 +33,7 @@ export class ProductCategoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductCategories', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IProductCategory, IProductCategoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class ProductCategoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductCategories/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IProductCategory>, Array<IProductCategoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class ProductCategoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductCategories', {
       productCategoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class ProductCategoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductCategories/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IProductCategoryPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class ProductCategoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductCategories', {
       productCategoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IProductCategoryUpdateModel, IProductCategoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class ProductCategoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductCategories/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IProductCategoryUpdateItem>, Array<IProductCategoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class ProductCategoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductCategories', {
       productCategoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductCategoryLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class ProductCategoriesService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IProductCategoriesListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('ProductCategories/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductCategoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

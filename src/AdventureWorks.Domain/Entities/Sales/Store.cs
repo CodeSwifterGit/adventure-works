@@ -21,10 +21,10 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual Customer Customer { get; set; }
+        public Customer Customer { get; set; }
 
-        public virtual SalesPerson SalesPerson { get; set; }
-        public virtual ICollection<StoreContact> StoreContacts { get; set; } = new List<StoreContact>();
+        public SalesPerson SalesPerson { get; set; }
+        public ICollection<StoreContact> StoreContacts { get; set; } = new List<StoreContact>();
 
         #endregion
     }

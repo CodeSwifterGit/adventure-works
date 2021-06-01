@@ -34,6 +34,7 @@ export class ProductInventoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductInventories', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IProductInventory, IProductInventoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class ProductInventoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductInventories/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IProductInventory>, Array<IProductInventoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class ProductInventoriesService {
       productID,
       locationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class ProductInventoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductInventories/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IProductInventoryPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class ProductInventoriesService {
       productID,
       locationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IProductInventoryUpdateModel, IProductInventoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class ProductInventoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductInventories/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IProductInventoryUpdateItem>, Array<IProductInventoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class ProductInventoriesService {
       productID,
       locationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductInventoryLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class ProductInventoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductInventories/GetProductInventoriesByLocation', {
       locationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductInventoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class ProductInventoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductInventories/GetProductInventoriesByProduct', {
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductInventoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

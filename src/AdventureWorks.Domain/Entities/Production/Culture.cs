@@ -22,7 +22,7 @@ namespace AdventureWorks.Domain.Entities.Production
         #region Navigation Properties
 
 
-        public virtual ICollection<ProductModelProductDescriptionCulture> ProductModelProductDescriptionCultures { get; set; } = new List<ProductModelProductDescriptionCulture>();
+        public ICollection<ProductModelProductDescriptionCulture> ProductModelProductDescriptionCultures { get; set; } = new List<ProductModelProductDescriptionCulture>();
 
         #endregion
     }

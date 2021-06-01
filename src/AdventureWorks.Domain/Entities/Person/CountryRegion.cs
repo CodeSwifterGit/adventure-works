@@ -22,9 +22,9 @@ namespace AdventureWorks.Domain.Entities.Person
         #region Navigation Properties
 
 
-        public virtual ICollection<CountryRegionCurrency> CountryRegionCurrencies { get; set; } = new List<CountryRegionCurrency>();
+        public ICollection<CountryRegionCurrency> CountryRegionCurrencies { get; set; } = new List<CountryRegionCurrency>();
 
-        public virtual ICollection<StateProvince> StateProvinces { get; set; } = new List<StateProvince>();
+        public ICollection<StateProvince> StateProvinces { get; set; } = new List<StateProvince>();
 
         #endregion
     }

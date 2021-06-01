@@ -21,11 +21,11 @@ namespace AdventureWorks.Domain.Entities.HumanResources
 
         #region Navigation Properties
 
-        public virtual Department Department { get; set; }
+        public Department Department { get; set; }
 
-        public virtual Employee Employee { get; set; }
+        public Employee Employee { get; set; }
 
-        public virtual Shift Shift { get; set; }
+        public Shift Shift { get; set; }
 
 
         #endregion

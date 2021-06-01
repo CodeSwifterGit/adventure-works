@@ -34,6 +34,7 @@ export class ProductCostHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductCostHistories', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IProductCostHistory, IProductCostHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class ProductCostHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductCostHistories/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IProductCostHistory>, Array<IProductCostHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class ProductCostHistoriesService {
       productID,
       startDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class ProductCostHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductCostHistories/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IProductCostHistoryPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class ProductCostHistoriesService {
       productID,
       startDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IProductCostHistoryUpdateModel, IProductCostHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class ProductCostHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductCostHistories/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IProductCostHistoryUpdateItem>, Array<IProductCostHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class ProductCostHistoriesService {
       productID,
       startDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductCostHistoryLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class ProductCostHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductCostHistories/GetProductCostHistoriesByProduct', {
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductCostHistoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

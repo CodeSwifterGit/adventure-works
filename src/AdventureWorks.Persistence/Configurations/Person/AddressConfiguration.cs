@@ -43,11 +43,11 @@ namespace AdventureWorks.Persistence.Configurations.Person
             builder.Property(p => p.Rowguid)
             .HasColumnName("rowguid")
             .HasColumnType("uniqueidentifier")
-            .HasDefaultValue("(newid())");
+            .HasDefaultValueSql("(newid())");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.Rowguid })

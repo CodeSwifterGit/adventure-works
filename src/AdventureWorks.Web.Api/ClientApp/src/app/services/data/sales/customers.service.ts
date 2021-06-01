@@ -33,6 +33,7 @@ export class CustomersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Customers', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ICustomer, ICustomerLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class CustomersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Customers/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ICustomer>, Array<ICustomerLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class CustomersService {
     let apiUrlBuilder = new ApiUrlBuilder('Customers', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class CustomersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Customers/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ICustomerPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class CustomersService {
     let apiUrlBuilder = new ApiUrlBuilder('Customers', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ICustomerUpdateModel, ICustomerLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class CustomersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Customers/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ICustomerUpdateItem>, Array<ICustomerLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class CustomersService {
     let apiUrlBuilder = new ApiUrlBuilder('Customers', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICustomerLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class CustomersService {
     let apiUrlBuilder = new ApiUrlBuilder('Customers/GetCustomersBySalesTerritory', {
       territoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICustomersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

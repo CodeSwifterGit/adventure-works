@@ -33,6 +33,7 @@ export class DocumentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Documents', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IDocument, IDocumentLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class DocumentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Documents/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IDocument>, Array<IDocumentLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class DocumentsService {
     let apiUrlBuilder = new ApiUrlBuilder('Documents', {
       documentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class DocumentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Documents/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IDocumentPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class DocumentsService {
     let apiUrlBuilder = new ApiUrlBuilder('Documents', {
       documentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IDocumentUpdateModel, IDocumentLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class DocumentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Documents/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IDocumentUpdateItem>, Array<IDocumentLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class DocumentsService {
     let apiUrlBuilder = new ApiUrlBuilder('Documents', {
       documentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IDocumentLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class DocumentsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IDocumentsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('Documents/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IDocumentsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -32,11 +32,11 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             builder.Property(p => p.MakeFlag)
             .HasColumnType("bit")
-            .HasDefaultValue("((1))");
+            .HasDefaultValueSql("((1))");
 
             builder.Property(p => p.FinishedGoodsFlag)
             .HasColumnType("bit")
-            .HasDefaultValue("((1))");
+            .HasDefaultValueSql("((1))");
 
             builder.Property(p => p.Color)
             .HasColumnType("nvarchar(15)");
@@ -95,11 +95,11 @@ namespace AdventureWorks.Persistence.Configurations.Production
             builder.Property(p => p.Rowguid)
             .HasColumnName("rowguid")
             .HasColumnType("uniqueidentifier")
-            .HasDefaultValue("(newid())");
+            .HasDefaultValueSql("(newid())");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.ProductNumber })

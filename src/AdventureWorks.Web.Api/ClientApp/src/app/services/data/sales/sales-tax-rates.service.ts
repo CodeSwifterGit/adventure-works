@@ -33,6 +33,7 @@ export class SalesTaxRatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTaxRates', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ISalesTaxRate, ISalesTaxRateLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class SalesTaxRatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTaxRates/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ISalesTaxRate>, Array<ISalesTaxRateLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class SalesTaxRatesService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesTaxRates', {
       salesTaxRateID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class SalesTaxRatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTaxRates/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ISalesTaxRatePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class SalesTaxRatesService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesTaxRates', {
       salesTaxRateID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ISalesTaxRateUpdateModel, ISalesTaxRateLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class SalesTaxRatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTaxRates/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ISalesTaxRateUpdateItem>, Array<ISalesTaxRateLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class SalesTaxRatesService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesTaxRates', {
       salesTaxRateID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesTaxRateLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class SalesTaxRatesService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesTaxRates/GetSalesTaxRatesByStateProvince', {
       stateProvinceID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesTaxRatesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

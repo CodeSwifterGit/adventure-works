@@ -22,9 +22,9 @@ namespace AdventureWorks.Domain.Entities.Production
         #region Navigation Properties
 
 
-        public virtual ICollection<ProductInventory> ProductInventories { get; set; } = new List<ProductInventory>();
+        public ICollection<ProductInventory> ProductInventories { get; set; } = new List<ProductInventory>();
 
-        public virtual ICollection<WorkOrderRouting> WorkOrderRoutings { get; set; } = new List<WorkOrderRouting>();
+        public ICollection<WorkOrderRouting> WorkOrderRoutings { get; set; } = new List<WorkOrderRouting>();
 
         #endregion
     }

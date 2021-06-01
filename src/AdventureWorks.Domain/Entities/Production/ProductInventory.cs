@@ -21,9 +21,9 @@ namespace AdventureWorks.Domain.Entities.Production
 
         #region Navigation Properties
 
-        public virtual Location Location { get; set; }
+        public Location Location { get; set; }
 
-        public virtual Product Product { get; set; }
+        public Product Product { get; set; }
 
 
         #endregion

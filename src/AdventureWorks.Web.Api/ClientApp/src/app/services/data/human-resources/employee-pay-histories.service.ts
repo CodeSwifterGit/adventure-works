@@ -34,6 +34,7 @@ export class EmployeePayHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('EmployeePayHistories', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IEmployeePayHistory, IEmployeePayHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class EmployeePayHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('EmployeePayHistories/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IEmployeePayHistory>, Array<IEmployeePayHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class EmployeePayHistoriesService {
       employeeID,
       rateChangeDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class EmployeePayHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('EmployeePayHistories/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IEmployeePayHistoryPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class EmployeePayHistoriesService {
       employeeID,
       rateChangeDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IEmployeePayHistoryUpdateModel, IEmployeePayHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class EmployeePayHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('EmployeePayHistories/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IEmployeePayHistoryUpdateItem>, Array<IEmployeePayHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class EmployeePayHistoriesService {
       employeeID,
       rateChangeDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IEmployeePayHistoryLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class EmployeePayHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('EmployeePayHistories/GetEmployeePayHistoriesByEmployee', {
       employeeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IEmployeePayHistoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

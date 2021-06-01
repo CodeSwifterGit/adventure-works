@@ -21,9 +21,9 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual SalesOrderHeader SalesOrderHeader { get; set; }
+        public SalesOrderHeader SalesOrderHeader { get; set; }
 
-        public virtual SpecialOfferProduct SpecialOfferProduct { get; set; }
+        public SpecialOfferProduct SpecialOfferProduct { get; set; }
 
 
         #endregion

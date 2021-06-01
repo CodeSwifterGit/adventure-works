@@ -21,9 +21,9 @@ namespace AdventureWorks.Domain.Entities.Production
 
         #region Navigation Properties
 
-        public virtual Illustration Illustration { get; set; }
+        public Illustration Illustration { get; set; }
 
-        public virtual ProductModel ProductModel { get; set; }
+        public ProductModel ProductModel { get; set; }
 
 
         #endregion

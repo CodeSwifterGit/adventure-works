@@ -33,6 +33,7 @@ export class CreditCardsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CreditCards', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ICreditCard, ICreditCardLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class CreditCardsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CreditCards/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ICreditCard>, Array<ICreditCardLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class CreditCardsService {
     let apiUrlBuilder = new ApiUrlBuilder('CreditCards', {
       creditCardID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class CreditCardsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CreditCards/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ICreditCardPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class CreditCardsService {
     let apiUrlBuilder = new ApiUrlBuilder('CreditCards', {
       creditCardID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ICreditCardUpdateModel, ICreditCardLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class CreditCardsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CreditCards/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ICreditCardUpdateItem>, Array<ICreditCardLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class CreditCardsService {
     let apiUrlBuilder = new ApiUrlBuilder('CreditCards', {
       creditCardID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICreditCardLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class CreditCardsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ICreditCardsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('CreditCards/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICreditCardsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

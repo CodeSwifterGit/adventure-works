@@ -22,38 +22,40 @@ namespace AdventureWorks.Domain.Entities.Production
 
         #region Navigation Properties
 
-        public virtual ProductModel ProductModel { get; set; }
+        public ProductModel ProductModel { get; set; }
 
-        public virtual ProductSubcategory ProductSubcategory { get; set; }
+        public ProductSubcategory ProductSubcategory { get; set; }
 
-        public virtual UnitMeasure UnitMeasureSize { get; set; }
+        public UnitMeasure UnitMeasureSize { get; set; }
 
-        public virtual UnitMeasure UnitMeasureWeight { get; set; }
-        public virtual ICollection<BillOfMaterials> BillOfMaterials { get; set; } = new List<BillOfMaterials>();
+        public UnitMeasure UnitMeasureWeight { get; set; }
+        public ICollection<BillOfMaterials> BillOfMaterialsForAssemblies { get; set; } = new List<BillOfMaterials>();
 
-        public virtual ICollection<ProductCostHistory> ProductCostHistories { get; set; } = new List<ProductCostHistory>();
+        public ICollection<BillOfMaterials> BillOfMaterialsForComponents { get; set; } = new List<BillOfMaterials>();
 
-        public virtual ICollection<ProductDocument> ProductDocuments { get; set; } = new List<ProductDocument>();
+        public ICollection<ProductCostHistory> ProductCostHistories { get; set; } = new List<ProductCostHistory>();
 
-        public virtual ICollection<ProductInventory> ProductInventories { get; set; } = new List<ProductInventory>();
+        public ICollection<ProductDocument> ProductDocuments { get; set; } = new List<ProductDocument>();
 
-        public virtual ICollection<ProductListPriceHistory> ProductListPriceHistories { get; set; } = new List<ProductListPriceHistory>();
+        public ICollection<ProductInventory> ProductInventories { get; set; } = new List<ProductInventory>();
 
-        public virtual ICollection<ProductProductPhoto> ProductProductPhotos { get; set; } = new List<ProductProductPhoto>();
+        public ICollection<ProductListPriceHistory> ProductListPriceHistories { get; set; } = new List<ProductListPriceHistory>();
 
-        public virtual ICollection<ProductReview> ProductReviews { get; set; } = new List<ProductReview>();
+        public ICollection<ProductProductPhoto> ProductProductPhotos { get; set; } = new List<ProductProductPhoto>();
 
-        public virtual ICollection<ProductVendor> ProductVendors { get; set; } = new List<ProductVendor>();
+        public ICollection<ProductReview> ProductReviews { get; set; } = new List<ProductReview>();
 
-        public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; } = new List<PurchaseOrderDetail>();
+        public ICollection<ProductVendor> ProductVendors { get; set; } = new List<ProductVendor>();
 
-        public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; } = new List<ShoppingCartItem>();
+        public ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; } = new List<PurchaseOrderDetail>();
 
-        public virtual ICollection<SpecialOfferProduct> SpecialOfferProducts { get; set; } = new List<SpecialOfferProduct>();
+        public ICollection<ShoppingCartItem> ShoppingCartItems { get; set; } = new List<ShoppingCartItem>();
 
-        public virtual ICollection<TransactionHistory> TransactionHistories { get; set; } = new List<TransactionHistory>();
+        public ICollection<SpecialOfferProduct> SpecialOfferProducts { get; set; } = new List<SpecialOfferProduct>();
 
-        public virtual ICollection<WorkOrder> WorkOrders { get; set; } = new List<WorkOrder>();
+        public ICollection<TransactionHistory> TransactionHistories { get; set; } = new List<TransactionHistory>();
+
+        public ICollection<WorkOrder> WorkOrders { get; set; } = new List<WorkOrder>();
 
         #endregion
     }

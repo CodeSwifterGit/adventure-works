@@ -33,6 +33,7 @@ export class StoresService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Stores', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IStore, IStoreLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class StoresService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Stores/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IStore>, Array<IStoreLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class StoresService {
     let apiUrlBuilder = new ApiUrlBuilder('Stores', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class StoresService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Stores/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IStorePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class StoresService {
     let apiUrlBuilder = new ApiUrlBuilder('Stores', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IStoreUpdateModel, IStoreLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class StoresService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Stores/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IStoreUpdateItem>, Array<IStoreLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class StoresService {
     let apiUrlBuilder = new ApiUrlBuilder('Stores', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IStoreLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class StoresService {
     let apiUrlBuilder = new ApiUrlBuilder('Stores/GetStoresByCustomer', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IStoresListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -130,6 +138,7 @@ export class StoresService {
     let apiUrlBuilder = new ApiUrlBuilder('Stores/GetStoresBySalesPerson', {
       salesPersonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IStoresListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

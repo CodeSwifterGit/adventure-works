@@ -33,6 +33,7 @@ export class CurrencyRatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CurrencyRates', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ICurrencyRate, ICurrencyRateLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class CurrencyRatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CurrencyRates/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ICurrencyRate>, Array<ICurrencyRateLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class CurrencyRatesService {
     let apiUrlBuilder = new ApiUrlBuilder('CurrencyRates', {
       currencyRateID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class CurrencyRatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CurrencyRates/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ICurrencyRatePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class CurrencyRatesService {
     let apiUrlBuilder = new ApiUrlBuilder('CurrencyRates', {
       currencyRateID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ICurrencyRateUpdateModel, ICurrencyRateLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class CurrencyRatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CurrencyRates/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ICurrencyRateUpdateItem>, Array<ICurrencyRateLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class CurrencyRatesService {
     let apiUrlBuilder = new ApiUrlBuilder('CurrencyRates', {
       currencyRateID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICurrencyRateLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -121,6 +128,7 @@ export class CurrencyRatesService {
       fromCurrencyCode,
       toCurrencyCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICurrencyRatesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

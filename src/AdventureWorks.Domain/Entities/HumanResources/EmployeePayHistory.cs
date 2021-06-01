@@ -21,7 +21,7 @@ namespace AdventureWorks.Domain.Entities.HumanResources
 
         #region Navigation Properties
 
-        public virtual Employee Employee { get; set; }
+        public Employee Employee { get; set; }
 
 
         #endregion

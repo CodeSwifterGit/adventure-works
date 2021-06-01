@@ -33,6 +33,7 @@ export class ContactTypesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ContactTypes', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IContactType, IContactTypeLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class ContactTypesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ContactTypes/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IContactType>, Array<IContactTypeLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class ContactTypesService {
     let apiUrlBuilder = new ApiUrlBuilder('ContactTypes', {
       contactTypeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class ContactTypesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ContactTypes/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IContactTypePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class ContactTypesService {
     let apiUrlBuilder = new ApiUrlBuilder('ContactTypes', {
       contactTypeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IContactTypeUpdateModel, IContactTypeLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class ContactTypesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ContactTypes/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IContactTypeUpdateItem>, Array<IContactTypeLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class ContactTypesService {
     let apiUrlBuilder = new ApiUrlBuilder('ContactTypes', {
       contactTypeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IContactTypeLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class ContactTypesService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IContactTypesListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('ContactTypes/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IContactTypesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

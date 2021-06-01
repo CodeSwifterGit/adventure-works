@@ -33,6 +33,7 @@ export class DatabaseLogsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('DatabaseLogs', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IDatabaseLog, IDatabaseLogLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class DatabaseLogsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('DatabaseLogs/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IDatabaseLog>, Array<IDatabaseLogLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class DatabaseLogsService {
     let apiUrlBuilder = new ApiUrlBuilder('DatabaseLogs', {
       databaseLogID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class DatabaseLogsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('DatabaseLogs/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IDatabaseLogPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class DatabaseLogsService {
     let apiUrlBuilder = new ApiUrlBuilder('DatabaseLogs', {
       databaseLogID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IDatabaseLogUpdateModel, IDatabaseLogLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class DatabaseLogsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('DatabaseLogs/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IDatabaseLogUpdateItem>, Array<IDatabaseLogLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class DatabaseLogsService {
     let apiUrlBuilder = new ApiUrlBuilder('DatabaseLogs', {
       databaseLogID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IDatabaseLogLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class DatabaseLogsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IDatabaseLogsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('DatabaseLogs/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IDatabaseLogsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -28,15 +28,15 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             builder.Property(p => p.CostRate)
             .HasColumnType("smallmoney")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.Availability)
             .HasColumnType("decimal(8,2)")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.Name })

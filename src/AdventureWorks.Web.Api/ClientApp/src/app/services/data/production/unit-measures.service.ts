@@ -33,6 +33,7 @@ export class UnitMeasuresService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('UnitMeasures', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IUnitMeasure, IUnitMeasureLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class UnitMeasuresService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('UnitMeasures/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IUnitMeasure>, Array<IUnitMeasureLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class UnitMeasuresService {
     let apiUrlBuilder = new ApiUrlBuilder('UnitMeasures', {
       unitMeasureCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class UnitMeasuresService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('UnitMeasures/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IUnitMeasurePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class UnitMeasuresService {
     let apiUrlBuilder = new ApiUrlBuilder('UnitMeasures', {
       unitMeasureCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IUnitMeasureUpdateModel, IUnitMeasureLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class UnitMeasuresService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('UnitMeasures/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IUnitMeasureUpdateItem>, Array<IUnitMeasureLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class UnitMeasuresService {
     let apiUrlBuilder = new ApiUrlBuilder('UnitMeasures', {
       unitMeasureCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IUnitMeasureLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class UnitMeasuresService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IUnitMeasuresListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('UnitMeasures/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IUnitMeasuresListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

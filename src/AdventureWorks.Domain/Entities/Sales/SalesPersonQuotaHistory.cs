@@ -21,7 +21,7 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual SalesPerson SalesPerson { get; set; }
+        public SalesPerson SalesPerson { get; set; }
 
 
         #endregion

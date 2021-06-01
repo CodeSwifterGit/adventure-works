@@ -33,6 +33,7 @@ export class EmployeesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Employees', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IEmployee, IEmployeeLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class EmployeesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Employees/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IEmployee>, Array<IEmployeeLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class EmployeesService {
     let apiUrlBuilder = new ApiUrlBuilder('Employees', {
       employeeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class EmployeesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Employees/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IEmployeePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class EmployeesService {
     let apiUrlBuilder = new ApiUrlBuilder('Employees', {
       employeeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IEmployeeUpdateModel, IEmployeeLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class EmployeesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Employees/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IEmployeeUpdateItem>, Array<IEmployeeLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class EmployeesService {
     let apiUrlBuilder = new ApiUrlBuilder('Employees', {
       employeeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IEmployeeLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class EmployeesService {
     let apiUrlBuilder = new ApiUrlBuilder('Employees/GetEmployeesByContact', {
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IEmployeesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -130,6 +138,7 @@ export class EmployeesService {
     let apiUrlBuilder = new ApiUrlBuilder('Employees/GetEmployeesByManager', {
       managerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IEmployeesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

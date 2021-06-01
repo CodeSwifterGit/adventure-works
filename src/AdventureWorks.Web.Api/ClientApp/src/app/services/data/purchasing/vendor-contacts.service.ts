@@ -34,6 +34,7 @@ export class VendorContactsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('VendorContacts', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IVendorContact, IVendorContactLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class VendorContactsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('VendorContacts/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IVendorContact>, Array<IVendorContactLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class VendorContactsService {
       vendorID,
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class VendorContactsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('VendorContacts/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IVendorContactPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class VendorContactsService {
       vendorID,
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IVendorContactUpdateModel, IVendorContactLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class VendorContactsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('VendorContacts/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IVendorContactUpdateItem>, Array<IVendorContactLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class VendorContactsService {
       vendorID,
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IVendorContactLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class VendorContactsService {
     let apiUrlBuilder = new ApiUrlBuilder('VendorContacts/GetVendorContactsByContact', {
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IVendorContactsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class VendorContactsService {
     let apiUrlBuilder = new ApiUrlBuilder('VendorContacts/GetVendorContactsByContactType', {
       contactTypeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IVendorContactsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -144,6 +153,7 @@ export class VendorContactsService {
     let apiUrlBuilder = new ApiUrlBuilder('VendorContacts/GetVendorContactsByVendor', {
       vendorID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IVendorContactsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

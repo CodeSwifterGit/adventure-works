@@ -33,6 +33,7 @@ export class CountryRegionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegions', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ICountryRegion, ICountryRegionLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class CountryRegionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegions/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ICountryRegion>, Array<ICountryRegionLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class CountryRegionsService {
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegions', {
       countryRegionCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class CountryRegionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegions/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ICountryRegionPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class CountryRegionsService {
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegions', {
       countryRegionCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ICountryRegionUpdateModel, ICountryRegionLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class CountryRegionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegions/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ICountryRegionUpdateItem>, Array<ICountryRegionLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class CountryRegionsService {
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegions', {
       countryRegionCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICountryRegionLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class CountryRegionsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ICountryRegionsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('CountryRegions/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICountryRegionsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

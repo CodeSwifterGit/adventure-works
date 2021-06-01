@@ -28,11 +28,11 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             builder.Property(p => p.ReferenceOrderLineID)
             .HasColumnType("int")
-            .HasDefaultValue("((0))");
+            .HasDefaultValueSql("((0))");
 
             builder.Property(p => p.TransactionDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             builder.Property(p => p.TransactionType)
             .HasColumnType("nchar")
@@ -46,7 +46,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.ProductID })

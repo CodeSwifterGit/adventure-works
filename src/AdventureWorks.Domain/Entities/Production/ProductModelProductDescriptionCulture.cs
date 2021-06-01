@@ -21,11 +21,11 @@ namespace AdventureWorks.Domain.Entities.Production
 
         #region Navigation Properties
 
-        public virtual Culture Culture { get; set; }
+        public Culture Culture { get; set; }
 
-        public virtual ProductDescription ProductDescription { get; set; }
+        public ProductDescription ProductDescription { get; set; }
 
-        public virtual ProductModel ProductModel { get; set; }
+        public ProductModel ProductModel { get; set; }
 
 
         #endregion

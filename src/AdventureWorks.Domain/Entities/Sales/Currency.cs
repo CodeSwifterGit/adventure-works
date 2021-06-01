@@ -22,9 +22,10 @@ namespace AdventureWorks.Domain.Entities.Sales
         #region Navigation Properties
 
 
-        public virtual ICollection<CountryRegionCurrency> CountryRegionCurrencies { get; set; } = new List<CountryRegionCurrency>();
+        public ICollection<CountryRegionCurrency> CountryRegionCurrencies { get; set; } = new List<CountryRegionCurrency>();
 
-        public virtual ICollection<CurrencyRate> CurrencyRates { get; set; } = new List<CurrencyRate>();
+        public ICollection<CurrencyRate> CurrencyRatesFrom { get; set; } = new List<CurrencyRate>();
+        public ICollection<CurrencyRate> CurrencyRatesTo { get; set; } = new List<CurrencyRate>();
 
         #endregion
     }

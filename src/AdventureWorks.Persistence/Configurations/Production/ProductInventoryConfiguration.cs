@@ -32,16 +32,16 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             builder.Property(p => p.Quantity)
             .HasColumnType("smallint")
-            .HasDefaultValue("((0))");
+            .HasDefaultValueSql("((0))");
 
             builder.Property(p => p.Rowguid)
             .HasColumnName("rowguid")
             .HasColumnType("uniqueidentifier")
-            .HasDefaultValue("(newid())");
+            .HasDefaultValueSql("(newid())");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
 

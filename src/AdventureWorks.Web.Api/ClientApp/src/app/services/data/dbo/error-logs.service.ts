@@ -33,6 +33,7 @@ export class ErrorLogsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ErrorLogs', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IErrorLog, IErrorLogLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class ErrorLogsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ErrorLogs/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IErrorLog>, Array<IErrorLogLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class ErrorLogsService {
     let apiUrlBuilder = new ApiUrlBuilder('ErrorLogs', {
       errorLogID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class ErrorLogsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ErrorLogs/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IErrorLogPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class ErrorLogsService {
     let apiUrlBuilder = new ApiUrlBuilder('ErrorLogs', {
       errorLogID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IErrorLogUpdateModel, IErrorLogLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class ErrorLogsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ErrorLogs/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IErrorLogUpdateItem>, Array<IErrorLogLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class ErrorLogsService {
     let apiUrlBuilder = new ApiUrlBuilder('ErrorLogs', {
       errorLogID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IErrorLogLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class ErrorLogsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IErrorLogsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('ErrorLogs/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IErrorLogsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -34,6 +34,7 @@ export class PurchaseOrderDetailsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('PurchaseOrderDetails', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IPurchaseOrderDetail, IPurchaseOrderDetailLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class PurchaseOrderDetailsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('PurchaseOrderDetails/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IPurchaseOrderDetail>, Array<IPurchaseOrderDetailLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class PurchaseOrderDetailsService {
       purchaseOrderID,
       purchaseOrderDetailID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class PurchaseOrderDetailsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('PurchaseOrderDetails/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IPurchaseOrderDetailPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class PurchaseOrderDetailsService {
       purchaseOrderID,
       purchaseOrderDetailID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IPurchaseOrderDetailUpdateModel, IPurchaseOrderDetailLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class PurchaseOrderDetailsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('PurchaseOrderDetails/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IPurchaseOrderDetailUpdateItem>, Array<IPurchaseOrderDetailLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class PurchaseOrderDetailsService {
       purchaseOrderID,
       purchaseOrderDetailID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IPurchaseOrderDetailLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class PurchaseOrderDetailsService {
     let apiUrlBuilder = new ApiUrlBuilder('PurchaseOrderDetails/GetPurchaseOrderDetailsByProduct', {
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IPurchaseOrderDetailsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class PurchaseOrderDetailsService {
     let apiUrlBuilder = new ApiUrlBuilder('PurchaseOrderDetails/GetPurchaseOrderDetailsByPurchaseOrderHeader', {
       purchaseOrderID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IPurchaseOrderDetailsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

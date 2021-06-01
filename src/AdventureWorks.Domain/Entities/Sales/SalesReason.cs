@@ -22,7 +22,7 @@ namespace AdventureWorks.Domain.Entities.Sales
         #region Navigation Properties
 
 
-        public virtual ICollection<SalesOrderHeaderSalesReason> SalesOrderHeaderSalesReasons { get; set; } = new List<SalesOrderHeaderSalesReason>();
+        public ICollection<SalesOrderHeaderSalesReason> SalesOrderHeaderSalesReasons { get; set; } = new List<SalesOrderHeaderSalesReason>();
 
         #endregion
     }

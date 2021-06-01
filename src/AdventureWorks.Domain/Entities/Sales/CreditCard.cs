@@ -22,9 +22,9 @@ namespace AdventureWorks.Domain.Entities.Sales
         #region Navigation Properties
 
 
-        public virtual ICollection<ContactCreditCard> ContactCreditCards { get; set; } = new List<ContactCreditCard>();
+        public ICollection<ContactCreditCard> ContactCreditCards { get; set; } = new List<ContactCreditCard>();
 
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
+        public ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
 
         #endregion
     }

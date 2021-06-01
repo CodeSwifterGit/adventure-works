@@ -33,6 +33,7 @@ export class StateProvincesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('StateProvinces', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IStateProvince, IStateProvinceLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class StateProvincesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('StateProvinces/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IStateProvince>, Array<IStateProvinceLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class StateProvincesService {
     let apiUrlBuilder = new ApiUrlBuilder('StateProvinces', {
       stateProvinceID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class StateProvincesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('StateProvinces/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IStateProvincePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class StateProvincesService {
     let apiUrlBuilder = new ApiUrlBuilder('StateProvinces', {
       stateProvinceID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IStateProvinceUpdateModel, IStateProvinceLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class StateProvincesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('StateProvinces/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IStateProvinceUpdateItem>, Array<IStateProvinceLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class StateProvincesService {
     let apiUrlBuilder = new ApiUrlBuilder('StateProvinces', {
       stateProvinceID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IStateProvinceLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class StateProvincesService {
     let apiUrlBuilder = new ApiUrlBuilder('StateProvinces/GetStateProvincesByCountryRegion', {
       countryRegionCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IStateProvincesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -130,6 +138,7 @@ export class StateProvincesService {
     let apiUrlBuilder = new ApiUrlBuilder('StateProvinces/GetStateProvincesBySalesTerritory', {
       territoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IStateProvincesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

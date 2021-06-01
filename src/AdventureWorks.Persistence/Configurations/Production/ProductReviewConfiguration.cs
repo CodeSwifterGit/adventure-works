@@ -31,7 +31,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             builder.Property(p => p.ReviewDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             builder.Property(p => p.EmailAddress)
             .HasColumnType("nvarchar(50)")
@@ -45,7 +45,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.ProductID, e.ReviewerName })

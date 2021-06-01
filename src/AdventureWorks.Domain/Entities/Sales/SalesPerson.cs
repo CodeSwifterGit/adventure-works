@@ -21,16 +21,16 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual Employee Employee { get; set; }
+        public Employee Employee { get; set; }
 
-        public virtual SalesTerritory SalesTerritory { get; set; }
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
+        public SalesTerritory SalesTerritory { get; set; }
+        public ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
 
-        public virtual ICollection<SalesPersonQuotaHistory> SalesPersonQuotaHistories { get; set; } = new List<SalesPersonQuotaHistory>();
+        public ICollection<SalesPersonQuotaHistory> SalesPersonQuotaHistories { get; set; } = new List<SalesPersonQuotaHistory>();
 
-        public virtual ICollection<SalesTerritoryHistory> SalesTerritoryHistories { get; set; } = new List<SalesTerritoryHistory>();
+        public ICollection<SalesTerritoryHistory> SalesTerritoryHistories { get; set; } = new List<SalesTerritoryHistory>();
 
-        public virtual ICollection<Store> Stores { get; set; } = new List<Store>();
+        public ICollection<Store> Stores { get; set; } = new List<Store>();
 
         #endregion
     }

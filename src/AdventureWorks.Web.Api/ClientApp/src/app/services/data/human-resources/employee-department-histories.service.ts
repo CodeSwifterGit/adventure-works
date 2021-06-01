@@ -36,6 +36,7 @@ export class EmployeeDepartmentHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('EmployeeDepartmentHistories', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IEmployeeDepartmentHistory, IEmployeeDepartmentHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -49,6 +50,7 @@ export class EmployeeDepartmentHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('EmployeeDepartmentHistories/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IEmployeeDepartmentHistory>, Array<IEmployeeDepartmentHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -63,6 +65,7 @@ export class EmployeeDepartmentHistoriesService {
       shiftID,
       startDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -76,6 +79,7 @@ export class EmployeeDepartmentHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('EmployeeDepartmentHistories/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IEmployeeDepartmentHistoryPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -94,6 +98,7 @@ export class EmployeeDepartmentHistoriesService {
       shiftID,
       startDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IEmployeeDepartmentHistoryUpdateModel, IEmployeeDepartmentHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -107,6 +112,7 @@ export class EmployeeDepartmentHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('EmployeeDepartmentHistories/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IEmployeeDepartmentHistoryUpdateItem>, Array<IEmployeeDepartmentHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -121,6 +127,7 @@ export class EmployeeDepartmentHistoriesService {
       shiftID,
       startDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IEmployeeDepartmentHistoryLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -132,6 +139,7 @@ export class EmployeeDepartmentHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('EmployeeDepartmentHistories/GetEmployeeDepartmentHistoriesByDepartment', {
       departmentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IEmployeeDepartmentHistoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -142,6 +150,7 @@ export class EmployeeDepartmentHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('EmployeeDepartmentHistories/GetEmployeeDepartmentHistoriesByEmployee', {
       employeeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IEmployeeDepartmentHistoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -152,6 +161,7 @@ export class EmployeeDepartmentHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('EmployeeDepartmentHistories/GetEmployeeDepartmentHistoriesByShift', {
       shiftID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IEmployeeDepartmentHistoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

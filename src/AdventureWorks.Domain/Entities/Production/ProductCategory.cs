@@ -22,7 +22,7 @@ namespace AdventureWorks.Domain.Entities.Production
         #region Navigation Properties
 
 
-        public virtual ICollection<ProductSubcategory> ProductSubcategories { get; set; } = new List<ProductSubcategory>();
+        public ICollection<ProductSubcategory> ProductSubcategories { get; set; } = new List<ProductSubcategory>();
 
         #endregion
     }

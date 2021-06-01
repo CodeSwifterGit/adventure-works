@@ -33,6 +33,7 @@ export class CurrenciesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Currencies', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ICurrency, ICurrencyLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class CurrenciesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Currencies/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ICurrency>, Array<ICurrencyLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class CurrenciesService {
     let apiUrlBuilder = new ApiUrlBuilder('Currencies', {
       currencyCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class CurrenciesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Currencies/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ICurrencyPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class CurrenciesService {
     let apiUrlBuilder = new ApiUrlBuilder('Currencies', {
       currencyCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ICurrencyUpdateModel, ICurrencyLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class CurrenciesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Currencies/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ICurrencyUpdateItem>, Array<ICurrencyLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class CurrenciesService {
     let apiUrlBuilder = new ApiUrlBuilder('Currencies', {
       currencyCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICurrencyLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class CurrenciesService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ICurrenciesListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('Currencies/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICurrenciesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

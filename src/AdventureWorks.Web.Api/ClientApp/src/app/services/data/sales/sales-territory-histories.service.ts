@@ -35,6 +35,7 @@ export class SalesTerritoryHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritoryHistories', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ISalesTerritoryHistory, ISalesTerritoryHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -48,6 +49,7 @@ export class SalesTerritoryHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritoryHistories/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ISalesTerritoryHistory>, Array<ISalesTerritoryHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -61,6 +63,7 @@ export class SalesTerritoryHistoriesService {
       territoryID,
       startDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -74,6 +77,7 @@ export class SalesTerritoryHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritoryHistories/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ISalesTerritoryHistoryPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -91,6 +95,7 @@ export class SalesTerritoryHistoriesService {
       territoryID,
       startDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ISalesTerritoryHistoryUpdateModel, ISalesTerritoryHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -104,6 +109,7 @@ export class SalesTerritoryHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritoryHistories/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ISalesTerritoryHistoryUpdateItem>, Array<ISalesTerritoryHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -117,6 +123,7 @@ export class SalesTerritoryHistoriesService {
       territoryID,
       startDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesTerritoryHistoryLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -128,6 +135,7 @@ export class SalesTerritoryHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritoryHistories/GetSalesTerritoryHistoriesBySalesPerson', {
       salesPersonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesTerritoryHistoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -138,6 +146,7 @@ export class SalesTerritoryHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritoryHistories/GetSalesTerritoryHistoriesBySalesTerritory', {
       territoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesTerritoryHistoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

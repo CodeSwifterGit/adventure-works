@@ -33,6 +33,7 @@ export class CulturesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Cultures', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ICulture, ICultureLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class CulturesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Cultures/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ICulture>, Array<ICultureLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class CulturesService {
     let apiUrlBuilder = new ApiUrlBuilder('Cultures', {
       cultureID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class CulturesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Cultures/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ICulturePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class CulturesService {
     let apiUrlBuilder = new ApiUrlBuilder('Cultures', {
       cultureID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ICultureUpdateModel, ICultureLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class CulturesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Cultures/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ICultureUpdateItem>, Array<ICultureLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class CulturesService {
     let apiUrlBuilder = new ApiUrlBuilder('Cultures', {
       cultureID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICultureLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class CulturesService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ICulturesListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('Cultures/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICulturesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

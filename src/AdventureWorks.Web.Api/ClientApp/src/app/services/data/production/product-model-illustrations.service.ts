@@ -34,6 +34,7 @@ export class ProductModelIllustrationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelIllustrations', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IProductModelIllustration, IProductModelIllustrationLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class ProductModelIllustrationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelIllustrations/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IProductModelIllustration>, Array<IProductModelIllustrationLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class ProductModelIllustrationsService {
       productModelID,
       illustrationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class ProductModelIllustrationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelIllustrations/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IProductModelIllustrationPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class ProductModelIllustrationsService {
       productModelID,
       illustrationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IProductModelIllustrationUpdateModel, IProductModelIllustrationLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class ProductModelIllustrationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelIllustrations/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IProductModelIllustrationUpdateItem>, Array<IProductModelIllustrationLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class ProductModelIllustrationsService {
       productModelID,
       illustrationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductModelIllustrationLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class ProductModelIllustrationsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelIllustrations/GetProductModelIllustrationsByIllustration', {
       illustrationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductModelIllustrationsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class ProductModelIllustrationsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelIllustrations/GetProductModelIllustrationsByProductModel', {
       productModelID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductModelIllustrationsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -22,7 +22,7 @@ namespace AdventureWorks.Domain.Entities.Production
         #region Navigation Properties
 
 
-        public virtual ICollection<WorkOrder> WorkOrders { get; set; } = new List<WorkOrder>();
+        public ICollection<WorkOrder> WorkOrders { get; set; } = new List<WorkOrder>();
 
         #endregion
     }

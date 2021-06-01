@@ -24,11 +24,11 @@ namespace AdventureWorks.Persistence.Configurations.Purchasing
 
             builder.Property(p => p.RevisionNumber)
             .HasColumnType("tinyint")
-            .HasDefaultValue("((0))");
+            .HasDefaultValueSql("((0))");
 
             builder.Property(p => p.Status)
             .HasColumnType("tinyint")
-            .HasDefaultValue("((1))");
+            .HasDefaultValueSql("((1))");
 
             builder.Property(p => p.EmployeeID)
             .HasColumnType("int");
@@ -41,22 +41,22 @@ namespace AdventureWorks.Persistence.Configurations.Purchasing
 
             builder.Property(p => p.OrderDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             builder.Property(p => p.ShipDate)
             .HasColumnType("datetime");
 
             builder.Property(p => p.SubTotal)
             .HasColumnType("money")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.TaxAmt)
             .HasColumnType("money")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.Freight)
             .HasColumnType("money")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.TotalDue)
             .HasColumnType("money")
@@ -64,7 +64,7 @@ namespace AdventureWorks.Persistence.Configurations.Purchasing
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.VendorID })

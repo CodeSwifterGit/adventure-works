@@ -21,12 +21,12 @@ namespace AdventureWorks.Domain.Entities.Person
 
         #region Navigation Properties
 
-        public virtual CountryRegion CountryRegion { get; set; }
+        public CountryRegion CountryRegion { get; set; }
 
-        public virtual SalesTerritory SalesTerritory { get; set; }
-        public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
+        public SalesTerritory SalesTerritory { get; set; }
+        public ICollection<Address> Addresses { get; set; } = new List<Address>();
 
-        public virtual ICollection<SalesTaxRate> SalesTaxRates { get; set; } = new List<SalesTaxRate>();
+        public ICollection<SalesTaxRate> SalesTaxRates { get; set; } = new List<SalesTaxRate>();
 
         #endregion
     }

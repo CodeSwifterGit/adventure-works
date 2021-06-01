@@ -33,6 +33,7 @@ export class TransactionHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistories', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ITransactionHistory, ITransactionHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class TransactionHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistories/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ITransactionHistory>, Array<ITransactionHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class TransactionHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistories', {
       transactionID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class TransactionHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistories/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ITransactionHistoryPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class TransactionHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistories', {
       transactionID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ITransactionHistoryUpdateModel, ITransactionHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class TransactionHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistories/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ITransactionHistoryUpdateItem>, Array<ITransactionHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class TransactionHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistories', {
       transactionID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ITransactionHistoryLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class TransactionHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistories/GetTransactionHistoriesByProduct', {
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ITransactionHistoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

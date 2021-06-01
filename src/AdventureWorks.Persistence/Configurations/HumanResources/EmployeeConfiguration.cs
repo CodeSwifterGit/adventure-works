@@ -56,28 +56,28 @@ namespace AdventureWorks.Persistence.Configurations.HumanResources
 
             builder.Property(p => p.SalariedFlag)
             .HasColumnType("bit")
-            .HasDefaultValue("((1))");
+            .HasDefaultValueSql("((1))");
 
             builder.Property(p => p.VacationHours)
             .HasColumnType("smallint")
-            .HasDefaultValue("((0))");
+            .HasDefaultValueSql("((0))");
 
             builder.Property(p => p.SickLeaveHours)
             .HasColumnType("smallint")
-            .HasDefaultValue("((0))");
+            .HasDefaultValueSql("((0))");
 
             builder.Property(p => p.CurrentFlag)
             .HasColumnType("bit")
-            .HasDefaultValue("((1))");
+            .HasDefaultValueSql("((1))");
 
             builder.Property(p => p.Rowguid)
             .HasColumnName("rowguid")
             .HasColumnType("uniqueidentifier")
-            .HasDefaultValue("(newid())");
+            .HasDefaultValueSql("(newid())");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.LoginID })

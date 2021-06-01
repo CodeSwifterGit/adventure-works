@@ -36,28 +36,28 @@ namespace AdventureWorks.Persistence.Configurations.Sales
 
             builder.Property(p => p.SalesYTD)
             .HasColumnType("money")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.SalesLastYear)
             .HasColumnType("money")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.CostYTD)
             .HasColumnType("money")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.CostLastYear)
             .HasColumnType("money")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.Rowguid)
             .HasColumnName("rowguid")
             .HasColumnType("uniqueidentifier")
-            .HasDefaultValue("(newid())");
+            .HasDefaultValueSql("(newid())");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.Name })

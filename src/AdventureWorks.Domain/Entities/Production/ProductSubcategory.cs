@@ -21,8 +21,8 @@ namespace AdventureWorks.Domain.Entities.Production
 
         #region Navigation Properties
 
-        public virtual ProductCategory ProductCategory { get; set; }
-        public virtual ICollection<Product> Products { get; set; } = new List<Product>();
+        public ProductCategory ProductCategory { get; set; }
+        public ICollection<Product> Products { get; set; } = new List<Product>();
 
         #endregion
     }

@@ -22,13 +22,13 @@ namespace AdventureWorks.Domain.Entities.Purchasing
         #region Navigation Properties
 
 
-        public virtual ICollection<ProductVendor> ProductVendors { get; set; } = new List<ProductVendor>();
+        public ICollection<ProductVendor> ProductVendors { get; set; } = new List<ProductVendor>();
 
-        public virtual ICollection<PurchaseOrderHeader> PurchaseOrderHeaders { get; set; } = new List<PurchaseOrderHeader>();
+        public ICollection<PurchaseOrderHeader> PurchaseOrderHeaders { get; set; } = new List<PurchaseOrderHeader>();
 
-        public virtual ICollection<VendorAddress> VendorAddresses { get; set; } = new List<VendorAddress>();
+        public ICollection<VendorAddress> VendorAddresses { get; set; } = new List<VendorAddress>();
 
-        public virtual ICollection<VendorContact> VendorContacts { get; set; } = new List<VendorContact>();
+        public ICollection<VendorContact> VendorContacts { get; set; } = new List<VendorContact>();
 
         #endregion
     }

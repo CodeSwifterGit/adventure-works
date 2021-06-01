@@ -23,9 +23,9 @@ namespace AdventureWorks.Domain.Entities.Person
         #region Navigation Properties
 
 
-        public virtual ICollection<StoreContact> StoreContacts { get; set; } = new List<StoreContact>();
+        public ICollection<StoreContact> StoreContacts { get; set; } = new List<StoreContact>();
 
-        public virtual ICollection<VendorContact> VendorContacts { get; set; } = new List<VendorContact>();
+        public ICollection<VendorContact> VendorContacts { get; set; } = new List<VendorContact>();
 
         #endregion
     }

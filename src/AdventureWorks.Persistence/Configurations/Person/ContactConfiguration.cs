@@ -24,7 +24,7 @@ namespace AdventureWorks.Persistence.Configurations.Person
 
             builder.Property(p => p.NameStyle)
             .HasColumnType("bit")
-            .HasDefaultValue("((0))");
+            .HasDefaultValueSql("((0))");
 
             builder.Property(p => p.Title)
             .HasColumnType("varchar(255)");
@@ -48,7 +48,7 @@ namespace AdventureWorks.Persistence.Configurations.Person
 
             builder.Property(p => p.EmailPromotion)
             .HasColumnType("int")
-            .HasDefaultValue("((0))");
+            .HasDefaultValueSql("((0))");
 
             builder.Property(p => p.Phone)
             .HasColumnType("nvarchar(25)");
@@ -67,11 +67,11 @@ namespace AdventureWorks.Persistence.Configurations.Person
             builder.Property(p => p.Rowguid)
             .HasColumnName("rowguid")
             .HasColumnType("uniqueidentifier")
-            .HasDefaultValue("(newid())");
+            .HasDefaultValueSql("(newid())");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.Rowguid })

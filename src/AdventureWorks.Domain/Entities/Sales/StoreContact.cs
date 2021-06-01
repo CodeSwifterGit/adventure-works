@@ -21,11 +21,11 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual Contact Contact { get; set; }
+        public Contact Contact { get; set; }
 
-        public virtual ContactType ContactType { get; set; }
+        public ContactType ContactType { get; set; }
 
-        public virtual Store Store { get; set; }
+        public Store Store { get; set; }
 
 
         #endregion

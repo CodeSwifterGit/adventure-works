@@ -21,9 +21,9 @@ namespace AdventureWorks.Domain.Entities.Production
 
         #region Navigation Properties
 
-        public virtual Document Document { get; set; }
+        public Document Document { get; set; }
 
-        public virtual Product Product { get; set; }
+        public Product Product { get; set; }
 
 
         #endregion

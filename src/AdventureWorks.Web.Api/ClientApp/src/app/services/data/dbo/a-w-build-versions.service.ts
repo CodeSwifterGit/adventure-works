@@ -33,6 +33,7 @@ export class AWBuildVersionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('AWBuildVersions', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IAWBuildVersion, IAWBuildVersionLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class AWBuildVersionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('AWBuildVersions/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IAWBuildVersion>, Array<IAWBuildVersionLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class AWBuildVersionsService {
     let apiUrlBuilder = new ApiUrlBuilder('AWBuildVersions', {
       systemInformationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class AWBuildVersionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('AWBuildVersions/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IAWBuildVersionPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class AWBuildVersionsService {
     let apiUrlBuilder = new ApiUrlBuilder('AWBuildVersions', {
       systemInformationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IAWBuildVersionUpdateModel, IAWBuildVersionLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class AWBuildVersionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('AWBuildVersions/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IAWBuildVersionUpdateItem>, Array<IAWBuildVersionLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class AWBuildVersionsService {
     let apiUrlBuilder = new ApiUrlBuilder('AWBuildVersions', {
       systemInformationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IAWBuildVersionLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class AWBuildVersionsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IAWBuildVersionsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('AWBuildVersions/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IAWBuildVersionsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -21,11 +21,11 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual Address Address { get; set; }
+        public Address Address { get; set; }
 
-        public virtual AddressType AddressType { get; set; }
+        public AddressType AddressType { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public Customer Customer { get; set; }
 
 
         #endregion

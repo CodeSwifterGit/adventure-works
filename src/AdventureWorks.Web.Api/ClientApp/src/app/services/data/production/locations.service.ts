@@ -33,6 +33,7 @@ export class LocationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Locations', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ILocation, ILocationLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class LocationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Locations/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ILocation>, Array<ILocationLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class LocationsService {
     let apiUrlBuilder = new ApiUrlBuilder('Locations', {
       locationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class LocationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Locations/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ILocationPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class LocationsService {
     let apiUrlBuilder = new ApiUrlBuilder('Locations', {
       locationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ILocationUpdateModel, ILocationLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class LocationsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Locations/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ILocationUpdateItem>, Array<ILocationLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class LocationsService {
     let apiUrlBuilder = new ApiUrlBuilder('Locations', {
       locationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ILocationLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class LocationsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ILocationsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('Locations/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ILocationsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

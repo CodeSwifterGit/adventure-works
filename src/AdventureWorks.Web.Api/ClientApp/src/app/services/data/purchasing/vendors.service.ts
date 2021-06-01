@@ -33,6 +33,7 @@ export class VendorsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Vendors', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IVendor, IVendorLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class VendorsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Vendors/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IVendor>, Array<IVendorLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class VendorsService {
     let apiUrlBuilder = new ApiUrlBuilder('Vendors', {
       vendorID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class VendorsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Vendors/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IVendorPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class VendorsService {
     let apiUrlBuilder = new ApiUrlBuilder('Vendors', {
       vendorID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IVendorUpdateModel, IVendorLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class VendorsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Vendors/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IVendorUpdateItem>, Array<IVendorLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class VendorsService {
     let apiUrlBuilder = new ApiUrlBuilder('Vendors', {
       vendorID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IVendorLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class VendorsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IVendorsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('Vendors/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IVendorsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

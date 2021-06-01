@@ -22,7 +22,7 @@ namespace AdventureWorks.Domain.Entities.Sales
         #region Navigation Properties
 
 
-        public virtual ICollection<SpecialOfferProduct> SpecialOfferProducts { get; set; } = new List<SpecialOfferProduct>();
+        public ICollection<SpecialOfferProduct> SpecialOfferProducts { get; set; } = new List<SpecialOfferProduct>();
 
         #endregion
     }

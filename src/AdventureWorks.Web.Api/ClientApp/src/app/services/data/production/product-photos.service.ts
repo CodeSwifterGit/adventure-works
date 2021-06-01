@@ -33,6 +33,7 @@ export class ProductPhotosService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductPhotos', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IProductPhoto, IProductPhotoLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class ProductPhotosService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductPhotos/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IProductPhoto>, Array<IProductPhotoLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class ProductPhotosService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductPhotos', {
       productPhotoID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class ProductPhotosService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductPhotos/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IProductPhotoPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class ProductPhotosService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductPhotos', {
       productPhotoID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IProductPhotoUpdateModel, IProductPhotoLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class ProductPhotosService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductPhotos/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IProductPhotoUpdateItem>, Array<IProductPhotoLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class ProductPhotosService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductPhotos', {
       productPhotoID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductPhotoLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class ProductPhotosService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IProductPhotosListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('ProductPhotos/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductPhotosListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

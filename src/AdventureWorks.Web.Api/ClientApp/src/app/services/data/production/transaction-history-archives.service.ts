@@ -33,6 +33,7 @@ export class TransactionHistoryArchivesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistoryArchives', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ITransactionHistoryArchive, ITransactionHistoryArchiveLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class TransactionHistoryArchivesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistoryArchives/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ITransactionHistoryArchive>, Array<ITransactionHistoryArchiveLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class TransactionHistoryArchivesService {
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistoryArchives', {
       transactionID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class TransactionHistoryArchivesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistoryArchives/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ITransactionHistoryArchivePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class TransactionHistoryArchivesService {
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistoryArchives', {
       transactionID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ITransactionHistoryArchiveUpdateModel, ITransactionHistoryArchiveLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class TransactionHistoryArchivesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistoryArchives/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ITransactionHistoryArchiveUpdateItem>, Array<ITransactionHistoryArchiveLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class TransactionHistoryArchivesService {
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistoryArchives', {
       transactionID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ITransactionHistoryArchiveLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class TransactionHistoryArchivesService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ITransactionHistoryArchivesListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('TransactionHistoryArchives/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ITransactionHistoryArchivesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

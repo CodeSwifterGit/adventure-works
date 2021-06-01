@@ -34,6 +34,7 @@ export class ProductVendorsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductVendors', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IProductVendor, IProductVendorLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class ProductVendorsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductVendors/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IProductVendor>, Array<IProductVendorLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class ProductVendorsService {
       productID,
       vendorID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class ProductVendorsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductVendors/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IProductVendorPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class ProductVendorsService {
       productID,
       vendorID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IProductVendorUpdateModel, IProductVendorLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class ProductVendorsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductVendors/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IProductVendorUpdateItem>, Array<IProductVendorLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class ProductVendorsService {
       productID,
       vendorID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductVendorLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class ProductVendorsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductVendors/GetProductVendorsByProduct', {
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductVendorsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class ProductVendorsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductVendors/GetProductVendorsByUnitMeasure', {
       unitMeasureCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductVendorsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -144,6 +153,7 @@ export class ProductVendorsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductVendors/GetProductVendorsByVendor', {
       vendorID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductVendorsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

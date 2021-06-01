@@ -21,11 +21,11 @@ namespace AdventureWorks.Domain.Entities.Purchasing
 
         #region Navigation Properties
 
-        public virtual Product Product { get; set; }
+        public Product Product { get; set; }
 
-        public virtual UnitMeasure UnitMeasure { get; set; }
+        public UnitMeasure UnitMeasure { get; set; }
 
-        public virtual Vendor Vendor { get; set; }
+        public Vendor Vendor { get; set; }
 
 
         #endregion

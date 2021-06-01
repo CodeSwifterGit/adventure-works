@@ -22,24 +22,26 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual Address Address { get; set; }
+        public Address BillToAddress { get; set; }
 
-        public virtual Contact Contact { get; set; }
+        public Address ShipToAddress { get; set; }
 
-        public virtual CreditCard CreditCard { get; set; }
+        public Contact Contact { get; set; }
 
-        public virtual CurrencyRate CurrencyRate { get; set; }
+        public CreditCard CreditCard { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public CurrencyRate CurrencyRate { get; set; }
 
-        public virtual SalesPerson SalesPerson { get; set; }
+        public Customer Customer { get; set; }
 
-        public virtual SalesTerritory SalesTerritory { get; set; }
+        public SalesPerson SalesPerson { get; set; }
 
-        public virtual ShipMethod ShipMethod { get; set; }
-        public virtual ICollection<SalesOrderDetail> SalesOrderDetails { get; set; } = new List<SalesOrderDetail>();
+        public SalesTerritory SalesTerritory { get; set; }
 
-        public virtual ICollection<SalesOrderHeaderSalesReason> SalesOrderHeaderSalesReasons { get; set; } = new List<SalesOrderHeaderSalesReason>();
+        public ShipMethod ShipMethod { get; set; }
+        public ICollection<SalesOrderDetail> SalesOrderDetails { get; set; } = new List<SalesOrderDetail>();
+
+        public ICollection<SalesOrderHeaderSalesReason> SalesOrderHeaderSalesReasons { get; set; } = new List<SalesOrderHeaderSalesReason>();
 
         #endregion
     }

@@ -33,6 +33,7 @@ export class ShipMethodsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ShipMethods', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IShipMethod, IShipMethodLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class ShipMethodsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ShipMethods/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IShipMethod>, Array<IShipMethodLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class ShipMethodsService {
     let apiUrlBuilder = new ApiUrlBuilder('ShipMethods', {
       shipMethodID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class ShipMethodsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ShipMethods/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IShipMethodPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class ShipMethodsService {
     let apiUrlBuilder = new ApiUrlBuilder('ShipMethods', {
       shipMethodID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IShipMethodUpdateModel, IShipMethodLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class ShipMethodsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ShipMethods/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IShipMethodUpdateItem>, Array<IShipMethodLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class ShipMethodsService {
     let apiUrlBuilder = new ApiUrlBuilder('ShipMethods', {
       shipMethodID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IShipMethodLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class ShipMethodsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IShipMethodsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('ShipMethods/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IShipMethodsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

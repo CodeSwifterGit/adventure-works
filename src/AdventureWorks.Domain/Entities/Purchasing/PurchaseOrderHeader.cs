@@ -21,12 +21,12 @@ namespace AdventureWorks.Domain.Entities.Purchasing
 
         #region Navigation Properties
 
-        public virtual Employee Employee { get; set; }
+        public Employee Employee { get; set; }
 
-        public virtual ShipMethod ShipMethod { get; set; }
+        public ShipMethod ShipMethod { get; set; }
 
-        public virtual Vendor Vendor { get; set; }
-        public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; } = new List<PurchaseOrderDetail>();
+        public Vendor Vendor { get; set; }
+        public ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; } = new List<PurchaseOrderDetail>();
 
         #endregion
     }

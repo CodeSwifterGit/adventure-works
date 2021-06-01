@@ -21,9 +21,9 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual Contact Contact { get; set; }
+        public Contact Contact { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public Customer Customer { get; set; }
 
 
         #endregion

@@ -34,6 +34,7 @@ export class SpecialOfferProductsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOfferProducts', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ISpecialOfferProduct, ISpecialOfferProductLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class SpecialOfferProductsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOfferProducts/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ISpecialOfferProduct>, Array<ISpecialOfferProductLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class SpecialOfferProductsService {
       specialOfferID,
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class SpecialOfferProductsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOfferProducts/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ISpecialOfferProductPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class SpecialOfferProductsService {
       specialOfferID,
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ISpecialOfferProductUpdateModel, ISpecialOfferProductLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class SpecialOfferProductsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOfferProducts/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ISpecialOfferProductUpdateItem>, Array<ISpecialOfferProductLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class SpecialOfferProductsService {
       specialOfferID,
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISpecialOfferProductLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class SpecialOfferProductsService {
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOfferProducts/GetSpecialOfferProductsByProduct', {
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISpecialOfferProductsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class SpecialOfferProductsService {
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOfferProducts/GetSpecialOfferProductsBySpecialOffer', {
       specialOfferID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISpecialOfferProductsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

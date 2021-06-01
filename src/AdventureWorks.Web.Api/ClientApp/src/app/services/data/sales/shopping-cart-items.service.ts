@@ -33,6 +33,7 @@ export class ShoppingCartItemsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ShoppingCartItems', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IShoppingCartItem, IShoppingCartItemLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class ShoppingCartItemsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ShoppingCartItems/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IShoppingCartItem>, Array<IShoppingCartItemLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class ShoppingCartItemsService {
     let apiUrlBuilder = new ApiUrlBuilder('ShoppingCartItems', {
       shoppingCartItemID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class ShoppingCartItemsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ShoppingCartItems/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IShoppingCartItemPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class ShoppingCartItemsService {
     let apiUrlBuilder = new ApiUrlBuilder('ShoppingCartItems', {
       shoppingCartItemID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IShoppingCartItemUpdateModel, IShoppingCartItemLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class ShoppingCartItemsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ShoppingCartItems/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IShoppingCartItemUpdateItem>, Array<IShoppingCartItemLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class ShoppingCartItemsService {
     let apiUrlBuilder = new ApiUrlBuilder('ShoppingCartItems', {
       shoppingCartItemID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IShoppingCartItemLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class ShoppingCartItemsService {
     let apiUrlBuilder = new ApiUrlBuilder('ShoppingCartItems/GetShoppingCartItemsByProduct', {
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IShoppingCartItemsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -27,7 +27,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.CurrencyCode })

@@ -33,6 +33,7 @@ export class ProductDescriptionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductDescriptions', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IProductDescription, IProductDescriptionLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class ProductDescriptionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductDescriptions/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IProductDescription>, Array<IProductDescriptionLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class ProductDescriptionsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductDescriptions', {
       productDescriptionID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class ProductDescriptionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductDescriptions/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IProductDescriptionPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class ProductDescriptionsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductDescriptions', {
       productDescriptionID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IProductDescriptionUpdateModel, IProductDescriptionLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class ProductDescriptionsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductDescriptions/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IProductDescriptionUpdateItem>, Array<IProductDescriptionLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class ProductDescriptionsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductDescriptions', {
       productDescriptionID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductDescriptionLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class ProductDescriptionsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IProductDescriptionsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('ProductDescriptions/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductDescriptionsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -33,6 +33,7 @@ export class JobCandidatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('JobCandidates', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IJobCandidate, IJobCandidateLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class JobCandidatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('JobCandidates/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IJobCandidate>, Array<IJobCandidateLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class JobCandidatesService {
     let apiUrlBuilder = new ApiUrlBuilder('JobCandidates', {
       jobCandidateID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class JobCandidatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('JobCandidates/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IJobCandidatePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class JobCandidatesService {
     let apiUrlBuilder = new ApiUrlBuilder('JobCandidates', {
       jobCandidateID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IJobCandidateUpdateModel, IJobCandidateLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class JobCandidatesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('JobCandidates/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IJobCandidateUpdateItem>, Array<IJobCandidateLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class JobCandidatesService {
     let apiUrlBuilder = new ApiUrlBuilder('JobCandidates', {
       jobCandidateID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IJobCandidateLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class JobCandidatesService {
     let apiUrlBuilder = new ApiUrlBuilder('JobCandidates/GetJobCandidatesByEmployee', {
       employeeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IJobCandidatesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -21,11 +21,11 @@ namespace AdventureWorks.Domain.Entities.Purchasing
 
         #region Navigation Properties
 
-        public virtual Address Address { get; set; }
+        public Address Address { get; set; }
 
-        public virtual AddressType AddressType { get; set; }
+        public AddressType AddressType { get; set; }
 
-        public virtual Vendor Vendor { get; set; }
+        public Vendor Vendor { get; set; }
 
 
         #endregion

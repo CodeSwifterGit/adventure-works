@@ -34,6 +34,7 @@ export class CustomerAddressesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CustomerAddresses', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ICustomerAddress, ICustomerAddressLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class CustomerAddressesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CustomerAddresses/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ICustomerAddress>, Array<ICustomerAddressLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class CustomerAddressesService {
       customerID,
       addressID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class CustomerAddressesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CustomerAddresses/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ICustomerAddressPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class CustomerAddressesService {
       customerID,
       addressID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ICustomerAddressUpdateModel, ICustomerAddressLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class CustomerAddressesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('CustomerAddresses/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ICustomerAddressUpdateItem>, Array<ICustomerAddressLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class CustomerAddressesService {
       customerID,
       addressID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICustomerAddressLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class CustomerAddressesService {
     let apiUrlBuilder = new ApiUrlBuilder('CustomerAddresses/GetCustomerAddressesByAddress', {
       addressID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICustomerAddressesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class CustomerAddressesService {
     let apiUrlBuilder = new ApiUrlBuilder('CustomerAddresses/GetCustomerAddressesByAddressType', {
       addressTypeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICustomerAddressesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -144,6 +153,7 @@ export class CustomerAddressesService {
     let apiUrlBuilder = new ApiUrlBuilder('CustomerAddresses/GetCustomerAddressesByCustomer', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ICustomerAddressesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

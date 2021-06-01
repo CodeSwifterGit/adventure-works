@@ -33,6 +33,7 @@ export class DepartmentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Departments', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IDepartment, IDepartmentLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class DepartmentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Departments/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IDepartment>, Array<IDepartmentLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class DepartmentsService {
     let apiUrlBuilder = new ApiUrlBuilder('Departments', {
       departmentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class DepartmentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Departments/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IDepartmentPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class DepartmentsService {
     let apiUrlBuilder = new ApiUrlBuilder('Departments', {
       departmentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IDepartmentUpdateModel, IDepartmentLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class DepartmentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Departments/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IDepartmentUpdateItem>, Array<IDepartmentLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class DepartmentsService {
     let apiUrlBuilder = new ApiUrlBuilder('Departments', {
       departmentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IDepartmentLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class DepartmentsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IDepartmentsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('Departments/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IDepartmentsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -33,6 +33,7 @@ export class SalesTerritoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritories', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ISalesTerritory, ISalesTerritoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class SalesTerritoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritories/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ISalesTerritory>, Array<ISalesTerritoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class SalesTerritoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritories', {
       territoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class SalesTerritoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritories/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ISalesTerritoryPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class SalesTerritoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritories', {
       territoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ISalesTerritoryUpdateModel, ISalesTerritoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class SalesTerritoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritories/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ISalesTerritoryUpdateItem>, Array<ISalesTerritoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class SalesTerritoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritories', {
       territoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesTerritoryLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class SalesTerritoriesService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ISalesTerritoriesListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('SalesTerritories/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesTerritoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

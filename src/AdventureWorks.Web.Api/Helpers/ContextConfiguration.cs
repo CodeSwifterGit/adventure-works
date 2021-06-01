@@ -15,7 +15,7 @@ namespace AdventureWorks.Web.Api.Helpers
     o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
 });
 
-                    options.UseLazyLoadingProxies(true);
+                    options.UseLazyLoadingProxies(false);
                 }
             );
             return services;

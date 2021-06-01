@@ -34,6 +34,7 @@ export class ProductDocumentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductDocuments', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IProductDocument, IProductDocumentLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class ProductDocumentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductDocuments/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IProductDocument>, Array<IProductDocumentLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class ProductDocumentsService {
       productID,
       documentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class ProductDocumentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductDocuments/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IProductDocumentPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class ProductDocumentsService {
       productID,
       documentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IProductDocumentUpdateModel, IProductDocumentLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class ProductDocumentsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductDocuments/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IProductDocumentUpdateItem>, Array<IProductDocumentLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class ProductDocumentsService {
       productID,
       documentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductDocumentLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class ProductDocumentsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductDocuments/GetProductDocumentsByDocument', {
       documentID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductDocumentsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class ProductDocumentsService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductDocuments/GetProductDocumentsByProduct', {
       productID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductDocumentsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

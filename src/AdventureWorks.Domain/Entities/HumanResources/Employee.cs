@@ -23,22 +23,22 @@ namespace AdventureWorks.Domain.Entities.HumanResources
 
         #region Navigation Properties
 
-        public virtual Contact Contact { get; set; }
+        public Contact Contact { get; set; }
 
-        public virtual Employee Manager { get; set; }
-        public virtual ICollection<Employee> Managers { get; set; } = new List<Employee>();
+        public Employee Manager { get; set; }
+        public ICollection<Employee> Managers { get; set; } = new List<Employee>();
 
-        public virtual ICollection<EmployeeAddress> EmployeeAddresses { get; set; } = new List<EmployeeAddress>();
+        public ICollection<EmployeeAddress> EmployeeAddresses { get; set; } = new List<EmployeeAddress>();
 
-        public virtual ICollection<EmployeeDepartmentHistory> EmployeeDepartmentHistories { get; set; } = new List<EmployeeDepartmentHistory>();
+        public ICollection<EmployeeDepartmentHistory> EmployeeDepartmentHistories { get; set; } = new List<EmployeeDepartmentHistory>();
 
-        public virtual ICollection<EmployeePayHistory> EmployeePayHistories { get; set; } = new List<EmployeePayHistory>();
+        public ICollection<EmployeePayHistory> EmployeePayHistories { get; set; } = new List<EmployeePayHistory>();
 
-        public virtual ICollection<JobCandidate> JobCandidates { get; set; } = new List<JobCandidate>();
+        public ICollection<JobCandidate> JobCandidates { get; set; } = new List<JobCandidate>();
 
-        public virtual ICollection<PurchaseOrderHeader> PurchaseOrderHeaders { get; set; } = new List<PurchaseOrderHeader>();
+        public ICollection<PurchaseOrderHeader> PurchaseOrderHeaders { get; set; } = new List<PurchaseOrderHeader>();
 
-        public virtual ICollection<SalesPerson> SalesPeople { get; set; } = new List<SalesPerson>();
+        public ICollection<SalesPerson> SalesPeople { get; set; } = new List<SalesPerson>();
 
         #endregion
     }

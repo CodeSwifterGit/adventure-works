@@ -27,7 +27,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
 
             builder.Property(p => p.DiscountPct)
             .HasColumnType("smallmoney")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.Type)
             .HasColumnType("nvarchar(50)")
@@ -45,7 +45,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
 
             builder.Property(p => p.MinQty)
             .HasColumnType("int")
-            .HasDefaultValue("((0))");
+            .HasDefaultValueSql("((0))");
 
             builder.Property(p => p.MaxQty)
             .HasColumnType("int");
@@ -53,11 +53,11 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.Property(p => p.Rowguid)
             .HasColumnName("rowguid")
             .HasColumnType("uniqueidentifier")
-            .HasDefaultValue("(newid())");
+            .HasDefaultValueSql("(newid())");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.Rowguid })

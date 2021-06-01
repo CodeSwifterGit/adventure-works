@@ -8,8 +8,8 @@ using AdventureWorks.Application.DataEngine.Dbo.DatabaseLog.Commands.UpdateDatab
 using AdventureWorks.Application.DataEngine.Dbo.DatabaseLog.Queries.GetDatabaseLogs;
 using AdventureWorks.Application.Interfaces;
 using AdventureWorks.Application.Services;
-using AdventureWorks.Common.Interfaces;
 using AdventureWorks.Domain;
+using AdventureWorks.Common.Interfaces;
 using Microsoft.Extensions.Logging;
 using Entities = AdventureWorks.Domain.Entities.Dbo;
 

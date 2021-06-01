@@ -23,14 +23,16 @@ namespace AdventureWorks.Domain.Entities.Person
 
         #region Navigation Properties
 
-        public virtual StateProvince StateProvince { get; set; }
-        public virtual ICollection<CustomerAddress> CustomerAddresses { get; set; } = new List<CustomerAddress>();
+        public StateProvince StateProvince { get; set; }
+        public ICollection<CustomerAddress> CustomerAddresses { get; set; } = new List<CustomerAddress>();
 
-        public virtual ICollection<EmployeeAddress> EmployeeAddresses { get; set; } = new List<EmployeeAddress>();
+        public ICollection<EmployeeAddress> EmployeeAddresses { get; set; } = new List<EmployeeAddress>();
 
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
+        public ICollection<SalesOrderHeader> SalesOrderShipToHeaders { get; set; } = new List<SalesOrderHeader>();
 
-        public virtual ICollection<VendorAddress> VendorAddresses { get; set; } = new List<VendorAddress>();
+        public ICollection<SalesOrderHeader> SalesOrderBillToHeaders { get; set; } = new List<SalesOrderHeader>();
+
+        public ICollection<VendorAddress> VendorAddresses { get; set; } = new List<VendorAddress>();
 
         #endregion
     }

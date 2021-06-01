@@ -33,6 +33,7 @@ export class SpecialOffersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOffers', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ISpecialOffer, ISpecialOfferLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class SpecialOffersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOffers/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ISpecialOffer>, Array<ISpecialOfferLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class SpecialOffersService {
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOffers', {
       specialOfferID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class SpecialOffersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOffers/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ISpecialOfferPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class SpecialOffersService {
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOffers', {
       specialOfferID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ISpecialOfferUpdateModel, ISpecialOfferLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class SpecialOffersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOffers/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ISpecialOfferUpdateItem>, Array<ISpecialOfferLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class SpecialOffersService {
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOffers', {
       specialOfferID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISpecialOfferLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class SpecialOffersService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ISpecialOffersListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('SpecialOffers/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISpecialOffersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -33,6 +33,7 @@ export class ShiftsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Shifts', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IShift, IShiftLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class ShiftsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Shifts/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IShift>, Array<IShiftLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class ShiftsService {
     let apiUrlBuilder = new ApiUrlBuilder('Shifts', {
       shiftID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class ShiftsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Shifts/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IShiftPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class ShiftsService {
     let apiUrlBuilder = new ApiUrlBuilder('Shifts', {
       shiftID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IShiftUpdateModel, IShiftLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class ShiftsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Shifts/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IShiftUpdateItem>, Array<IShiftLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class ShiftsService {
     let apiUrlBuilder = new ApiUrlBuilder('Shifts', {
       shiftID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IShiftLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class ShiftsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IShiftsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('Shifts/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IShiftsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

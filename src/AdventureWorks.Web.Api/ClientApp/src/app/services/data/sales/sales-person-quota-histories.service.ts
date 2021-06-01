@@ -34,6 +34,7 @@ export class SalesPersonQuotaHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesPersonQuotaHistories', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ISalesPersonQuotaHistory, ISalesPersonQuotaHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class SalesPersonQuotaHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesPersonQuotaHistories/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ISalesPersonQuotaHistory>, Array<ISalesPersonQuotaHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class SalesPersonQuotaHistoriesService {
       salesPersonID,
       quotaDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class SalesPersonQuotaHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesPersonQuotaHistories/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ISalesPersonQuotaHistoryPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class SalesPersonQuotaHistoriesService {
       salesPersonID,
       quotaDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ISalesPersonQuotaHistoryUpdateModel, ISalesPersonQuotaHistoryLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class SalesPersonQuotaHistoriesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesPersonQuotaHistories/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ISalesPersonQuotaHistoryUpdateItem>, Array<ISalesPersonQuotaHistoryLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class SalesPersonQuotaHistoriesService {
       salesPersonID,
       quotaDate,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesPersonQuotaHistoryLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class SalesPersonQuotaHistoriesService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesPersonQuotaHistories/GetSalesPersonQuotaHistoriesBySalesPerson', {
       salesPersonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesPersonQuotaHistoriesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

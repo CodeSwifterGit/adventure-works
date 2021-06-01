@@ -21,7 +21,7 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual StateProvince StateProvince { get; set; }
+        public StateProvince StateProvince { get; set; }
 
 
         #endregion

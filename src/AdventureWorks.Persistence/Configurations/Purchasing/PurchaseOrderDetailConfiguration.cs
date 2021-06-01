@@ -53,7 +53,7 @@ namespace AdventureWorks.Persistence.Configurations.Purchasing
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.ProductID })

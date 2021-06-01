@@ -28,18 +28,18 @@ namespace AdventureWorks.Persistence.Configurations.Sales
 
             builder.Property(p => p.Quantity)
             .HasColumnType("int")
-            .HasDefaultValue("((1))");
+            .HasDefaultValueSql("((1))");
 
             builder.Property(p => p.ProductID)
             .HasColumnType("int");
 
             builder.Property(p => p.DateCreated)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.ProductID, e.ShoppingCartID })

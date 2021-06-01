@@ -34,6 +34,7 @@ export class SalesOrderDetailsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderDetails', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ISalesOrderDetail, ISalesOrderDetailLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class SalesOrderDetailsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderDetails/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ISalesOrderDetail>, Array<ISalesOrderDetailLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class SalesOrderDetailsService {
       salesOrderID,
       salesOrderDetailID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class SalesOrderDetailsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderDetails/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ISalesOrderDetailPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class SalesOrderDetailsService {
       salesOrderID,
       salesOrderDetailID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ISalesOrderDetailUpdateModel, ISalesOrderDetailLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class SalesOrderDetailsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderDetails/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ISalesOrderDetailUpdateItem>, Array<ISalesOrderDetailLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class SalesOrderDetailsService {
       salesOrderID,
       salesOrderDetailID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderDetailLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class SalesOrderDetailsService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderDetails/GetSalesOrderDetailsBySalesOrderHeader', {
       salesOrderID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderDetailsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -135,6 +143,7 @@ export class SalesOrderDetailsService {
       productID,
       specialOfferID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderDetailsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

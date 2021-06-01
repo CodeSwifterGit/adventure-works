@@ -21,9 +21,9 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual CountryRegion CountryRegion { get; set; }
+        public CountryRegion CountryRegion { get; set; }
 
-        public virtual Currency Currency { get; set; }
+        public Currency Currency { get; set; }
 
 
         #endregion

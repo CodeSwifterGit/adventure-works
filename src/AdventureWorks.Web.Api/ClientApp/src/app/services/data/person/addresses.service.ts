@@ -33,6 +33,7 @@ export class AddressesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Addresses', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IAddress, IAddressLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class AddressesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Addresses/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IAddress>, Array<IAddressLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class AddressesService {
     let apiUrlBuilder = new ApiUrlBuilder('Addresses', {
       addressID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class AddressesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Addresses/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IAddressPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class AddressesService {
     let apiUrlBuilder = new ApiUrlBuilder('Addresses', {
       addressID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IAddressUpdateModel, IAddressLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class AddressesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Addresses/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IAddressUpdateItem>, Array<IAddressLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class AddressesService {
     let apiUrlBuilder = new ApiUrlBuilder('Addresses', {
       addressID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IAddressLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class AddressesService {
     let apiUrlBuilder = new ApiUrlBuilder('Addresses/GetAddressesByStateProvince', {
       stateProvinceID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IAddressesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -33,6 +33,7 @@ export class ScrapReasonsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ScrapReasons', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IScrapReason, IScrapReasonLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class ScrapReasonsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ScrapReasons/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IScrapReason>, Array<IScrapReasonLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class ScrapReasonsService {
     let apiUrlBuilder = new ApiUrlBuilder('ScrapReasons', {
       scrapReasonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class ScrapReasonsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ScrapReasons/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IScrapReasonPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class ScrapReasonsService {
     let apiUrlBuilder = new ApiUrlBuilder('ScrapReasons', {
       scrapReasonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IScrapReasonUpdateModel, IScrapReasonLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class ScrapReasonsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ScrapReasons/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IScrapReasonUpdateItem>, Array<IScrapReasonLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class ScrapReasonsService {
     let apiUrlBuilder = new ApiUrlBuilder('ScrapReasons', {
       scrapReasonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IScrapReasonLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class ScrapReasonsService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IScrapReasonsListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('ScrapReasons/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IScrapReasonsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

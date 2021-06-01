@@ -30,7 +30,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
 
             builder.Property(p => p.TaxRate)
             .HasColumnType("smallmoney")
-            .HasDefaultValue("((0.00))");
+            .HasDefaultValueSql("((0.00))");
 
             builder.Property(p => p.Name)
             .HasColumnType("nvarchar(50)")
@@ -39,11 +39,11 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.Property(p => p.Rowguid)
             .HasColumnName("rowguid")
             .HasColumnType("uniqueidentifier")
-            .HasDefaultValue("(newid())");
+            .HasDefaultValueSql("(newid())");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.StateProvinceID, e.TaxType })

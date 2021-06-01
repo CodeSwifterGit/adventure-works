@@ -22,15 +22,15 @@ namespace AdventureWorks.Domain.Entities.Sales
         #region Navigation Properties
 
 
-        public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
+        public ICollection<Customer> Customers { get; set; } = new List<Customer>();
 
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
+        public ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
 
-        public virtual ICollection<SalesPerson> SalesPeople { get; set; } = new List<SalesPerson>();
+        public ICollection<SalesPerson> SalesPeople { get; set; } = new List<SalesPerson>();
 
-        public virtual ICollection<SalesTerritoryHistory> SalesTerritoryHistories { get; set; } = new List<SalesTerritoryHistory>();
+        public ICollection<SalesTerritoryHistory> SalesTerritoryHistories { get; set; } = new List<SalesTerritoryHistory>();
 
-        public virtual ICollection<StateProvince> StateProvinces { get; set; } = new List<StateProvince>();
+        public ICollection<StateProvince> StateProvinces { get; set; } = new List<StateProvince>();
 
         #endregion
     }

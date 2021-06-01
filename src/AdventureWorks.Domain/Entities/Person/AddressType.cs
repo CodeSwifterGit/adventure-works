@@ -23,9 +23,9 @@ namespace AdventureWorks.Domain.Entities.Person
         #region Navigation Properties
 
 
-        public virtual ICollection<CustomerAddress> CustomerAddresses { get; set; } = new List<CustomerAddress>();
+        public ICollection<CustomerAddress> CustomerAddresses { get; set; } = new List<CustomerAddress>();
 
-        public virtual ICollection<VendorAddress> VendorAddresses { get; set; } = new List<VendorAddress>();
+        public ICollection<VendorAddress> VendorAddresses { get; set; } = new List<VendorAddress>();
 
         #endregion
     }

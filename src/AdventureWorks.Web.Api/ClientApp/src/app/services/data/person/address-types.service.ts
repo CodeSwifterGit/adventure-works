@@ -33,6 +33,7 @@ export class AddressTypesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('AddressTypes', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IAddressType, IAddressTypeLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class AddressTypesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('AddressTypes/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IAddressType>, Array<IAddressTypeLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class AddressTypesService {
     let apiUrlBuilder = new ApiUrlBuilder('AddressTypes', {
       addressTypeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class AddressTypesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('AddressTypes/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IAddressTypePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class AddressTypesService {
     let apiUrlBuilder = new ApiUrlBuilder('AddressTypes', {
       addressTypeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IAddressTypeUpdateModel, IAddressTypeLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class AddressTypesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('AddressTypes/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IAddressTypeUpdateItem>, Array<IAddressTypeLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class AddressTypesService {
     let apiUrlBuilder = new ApiUrlBuilder('AddressTypes', {
       addressTypeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IAddressTypeLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -118,6 +125,7 @@ export class AddressTypesService {
   getAll(options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IAddressTypesListViewModel>>;
   getAll(options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let apiUrlBuilder = new ApiUrlBuilder('AddressTypes/all', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IAddressTypesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

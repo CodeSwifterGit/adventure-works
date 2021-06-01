@@ -33,6 +33,7 @@ export class SalesOrderHeadersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<ISalesOrderHeader, ISalesOrderHeaderLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class SalesOrderHeadersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<ISalesOrderHeader>, Array<ISalesOrderHeaderLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class SalesOrderHeadersService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders', {
       salesOrderID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class SalesOrderHeadersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<ISalesOrderHeaderPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class SalesOrderHeadersService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders', {
       salesOrderID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<ISalesOrderHeaderUpdateModel, ISalesOrderHeaderLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class SalesOrderHeadersService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<ISalesOrderHeaderUpdateItem>, Array<ISalesOrderHeaderLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class SalesOrderHeadersService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders', {
       salesOrderID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderHeaderLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -121,6 +128,7 @@ export class SalesOrderHeadersService {
       billToAddressID,
       shipToAddressID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderHeadersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -131,6 +139,7 @@ export class SalesOrderHeadersService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/GetSalesOrderHeadersByContact', {
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderHeadersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -141,6 +150,7 @@ export class SalesOrderHeadersService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/GetSalesOrderHeadersByCreditCard', {
       creditCardID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderHeadersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -151,6 +161,7 @@ export class SalesOrderHeadersService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/GetSalesOrderHeadersByCurrencyRate', {
       currencyRateID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderHeadersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -161,6 +172,7 @@ export class SalesOrderHeadersService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/GetSalesOrderHeadersByCustomer', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderHeadersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -171,6 +183,7 @@ export class SalesOrderHeadersService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/GetSalesOrderHeadersBySalesPerson', {
       salesPersonID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderHeadersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -181,6 +194,7 @@ export class SalesOrderHeadersService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/GetSalesOrderHeadersBySalesTerritory', {
       territoryID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderHeadersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -191,6 +205,7 @@ export class SalesOrderHeadersService {
     let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/GetSalesOrderHeadersByShipMethod', {
       shipMethodID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<ISalesOrderHeadersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -21,10 +21,10 @@ namespace AdventureWorks.Domain.Entities.Sales
 
         #region Navigation Properties
 
-        public virtual Product Product { get; set; }
+        public Product Product { get; set; }
 
-        public virtual SpecialOffer SpecialOffer { get; set; }
-        public virtual ICollection<SalesOrderDetail> SalesOrderSpecialProductDetails { get; set; } = new List<SalesOrderDetail>();
+        public SpecialOffer SpecialOffer { get; set; }
+        public ICollection<SalesOrderDetail> SalesOrderSpecialProductDetails { get; set; } = new List<SalesOrderDetail>();
 
         #endregion
     }

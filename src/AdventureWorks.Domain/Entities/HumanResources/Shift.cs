@@ -22,7 +22,7 @@ namespace AdventureWorks.Domain.Entities.HumanResources
         #region Navigation Properties
 
 
-        public virtual ICollection<EmployeeDepartmentHistory> EmployeeDepartmentHistories { get; set; } = new List<EmployeeDepartmentHistory>();
+        public ICollection<EmployeeDepartmentHistory> EmployeeDepartmentHistories { get; set; } = new List<EmployeeDepartmentHistory>();
 
         #endregion
     }

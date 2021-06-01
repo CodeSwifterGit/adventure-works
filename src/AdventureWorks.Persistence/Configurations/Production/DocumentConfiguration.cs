@@ -40,7 +40,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             builder.Property(p => p.ChangeNumber)
             .HasColumnType("int")
-            .HasDefaultValue("((0))");
+            .HasDefaultValueSql("((0))");
 
             builder.Property(p => p.Status)
             .HasColumnType("tinyint");
@@ -53,7 +53,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.FileName, e.Revision })

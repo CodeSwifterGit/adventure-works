@@ -42,7 +42,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
 
             builder.Property(p => p.UnitPriceDiscount)
             .HasColumnType("money")
-            .HasDefaultValue("((0.0))");
+            .HasDefaultValueSql("((0.0))");
 
             builder.Property(p => p.LineTotal)
             .HasColumnType("numeric")
@@ -51,11 +51,11 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.Property(p => p.Rowguid)
             .HasColumnName("rowguid")
             .HasColumnType("uniqueidentifier")
-            .HasDefaultValue("(newid())");
+            .HasDefaultValueSql("(newid())");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.Rowguid })

@@ -35,6 +35,7 @@ export class ProductModelProductDescriptionCulturesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelProductDescriptionCultures', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IProductModelProductDescriptionCulture, IProductModelProductDescriptionCultureLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -48,6 +49,7 @@ export class ProductModelProductDescriptionCulturesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelProductDescriptionCultures/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IProductModelProductDescriptionCulture>, Array<IProductModelProductDescriptionCultureLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -61,6 +63,7 @@ export class ProductModelProductDescriptionCulturesService {
       productDescriptionID,
       cultureID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -74,6 +77,7 @@ export class ProductModelProductDescriptionCulturesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelProductDescriptionCultures/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IProductModelProductDescriptionCulturePrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -91,6 +95,7 @@ export class ProductModelProductDescriptionCulturesService {
       productDescriptionID,
       cultureID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IProductModelProductDescriptionCultureUpdateModel, IProductModelProductDescriptionCultureLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -104,6 +109,7 @@ export class ProductModelProductDescriptionCulturesService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelProductDescriptionCultures/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IProductModelProductDescriptionCultureUpdateItem>, Array<IProductModelProductDescriptionCultureLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -117,6 +123,7 @@ export class ProductModelProductDescriptionCulturesService {
       productDescriptionID,
       cultureID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductModelProductDescriptionCultureLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -128,6 +135,7 @@ export class ProductModelProductDescriptionCulturesService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelProductDescriptionCultures/GetProductModelProductDescriptionCulturesByCulture', {
       cultureID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductModelProductDescriptionCulturesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -138,6 +146,7 @@ export class ProductModelProductDescriptionCulturesService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelProductDescriptionCultures/GetProductModelProductDescriptionCulturesByProductDescription', {
       productDescriptionID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductModelProductDescriptionCulturesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -148,6 +157,7 @@ export class ProductModelProductDescriptionCulturesService {
     let apiUrlBuilder = new ApiUrlBuilder('ProductModelProductDescriptionCultures/GetProductModelProductDescriptionCulturesByProductModel', {
       productModelID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IProductModelProductDescriptionCulturesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

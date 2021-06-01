@@ -34,6 +34,7 @@ export class StoreContactsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('StoreContacts', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IStoreContact, IStoreContactLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -47,6 +48,7 @@ export class StoreContactsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('StoreContacts/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IStoreContact>, Array<IStoreContactLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -59,6 +61,7 @@ export class StoreContactsService {
       customerID,
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -72,6 +75,7 @@ export class StoreContactsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('StoreContacts/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IStoreContactPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -88,6 +92,7 @@ export class StoreContactsService {
       customerID,
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IStoreContactUpdateModel, IStoreContactLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -101,6 +106,7 @@ export class StoreContactsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('StoreContacts/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IStoreContactUpdateItem>, Array<IStoreContactLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -113,6 +119,7 @@ export class StoreContactsService {
       customerID,
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IStoreContactLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -124,6 +131,7 @@ export class StoreContactsService {
     let apiUrlBuilder = new ApiUrlBuilder('StoreContacts/GetStoreContactsByContact', {
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IStoreContactsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -134,6 +142,7 @@ export class StoreContactsService {
     let apiUrlBuilder = new ApiUrlBuilder('StoreContacts/GetStoreContactsByContactType', {
       contactTypeID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IStoreContactsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -144,6 +153,7 @@ export class StoreContactsService {
     let apiUrlBuilder = new ApiUrlBuilder('StoreContacts/GetStoreContactsByStore', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IStoreContactsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

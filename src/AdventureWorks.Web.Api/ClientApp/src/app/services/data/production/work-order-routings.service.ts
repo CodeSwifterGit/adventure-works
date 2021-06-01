@@ -35,6 +35,7 @@ export class WorkOrderRoutingsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('WorkOrderRoutings', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IWorkOrderRouting, IWorkOrderRoutingLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -48,6 +49,7 @@ export class WorkOrderRoutingsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('WorkOrderRoutings/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IWorkOrderRouting>, Array<IWorkOrderRoutingLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -61,6 +63,7 @@ export class WorkOrderRoutingsService {
       productID,
       operationSequence,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -74,6 +77,7 @@ export class WorkOrderRoutingsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('WorkOrderRoutings/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IWorkOrderRoutingPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -91,6 +95,7 @@ export class WorkOrderRoutingsService {
       productID,
       operationSequence,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IWorkOrderRoutingUpdateModel, IWorkOrderRoutingLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -104,6 +109,7 @@ export class WorkOrderRoutingsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('WorkOrderRoutings/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IWorkOrderRoutingUpdateItem>, Array<IWorkOrderRoutingLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -117,6 +123,7 @@ export class WorkOrderRoutingsService {
       productID,
       operationSequence,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IWorkOrderRoutingLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -128,6 +135,7 @@ export class WorkOrderRoutingsService {
     let apiUrlBuilder = new ApiUrlBuilder('WorkOrderRoutings/GetWorkOrderRoutingsByLocation', {
       locationID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IWorkOrderRoutingsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -138,6 +146,7 @@ export class WorkOrderRoutingsService {
     let apiUrlBuilder = new ApiUrlBuilder('WorkOrderRoutings/GetWorkOrderRoutingsByWorkOrder', {
       workOrderID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IWorkOrderRoutingsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -33,6 +33,7 @@ export class BillOfMaterialsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IBillOfMaterials, IBillOfMaterialsLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class BillOfMaterialsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IBillOfMaterials>, Array<IBillOfMaterialsLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class BillOfMaterialsService {
     let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials', {
       billOfMaterialsID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class BillOfMaterialsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IBillOfMaterialsPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class BillOfMaterialsService {
     let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials', {
       billOfMaterialsID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IBillOfMaterialsUpdateModel, IBillOfMaterialsLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class BillOfMaterialsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IBillOfMaterialsUpdateItem>, Array<IBillOfMaterialsLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,18 +115,30 @@ export class BillOfMaterialsService {
     let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials', {
       billOfMaterialsID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IBillOfMaterialsLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
 
-  getByProduct(productAssemblyID: number | null, componentID: number, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IBillOfMaterialsListViewModel>;
-  getByProduct(productAssemblyID: number | null, componentID: number, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IBillOfMaterialsListViewModel>>;
-  getByProduct(productAssemblyID: number | null, componentID: number, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IBillOfMaterialsListViewModel>>;
-  getByProduct(productAssemblyID: number | null, componentID: number, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
-    let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials/GetBillOfMaterialsByProduct', {
-      productAssemblyID,
+  getByComponentProduct(componentID: number, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IBillOfMaterialsListViewModel>;
+  getByComponentProduct(componentID: number, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IBillOfMaterialsListViewModel>>;
+  getByComponentProduct(componentID: number, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IBillOfMaterialsListViewModel>>;
+  getByComponentProduct(componentID: number, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+    let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials/GetBillOfMaterialsByComponentProduct', {
       componentID,
     });
+    options = options || { anonymous: false };
+
+    return this.apiClient.get<IBillOfMaterialsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
+  }
+  getByAssemblyProduct(productAssemblyID: number | null, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IBillOfMaterialsListViewModel>;
+  getByAssemblyProduct(productAssemblyID: number | null, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IBillOfMaterialsListViewModel>>;
+  getByAssemblyProduct(productAssemblyID: number | null, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IBillOfMaterialsListViewModel>>;
+  getByAssemblyProduct(productAssemblyID: number | null, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+    let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials/GetBillOfMaterialsByAssemblyProduct', {
+      productAssemblyID,
+    });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IBillOfMaterialsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -131,6 +149,7 @@ export class BillOfMaterialsService {
     let apiUrlBuilder = new ApiUrlBuilder('BillOfMaterials/GetBillOfMaterialsByUnitMeasure', {
       unitMeasureCode,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IBillOfMaterialsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

@@ -21,9 +21,9 @@ namespace AdventureWorks.Domain.Entities.Purchasing
 
         #region Navigation Properties
 
-        public virtual Product Product { get; set; }
+        public Product Product { get; set; }
 
-        public virtual PurchaseOrderHeader PurchaseOrderHeader { get; set; }
+        public PurchaseOrderHeader PurchaseOrderHeader { get; set; }
 
 
         #endregion

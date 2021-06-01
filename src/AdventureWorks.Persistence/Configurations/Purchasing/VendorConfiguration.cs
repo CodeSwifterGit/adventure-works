@@ -35,18 +35,18 @@ namespace AdventureWorks.Persistence.Configurations.Purchasing
 
             builder.Property(p => p.PreferredVendorStatus)
             .HasColumnType("bit")
-            .HasDefaultValue("((1))");
+            .HasDefaultValueSql("((1))");
 
             builder.Property(p => p.ActiveFlag)
             .HasColumnType("bit")
-            .HasDefaultValue("((1))");
+            .HasDefaultValueSql("((1))");
 
             builder.Property(p => p.PurchasingWebServiceURL)
             .HasColumnType("nvarchar(1024)");
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
             builder.HasIndex(e => new { e.AccountNumber })

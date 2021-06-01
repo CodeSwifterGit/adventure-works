@@ -33,6 +33,7 @@ export class IndividualsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Individuals', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<IIndividual, IIndividualLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -46,6 +47,7 @@ export class IndividualsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Individuals/createMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.create<Array<IIndividual>, Array<IIndividualLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -57,6 +59,7 @@ export class IndividualsService {
     let apiUrlBuilder = new ApiUrlBuilder('Individuals', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.delete(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -70,6 +73,7 @@ export class IndividualsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Individuals/DeleteMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.post<Array<IIndividualPrimaryKey>, any>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -85,6 +89,7 @@ export class IndividualsService {
     let apiUrlBuilder = new ApiUrlBuilder('Individuals', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.update<IIndividualUpdateModel, IIndividualLookupModel>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -98,6 +103,7 @@ export class IndividualsService {
     }
 
     let apiUrlBuilder = new ApiUrlBuilder('Individuals/UpdateMany', {});
+    options = options || { anonymous: false };
 
     return this.apiClient.update<Array<IIndividualUpdateItem>, Array<IIndividualLookupModel>>(apiUrlBuilder.build(), model, options, observe, reportProgress);
   }
@@ -109,6 +115,7 @@ export class IndividualsService {
     let apiUrlBuilder = new ApiUrlBuilder('Individuals', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IIndividualLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -120,6 +127,7 @@ export class IndividualsService {
     let apiUrlBuilder = new ApiUrlBuilder('Individuals/GetIndividualsByContact', {
       contactID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IIndividualsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
@@ -130,6 +138,7 @@ export class IndividualsService {
     let apiUrlBuilder = new ApiUrlBuilder('Individuals/GetIndividualsByCustomer', {
       customerID,
     });
+    options = options || { anonymous: false };
 
     return this.apiClient.get<IIndividualsListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }

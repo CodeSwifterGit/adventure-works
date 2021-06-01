@@ -25,7 +25,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")
-            .HasDefaultValue("(getdate())");
+            .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
 
