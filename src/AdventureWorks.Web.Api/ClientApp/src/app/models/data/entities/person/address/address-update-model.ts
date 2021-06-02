@@ -1,8 +1,3 @@
-import { ICustomerAddressUpdateModel } from 'app/models/data/entities/sales/customer-address/customer-address-update-model';
-import { IEmployeeAddressUpdateModel } from 'app/models/data/entities/human-resources/employee-address/employee-address-update-model';
-import { ISalesOrderHeaderUpdateModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-update-model';
-import { IStateProvinceUpdateModel } from 'app/models/data/entities/person/state-province/state-province-update-model';
-import { IVendorAddressUpdateModel } from 'app/models/data/entities/purchasing/vendor-address/vendor-address-update-model';
 
 export interface IAddressUpdateModel {
   addressID: number;

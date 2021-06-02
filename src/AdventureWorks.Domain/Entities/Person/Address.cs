@@ -24,6 +24,7 @@ namespace AdventureWorks.Domain.Entities.Person
         #region Navigation Properties
 
         public StateProvince StateProvince { get; set; }
+
         public ICollection<CustomerAddress> CustomerAddresses { get; set; } = new List<CustomerAddress>();
 
         public ICollection<EmployeeAddress> EmployeeAddresses { get; set; } = new List<EmployeeAddress>();
