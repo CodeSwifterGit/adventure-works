@@ -13,7 +13,7 @@ import { takeUntil } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  private _destroy$ = new Subject<boolean>();
+  private _destroy = new Subject<boolean>();
 
   addressLine1: string;
 
@@ -22,7 +22,7 @@ export class AppComponent {
   constructor(private readonly dynamicThemeService: DynamicThemeService, private readonly componentCacheService: ComponentCacheService, private readonly addressesService: AddressesService) { }
 
   ngOnInit(): void {
-    this.dynamicThemeService.onThemeChanged.pipe(takeUntil(this._destroy$)).subscribe((themeType) => {
+    this.dynamicThemeService.onThemeChanged.pipe(takeUntil(this._destroy)).subscribe((themeType) => {
       this.currentTheme.value = themeType;
     });
 
@@ -33,7 +33,7 @@ export class AppComponent {
     });
 
     this.addressesService.get(55).pipe(
-      takeUntil(this._destroy$)
+      takeUntil(this._destroy)
     ).subscribe(res => {
       this.addressLine1 = res.addressLine1;
     });
@@ -41,7 +41,7 @@ export class AppComponent {
   }
 
   ngOnDestroy(): void {
-    this._destroy$.next(true);
-    this._destroy$.complete();
+    this._destroy.next(true);
+    this._destroy.complete();
   }
 }
