@@ -1,6 +1,3 @@
-import { IProductUpdateModel } from 'app/models/data/entities/production/product/product-update-model';
-import { IScrapReasonUpdateModel } from 'app/models/data/entities/production/scrap-reason/scrap-reason-update-model';
-import { IWorkOrderRoutingUpdateModel } from 'app/models/data/entities/production/work-order-routing/work-order-routing-update-model';
 
 export interface IWorkOrderUpdateModel {
   workOrderID: number;

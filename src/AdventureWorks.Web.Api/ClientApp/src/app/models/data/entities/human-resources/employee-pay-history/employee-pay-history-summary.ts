@@ -1,1 +1,1 @@
-export interface IEmployeePayHistorySummary {}
+export interface IEmployeePayHistorySummary { }

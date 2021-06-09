@@ -1,6 +1,3 @@
-import { IAddressLookupModel } from 'app/models/data/entities/person/address/address-lookup-model';
-import { IAddressTypeLookupModel } from 'app/models/data/entities/person/address-type/address-type-lookup-model';
-import { ICustomerLookupModel } from 'app/models/data/entities/sales/customer/customer-lookup-model';
 
 export interface ICustomerAddressLookupModel {
   customerID: number;

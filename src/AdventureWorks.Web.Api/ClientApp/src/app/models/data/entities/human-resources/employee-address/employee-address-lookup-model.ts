@@ -1,5 +1,3 @@
-import { IAddressLookupModel } from 'app/models/data/entities/person/address/address-lookup-model';
-import { IEmployeeLookupModel } from 'app/models/data/entities/human-resources/employee/employee-lookup-model';
 
 export interface IEmployeeAddressLookupModel {
   employeeID: number;

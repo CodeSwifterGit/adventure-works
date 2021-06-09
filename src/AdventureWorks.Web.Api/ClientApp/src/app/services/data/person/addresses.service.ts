@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IAddress } from 'app/models/data/entities/person/address/address';
 import { IAddressLookupModel } from 'app/models/data/entities/person/address/address-lookup-model';
 import { IAddressUpdateModel } from 'app/models/data/entities/person/address/address-update-model';
 import { IAddressesListViewModel } from 'app/models/data/entities/person/address/addresses-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IAddressPrimaryKey {
   addressID: number;
@@ -22,7 +21,7 @@ export interface IAddressUpdateItem extends IAddress {
   providedIn: 'root',
 })
 export class AddressesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IAddress, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IAddressLookupModel>;
   create(model: IAddress, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IAddressLookupModel>>;

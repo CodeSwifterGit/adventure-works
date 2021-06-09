@@ -12,7 +12,7 @@ namespace AdventureWorks.Application.DataEngine.Dbo.DatabaseLog.Commands.CreateD
             RuleFor(v => v.Event).NotEmpty().MaximumLength(128);
             RuleFor(v => v.Schema).NotEmpty().MaximumLength(128);
             RuleFor(v => v.Object).NotEmpty().MaximumLength(128);
-            RuleFor(v => v.Tsql).NotEmpty().MaximumLength(-1);
+            RuleFor(v => v.Tsql).NotEmpty();
             RuleFor(v => v.XmlEvent).NotEmpty();
         }
     }

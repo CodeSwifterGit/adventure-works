@@ -1,1 +1,1 @@
-export interface ISalesPersonQuotaHistorySummary {}
+export interface ISalesPersonQuotaHistorySummary { }

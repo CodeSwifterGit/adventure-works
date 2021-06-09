@@ -1,6 +1,3 @@
-import { ICustomerUpdateModel } from 'app/models/data/entities/sales/customer/customer-update-model';
-import { ISalesPersonUpdateModel } from 'app/models/data/entities/sales/sales-person/sales-person-update-model';
-import { IStoreContactUpdateModel } from 'app/models/data/entities/sales/store-contact/store-contact-update-model';
 
 export interface IStoreUpdateModel {
   customerID: number;

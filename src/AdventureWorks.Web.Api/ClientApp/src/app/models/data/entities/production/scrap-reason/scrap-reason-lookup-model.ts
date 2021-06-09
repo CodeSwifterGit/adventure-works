@@ -1,4 +1,3 @@
-import { IWorkOrderLookupModel } from 'app/models/data/entities/production/work-order/work-order-lookup-model';
 
 export interface IScrapReasonLookupModel {
   scrapReasonID: number;

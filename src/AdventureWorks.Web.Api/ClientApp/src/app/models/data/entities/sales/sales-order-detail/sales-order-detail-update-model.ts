@@ -1,5 +1,3 @@
-import { ISalesOrderHeaderUpdateModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-update-model';
-import { ISpecialOfferProductUpdateModel } from 'app/models/data/entities/sales/special-offer-product/special-offer-product-update-model';
 
 export interface ISalesOrderDetailUpdateModel {
   salesOrderID: number;

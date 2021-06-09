@@ -1,13 +1,3 @@
-import { IAddressUpdateModel } from 'app/models/data/entities/person/address/address-update-model';
-import { IContactUpdateModel } from 'app/models/data/entities/person/contact/contact-update-model';
-import { ICreditCardUpdateModel } from 'app/models/data/entities/sales/credit-card/credit-card-update-model';
-import { ICurrencyRateUpdateModel } from 'app/models/data/entities/sales/currency-rate/currency-rate-update-model';
-import { ICustomerUpdateModel } from 'app/models/data/entities/sales/customer/customer-update-model';
-import { ISalesOrderDetailUpdateModel } from 'app/models/data/entities/sales/sales-order-detail/sales-order-detail-update-model';
-import { ISalesOrderHeaderSalesReasonUpdateModel } from 'app/models/data/entities/sales/sales-order-header-sales-reason/sales-order-header-sales-reason-update-model';
-import { ISalesPersonUpdateModel } from 'app/models/data/entities/sales/sales-person/sales-person-update-model';
-import { ISalesTerritoryUpdateModel } from 'app/models/data/entities/sales/sales-territory/sales-territory-update-model';
-import { IShipMethodUpdateModel } from 'app/models/data/entities/purchasing/ship-method/ship-method-update-model';
 
 export interface ISalesOrderHeaderUpdateModel {
   salesOrderID: number;

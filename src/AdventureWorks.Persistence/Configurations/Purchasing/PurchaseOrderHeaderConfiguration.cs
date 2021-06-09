@@ -85,19 +85,19 @@ namespace AdventureWorks.Persistence.Configurations.Purchasing
             builder.HasOne(e => e.Employee)
             .WithMany(p => p.PurchaseOrderHeaders)
             .HasForeignKey(e => new { e.EmployeeID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_PurchaseOrderHeader_Employee_Employee_Constraint");
 
             builder.HasOne(e => e.ShipMethod)
             .WithMany(p => p.PurchaseOrderHeaders)
             .HasForeignKey(e => new { e.ShipMethodID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_PurchaseOrderHeader_ShipMethod_ShipMethod_Constraint");
 
             builder.HasOne(e => e.Vendor)
             .WithMany(p => p.PurchaseOrderHeaders)
             .HasForeignKey(e => new { e.VendorID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_PurchaseOrderHeader_Vendor_Vendor_Constraint");
 
             // Complex Types (Owned properties as tables)

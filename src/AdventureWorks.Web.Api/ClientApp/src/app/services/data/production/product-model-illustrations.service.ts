@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IProductModelIllustration } from 'app/models/data/entities/production/product-model-illustration/product-model-illustration';
 import { IProductModelIllustrationLookupModel } from 'app/models/data/entities/production/product-model-illustration/product-model-illustration-lookup-model';
 import { IProductModelIllustrationUpdateModel } from 'app/models/data/entities/production/product-model-illustration/product-model-illustration-update-model';
 import { IProductModelIllustrationsListViewModel } from 'app/models/data/entities/production/product-model-illustration/product-model-illustrations-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IProductModelIllustrationPrimaryKey {
   productModelID: number;
@@ -23,7 +22,7 @@ export interface IProductModelIllustrationUpdateItem extends IProductModelIllust
   providedIn: 'root',
 })
 export class ProductModelIllustrationsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IProductModelIllustration, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductModelIllustrationLookupModel>;
   create(model: IProductModelIllustration, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductModelIllustrationLookupModel>>;

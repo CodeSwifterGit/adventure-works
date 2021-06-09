@@ -1,1 +1,1 @@
-export interface IWorkOrderRoutingSummary {}
+export interface IWorkOrderRoutingSummary { }

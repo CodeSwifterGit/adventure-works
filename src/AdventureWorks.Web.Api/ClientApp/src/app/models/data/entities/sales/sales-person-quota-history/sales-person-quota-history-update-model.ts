@@ -1,4 +1,3 @@
-import { ISalesPersonUpdateModel } from 'app/models/data/entities/sales/sales-person/sales-person-update-model';
 
 export interface ISalesPersonQuotaHistoryUpdateModel {
   salesPersonID: number;

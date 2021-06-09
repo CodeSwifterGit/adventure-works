@@ -1,5 +1,3 @@
-import { IProductInventoryUpdateModel } from 'app/models/data/entities/production/product-inventory/product-inventory-update-model';
-import { IWorkOrderRoutingUpdateModel } from 'app/models/data/entities/production/work-order-routing/work-order-routing-update-model';
 
 export interface ILocationUpdateModel {
   locationID: number;

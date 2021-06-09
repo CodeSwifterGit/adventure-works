@@ -1,4 +1,3 @@
-import { IProductDocumentLookupModel } from 'app/models/data/entities/production/product-document/product-document-lookup-model';
 
 export interface IDocumentLookupModel {
   documentID: number;

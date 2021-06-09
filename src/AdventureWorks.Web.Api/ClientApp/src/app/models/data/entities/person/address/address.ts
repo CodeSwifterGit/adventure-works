@@ -11,7 +11,7 @@ export interface IAddress {
 
 export class Address implements IAddress {
   addressID: number;
-  addressLine1: string;
+  addressLine1: string = '';
   addressLine2: string;
   city: string;
   stateProvinceID: number;

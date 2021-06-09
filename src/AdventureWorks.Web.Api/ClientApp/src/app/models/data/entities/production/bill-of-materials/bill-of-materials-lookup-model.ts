@@ -1,5 +1,3 @@
-import { IProductLookupModel } from 'app/models/data/entities/production/product/product-lookup-model';
-import { IUnitMeasureLookupModel } from 'app/models/data/entities/production/unit-measure/unit-measure-lookup-model';
 
 export interface IBillOfMaterialsLookupModel {
   billOfMaterialsID: number;

@@ -1,4 +1,3 @@
-import { IProductSubcategoryUpdateModel } from 'app/models/data/entities/production/product-subcategory/product-subcategory-update-model';
 
 export interface IProductCategoryUpdateModel {
   productCategoryID: number;

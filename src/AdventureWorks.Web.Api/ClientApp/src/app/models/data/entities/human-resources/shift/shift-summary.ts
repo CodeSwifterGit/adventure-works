@@ -1,1 +1,1 @@
-export interface IShiftSummary {}
+export interface IShiftSummary { }

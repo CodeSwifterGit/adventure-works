@@ -1,5 +1,3 @@
-import { ICountryRegionCurrencyUpdateModel } from 'app/models/data/entities/sales/country-region-currency/country-region-currency-update-model';
-import { IStateProvinceUpdateModel } from 'app/models/data/entities/person/state-province/state-province-update-model';
 
 export interface ICountryRegionUpdateModel {
   countryRegionCode: string;

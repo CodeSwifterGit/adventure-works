@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { ISalesOrderHeaderSalesReason } from 'app/models/data/entities/sales/sales-order-header-sales-reason/sales-order-header-sales-reason';
 import { ISalesOrderHeaderSalesReasonLookupModel } from 'app/models/data/entities/sales/sales-order-header-sales-reason/sales-order-header-sales-reason-lookup-model';
 import { ISalesOrderHeaderSalesReasonUpdateModel } from 'app/models/data/entities/sales/sales-order-header-sales-reason/sales-order-header-sales-reason-update-model';
 import { ISalesOrderHeaderSalesReasonsListViewModel } from 'app/models/data/entities/sales/sales-order-header-sales-reason/sales-order-header-sales-reasons-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ISalesOrderHeaderSalesReasonPrimaryKey {
   salesOrderID: number;
@@ -23,7 +22,7 @@ export interface ISalesOrderHeaderSalesReasonUpdateItem extends ISalesOrderHeade
   providedIn: 'root',
 })
 export class SalesOrderHeaderSalesReasonsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ISalesOrderHeaderSalesReason, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISalesOrderHeaderSalesReasonLookupModel>;
   create(model: ISalesOrderHeaderSalesReason, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISalesOrderHeaderSalesReasonLookupModel>>;

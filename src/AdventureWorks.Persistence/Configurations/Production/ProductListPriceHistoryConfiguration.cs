@@ -42,7 +42,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
             builder.HasOne(e => e.Product)
             .WithMany(p => p.ProductListPriceHistories)
             .HasForeignKey(e => new { e.ProductID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductListPriceHistory_Product_Product_Constraint");
 
             // Complex Types (Owned properties as tables)

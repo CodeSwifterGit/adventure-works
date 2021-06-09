@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IVendor } from 'app/models/data/entities/purchasing/vendor/vendor';
 import { IVendorLookupModel } from 'app/models/data/entities/purchasing/vendor/vendor-lookup-model';
 import { IVendorUpdateModel } from 'app/models/data/entities/purchasing/vendor/vendor-update-model';
 import { IVendorsListViewModel } from 'app/models/data/entities/purchasing/vendor/vendors-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IVendorPrimaryKey {
   vendorID: number;
@@ -22,7 +21,7 @@ export interface IVendorUpdateItem extends IVendor {
   providedIn: 'root',
 })
 export class VendorsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IVendor, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IVendorLookupModel>;
   create(model: IVendor, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IVendorLookupModel>>;

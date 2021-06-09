@@ -52,19 +52,19 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.Address)
             .WithMany(p => p.CustomerAddresses)
             .HasForeignKey(e => new { e.AddressID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_CustomerAddress_Address_Address_Constraint");
 
             builder.HasOne(e => e.AddressType)
             .WithMany(p => p.CustomerAddresses)
             .HasForeignKey(e => new { e.AddressTypeID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_CustomerAddress_AddressType_AddressType_Constraint");
 
             builder.HasOne(e => e.Customer)
             .WithMany(p => p.CustomerAddresses)
             .HasForeignKey(e => new { e.CustomerID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_CustomerAddress_Customer_Customer_Constraint");
 
             // Complex Types (Owned properties as tables)

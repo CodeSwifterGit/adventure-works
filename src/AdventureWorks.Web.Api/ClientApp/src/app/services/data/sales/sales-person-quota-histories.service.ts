@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { ISalesPersonQuotaHistoriesListViewModel } from 'app/models/data/entities/sales/sales-person-quota-history/sales-person-quota-histories-list-view-model';
 import { ISalesPersonQuotaHistory } from 'app/models/data/entities/sales/sales-person-quota-history/sales-person-quota-history';
 import { ISalesPersonQuotaHistoryLookupModel } from 'app/models/data/entities/sales/sales-person-quota-history/sales-person-quota-history-lookup-model';
 import { ISalesPersonQuotaHistoryUpdateModel } from 'app/models/data/entities/sales/sales-person-quota-history/sales-person-quota-history-update-model';
-import { ISalesPersonQuotaHistoriesListViewModel } from 'app/models/data/entities/sales/sales-person-quota-history/sales-person-quota-histories-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ISalesPersonQuotaHistoryPrimaryKey {
   salesPersonID: number;
@@ -23,7 +22,7 @@ export interface ISalesPersonQuotaHistoryUpdateItem extends ISalesPersonQuotaHis
   providedIn: 'root',
 })
 export class SalesPersonQuotaHistoriesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ISalesPersonQuotaHistory, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISalesPersonQuotaHistoryLookupModel>;
   create(model: ISalesPersonQuotaHistory, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISalesPersonQuotaHistoryLookupModel>>;

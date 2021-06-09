@@ -27,11 +27,11 @@ namespace AdventureWorks.Persistence.Configurations.Sales
 
             builder.Property(p => p.AccountNumber)
             .HasColumnType("varchar(10)")
-            .HasComputedColumnSql("(isnull('AW'+[dbo].[ufnLeadingZeros]([CustomerID]),''))", false)
+            .HasComputedColumnSql("''", false)
             .IsRequired();
 
             builder.Property(p => p.CustomerType)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(1)")
             .IsRequired();
 
             builder.Property(p => p.Rowguid)
@@ -61,7 +61,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.SalesTerritory)
             .WithMany()
             .HasForeignKey(e => new { e.TerritoryID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_Customer_SalesTerritory_SalesTerritory_Constraint");
 
             // Complex Types (Owned properties as tables)

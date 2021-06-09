@@ -1,4 +1,3 @@
-import { IProductSubcategoryLookupModel } from 'app/models/data/entities/production/product-subcategory/product-subcategory-lookup-model';
 
 export interface IProductCategoryLookupModel {
   productCategoryID: number;

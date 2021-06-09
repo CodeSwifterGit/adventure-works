@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IProductProductPhoto } from 'app/models/data/entities/production/product-product-photo/product-product-photo';
 import { IProductProductPhotoLookupModel } from 'app/models/data/entities/production/product-product-photo/product-product-photo-lookup-model';
 import { IProductProductPhotoUpdateModel } from 'app/models/data/entities/production/product-product-photo/product-product-photo-update-model';
 import { IProductProductPhotosListViewModel } from 'app/models/data/entities/production/product-product-photo/product-product-photos-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IProductProductPhotoPrimaryKey {
   productID: number;
@@ -23,7 +22,7 @@ export interface IProductProductPhotoUpdateItem extends IProductProductPhoto {
   providedIn: 'root',
 })
 export class ProductProductPhotosService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IProductProductPhoto, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductProductPhotoLookupModel>;
   create(model: IProductProductPhoto, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductProductPhotoLookupModel>>;

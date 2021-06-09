@@ -1,6 +1,3 @@
-import { IAddressTypeUpdateModel } from 'app/models/data/entities/person/address-type/address-type-update-model';
-import { IAddressUpdateModel } from 'app/models/data/entities/person/address/address-update-model';
-import { IVendorUpdateModel } from 'app/models/data/entities/purchasing/vendor/vendor-update-model';
 
 export interface IVendorAddressUpdateModel {
   vendorID: number;

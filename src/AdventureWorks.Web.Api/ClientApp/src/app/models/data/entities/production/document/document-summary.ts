@@ -1,1 +1,1 @@
-export interface IDocumentSummary {}
+export interface IDocumentSummary { }

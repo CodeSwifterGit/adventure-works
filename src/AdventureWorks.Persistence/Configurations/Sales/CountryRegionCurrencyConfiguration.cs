@@ -22,7 +22,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             .IsRequired();
 
             builder.Property(p => p.CurrencyCode)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(3)")
             .IsRequired();
 
             builder.Property(p => p.ModifiedDate)
@@ -42,13 +42,13 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.CountryRegion)
             .WithMany(p => p.CountryRegionCurrencies)
             .HasForeignKey(e => new { e.CountryRegionCode })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_CountryRegionCurrency_CountryRegion_CountryRegion_Constraint");
 
             builder.HasOne(e => e.Currency)
             .WithMany(p => p.CountryRegionCurrencies)
             .HasForeignKey(e => new { e.CurrencyCode })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_CountryRegionCurrency_Currency_Currency_Constraint");
 
             // Complex Types (Owned properties as tables)

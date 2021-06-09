@@ -1,1 +1,1 @@
-export interface IIndividualSummary {}
+export interface IIndividualSummary { }

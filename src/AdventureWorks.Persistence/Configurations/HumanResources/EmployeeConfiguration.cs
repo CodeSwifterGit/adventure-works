@@ -44,11 +44,11 @@ namespace AdventureWorks.Persistence.Configurations.HumanResources
             .HasColumnType("datetime");
 
             builder.Property(p => p.MaritalStatus)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(1)")
             .IsRequired();
 
             builder.Property(p => p.Gender)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(1)")
             .IsRequired();
 
             builder.Property(p => p.HireDate)
@@ -104,14 +104,14 @@ namespace AdventureWorks.Persistence.Configurations.HumanResources
             builder.HasOne(e => e.Contact)
             .WithMany(p => p.Employees)
             .HasForeignKey(e => new { e.ContactID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_Employee_Contact_Contact_Constraint");
 
             builder.HasOne(e => e.Manager)
             .WithMany()
             .HasForeignKey(e => new { e.ManagerID })
-            .OnDelete(DeleteBehavior.Cascade)
-            .HasConstraintName("FK_Employee_Manager_Employee_Constraint");
+            .OnDelete(DeleteBehavior.NoAction)
+            .HasConstraintName("FK_Employee_Employee_Manager_Constraint");
 
             // Complex Types (Owned properties as tables)
 

@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IWorkOrderRouting } from 'app/models/data/entities/production/work-order-routing/work-order-routing';
 import { IWorkOrderRoutingLookupModel } from 'app/models/data/entities/production/work-order-routing/work-order-routing-lookup-model';
 import { IWorkOrderRoutingUpdateModel } from 'app/models/data/entities/production/work-order-routing/work-order-routing-update-model';
 import { IWorkOrderRoutingsListViewModel } from 'app/models/data/entities/production/work-order-routing/work-order-routings-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IWorkOrderRoutingPrimaryKey {
   workOrderID: number;
@@ -24,7 +23,7 @@ export interface IWorkOrderRoutingUpdateItem extends IWorkOrderRouting {
   providedIn: 'root',
 })
 export class WorkOrderRoutingsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IWorkOrderRouting, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IWorkOrderRoutingLookupModel>;
   create(model: IWorkOrderRouting, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IWorkOrderRoutingLookupModel>>;

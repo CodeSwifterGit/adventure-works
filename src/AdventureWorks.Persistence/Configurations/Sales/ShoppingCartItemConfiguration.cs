@@ -51,7 +51,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.Product)
             .WithMany(p => p.ShoppingCartItems)
             .HasForeignKey(e => new { e.ProductID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ShoppingCartItem_Product_Product_Constraint");
 
             // Complex Types (Owned properties as tables)

@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IContact } from 'app/models/data/entities/person/contact/contact';
 import { IContactLookupModel } from 'app/models/data/entities/person/contact/contact-lookup-model';
 import { IContactUpdateModel } from 'app/models/data/entities/person/contact/contact-update-model';
 import { IContactsListViewModel } from 'app/models/data/entities/person/contact/contacts-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IContactPrimaryKey {
   contactID: number;
@@ -22,7 +21,7 @@ export interface IContactUpdateItem extends IContact {
   providedIn: 'root',
 })
 export class ContactsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IContact, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IContactLookupModel>;
   create(model: IContact, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IContactLookupModel>>;

@@ -1,1 +1,1 @@
-export interface ICountryRegionCurrencySummary {}
+export interface ICountryRegionCurrencySummary { }

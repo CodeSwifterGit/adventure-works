@@ -1,4 +1,3 @@
-import { ISalesOrderHeaderSalesReasonLookupModel } from 'app/models/data/entities/sales/sales-order-header-sales-reason/sales-order-header-sales-reason-lookup-model';
 
 export interface ISalesReasonLookupModel {
   salesReasonID: number;

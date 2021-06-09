@@ -1,1 +1,1 @@
-export interface IBillOfMaterialsSummary {}
+export interface IBillOfMaterialsSummary { }

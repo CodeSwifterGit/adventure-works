@@ -1,1 +1,1 @@
-export interface ICountryRegionSummary {}
+export interface ICountryRegionSummary { }

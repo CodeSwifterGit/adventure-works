@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { ICreditCard } from 'app/models/data/entities/sales/credit-card/credit-card';
 import { ICreditCardLookupModel } from 'app/models/data/entities/sales/credit-card/credit-card-lookup-model';
 import { ICreditCardUpdateModel } from 'app/models/data/entities/sales/credit-card/credit-card-update-model';
 import { ICreditCardsListViewModel } from 'app/models/data/entities/sales/credit-card/credit-cards-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ICreditCardPrimaryKey {
   creditCardID: number;
@@ -22,7 +21,7 @@ export interface ICreditCardUpdateItem extends ICreditCard {
   providedIn: 'root',
 })
 export class CreditCardsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ICreditCard, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ICreditCardLookupModel>;
   create(model: ICreditCard, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ICreditCardLookupModel>>;

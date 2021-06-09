@@ -1,1 +1,1 @@
-export interface IProductReviewSummary {}
+export interface IProductReviewSummary { }

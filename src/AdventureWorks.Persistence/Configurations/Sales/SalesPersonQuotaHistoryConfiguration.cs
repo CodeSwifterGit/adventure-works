@@ -46,7 +46,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.SalesPerson)
             .WithMany(p => p.SalesPersonQuotaHistories)
             .HasForeignKey(e => new { e.SalesPersonID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_SalesPersonQuotaHistory_SalesPerson_SalesPerson_Constraint");
 
             // Complex Types (Owned properties as tables)

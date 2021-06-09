@@ -1,8 +1,3 @@
-import { ICustomerAddressUpdateModel } from 'app/models/data/entities/sales/customer-address/customer-address-update-model';
-import { IIndividualUpdateModel } from 'app/models/data/entities/sales/individual/individual-update-model';
-import { ISalesOrderHeaderUpdateModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-update-model';
-import { ISalesTerritoryUpdateModel } from 'app/models/data/entities/sales/sales-territory/sales-territory-update-model';
-import { IStoreUpdateModel } from 'app/models/data/entities/sales/store/store-update-model';
 
 export interface ICustomerUpdateModel {
   customerID: number;

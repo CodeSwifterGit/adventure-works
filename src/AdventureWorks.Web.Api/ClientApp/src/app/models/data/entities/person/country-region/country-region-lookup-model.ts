@@ -1,5 +1,3 @@
-import { ICountryRegionCurrencyLookupModel } from 'app/models/data/entities/sales/country-region-currency/country-region-currency-lookup-model';
-import { IStateProvinceLookupModel } from 'app/models/data/entities/person/state-province/state-province-lookup-model';
 
 export interface ICountryRegionLookupModel {
   countryRegionCode: string;

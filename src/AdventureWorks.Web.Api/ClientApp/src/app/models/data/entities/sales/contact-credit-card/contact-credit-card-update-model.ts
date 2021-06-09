@@ -1,5 +1,3 @@
-import { IContactUpdateModel } from 'app/models/data/entities/person/contact/contact-update-model';
-import { ICreditCardUpdateModel } from 'app/models/data/entities/sales/credit-card/credit-card-update-model';
 
 export interface IContactCreditCardUpdateModel {
   contactID: number;

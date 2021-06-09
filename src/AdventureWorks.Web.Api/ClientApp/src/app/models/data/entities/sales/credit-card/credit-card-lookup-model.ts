@@ -1,5 +1,3 @@
-import { IContactCreditCardLookupModel } from 'app/models/data/entities/sales/contact-credit-card/contact-credit-card-lookup-model';
-import { ISalesOrderHeaderLookupModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-lookup-model';
 
 export interface ICreditCardLookupModel {
   creditCardID: number;

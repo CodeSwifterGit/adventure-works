@@ -50,12 +50,6 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .IsUnique()
             .HasDatabaseName("AK_ProductModel_rowguid");
 
-            builder.HasIndex(e => new { e.CatalogDescription })
-            .HasDatabaseName("PXML_ProductModel_CatalogDescription");
-
-            builder.HasIndex(e => new { e.Instructions })
-            .HasDatabaseName("PXML_ProductModel_Instructions");
-
 
 
 

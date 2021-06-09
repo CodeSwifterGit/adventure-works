@@ -31,17 +31,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             .HasDefaultValueSql("(getdate())");
 
             // Indexes and Foreign Keys
-            builder.HasIndex(e => new { e.Demographics })
-            .HasDatabaseName("PXML_Individual_Demographics");
 
-            builder.HasIndex(e => new { e.Demographics })
-            .HasDatabaseName("XMLPATH_Individual_Demographics");
-
-            builder.HasIndex(e => new { e.Demographics })
-            .HasDatabaseName("XMLPROPERTY_Individual_Demographics");
-
-            builder.HasIndex(e => new { e.Demographics })
-            .HasDatabaseName("XMLVALUE_Individual_Demographics");
 
             builder.HasIndex(e => new { e.ContactID })
             .HasDatabaseName("FK_Individual_Contact_Contact");
@@ -52,13 +42,13 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.Contact)
             .WithMany(p => p.Individuals)
             .HasForeignKey(e => new { e.ContactID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_Individual_Contact_Contact_Constraint");
 
             builder.HasOne(e => e.Customer)
             .WithMany(p => p.Individuals)
             .HasForeignKey(e => new { e.CustomerID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_Individual_Customer_Customer_Constraint");
 
             // Complex Types (Owned properties as tables)

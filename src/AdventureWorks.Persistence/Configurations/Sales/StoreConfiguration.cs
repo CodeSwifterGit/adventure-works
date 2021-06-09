@@ -47,9 +47,6 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasIndex(e => new { e.SalesPersonID })
             .HasDatabaseName("IX_Store_SalesPersonID");
 
-            builder.HasIndex(e => new { e.Demographics })
-            .HasDatabaseName("PXML_Store_Demographics");
-
             builder.HasIndex(e => new { e.CustomerID })
             .HasDatabaseName("FK_Store_Customer_Customer");
 
@@ -59,13 +56,13 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.Customer)
             .WithMany(p => p.Stores)
             .HasForeignKey(e => new { e.CustomerID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_Store_Customer_Customer_Constraint");
 
             builder.HasOne(e => e.SalesPerson)
             .WithMany()
             .HasForeignKey(e => new { e.SalesPersonID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_Store_SalesPerson_SalesPerson_Constraint");
 
             // Complex Types (Owned properties as tables)

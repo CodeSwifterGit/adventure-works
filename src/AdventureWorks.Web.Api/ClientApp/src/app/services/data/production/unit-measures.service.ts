@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IUnitMeasure } from 'app/models/data/entities/production/unit-measure/unit-measure';
 import { IUnitMeasureLookupModel } from 'app/models/data/entities/production/unit-measure/unit-measure-lookup-model';
 import { IUnitMeasureUpdateModel } from 'app/models/data/entities/production/unit-measure/unit-measure-update-model';
 import { IUnitMeasuresListViewModel } from 'app/models/data/entities/production/unit-measure/unit-measures-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IUnitMeasurePrimaryKey {
   unitMeasureCode: string;
@@ -22,7 +21,7 @@ export interface IUnitMeasureUpdateItem extends IUnitMeasure {
   providedIn: 'root',
 })
 export class UnitMeasuresService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IUnitMeasure, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IUnitMeasureLookupModel>;
   create(model: IUnitMeasure, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IUnitMeasureLookupModel>>;

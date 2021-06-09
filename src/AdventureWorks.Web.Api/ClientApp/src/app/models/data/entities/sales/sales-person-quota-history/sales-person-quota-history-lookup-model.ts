@@ -1,4 +1,3 @@
-import { ISalesPersonLookupModel } from 'app/models/data/entities/sales/sales-person/sales-person-lookup-model';
 
 export interface ISalesPersonQuotaHistoryLookupModel {
   salesPersonID: number;

@@ -18,7 +18,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             // Properties Configuration
             builder.Property(p => p.UnitMeasureCode)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(3)")
             .IsRequired();
 
             builder.Property(p => p.Name)

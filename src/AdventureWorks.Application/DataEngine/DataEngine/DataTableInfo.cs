@@ -50,7 +50,7 @@ namespace AdventureWorks.Application.DataEngine.DataEngine
                         if (bool.TryParse(p, out var boolValue)) return boolValue;
                         if (DateTime.TryParse(p, out var dateTimeValue)) return dateTimeValue;
 
-                        return (object)p;
+                        return (object) p;
                     }).ToList()
                 },
                 PagingInfo = new PagingInfo

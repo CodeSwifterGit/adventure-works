@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IBillOfMaterials } from 'app/models/data/entities/production/bill-of-materials/bill-of-materials';
+import { IBillOfMaterialsListViewModel } from 'app/models/data/entities/production/bill-of-materials/bill-of-materials-list-view-model';
 import { IBillOfMaterialsLookupModel } from 'app/models/data/entities/production/bill-of-materials/bill-of-materials-lookup-model';
 import { IBillOfMaterialsUpdateModel } from 'app/models/data/entities/production/bill-of-materials/bill-of-materials-update-model';
-import { IBillOfMaterialsListViewModel } from 'app/models/data/entities/production/bill-of-materials/bill-of-materials-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IBillOfMaterialsPrimaryKey {
   billOfMaterialsID: number;
@@ -22,7 +21,7 @@ export interface IBillOfMaterialsUpdateItem extends IBillOfMaterials {
   providedIn: 'root',
 })
 export class BillOfMaterialsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IBillOfMaterials, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IBillOfMaterialsLookupModel>;
   create(model: IBillOfMaterials, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IBillOfMaterialsLookupModel>>;

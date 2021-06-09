@@ -1,4 +1,3 @@
-import { IStateProvinceLookupModel } from 'app/models/data/entities/person/state-province/state-province-lookup-model';
 
 export interface ISalesTaxRateLookupModel {
   salesTaxRateID: number;

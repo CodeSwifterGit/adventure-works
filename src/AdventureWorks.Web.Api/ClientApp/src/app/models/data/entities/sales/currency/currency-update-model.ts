@@ -1,5 +1,3 @@
-import { ICountryRegionCurrencyUpdateModel } from 'app/models/data/entities/sales/country-region-currency/country-region-currency-update-model';
-import { ICurrencyRateUpdateModel } from 'app/models/data/entities/sales/currency-rate/currency-rate-update-model';
 
 export interface ICurrencyUpdateModel {
   currencyCode: string;

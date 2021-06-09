@@ -1,1 +1,1 @@
-export interface IJobCandidateSummary {}
+export interface IJobCandidateSummary { }

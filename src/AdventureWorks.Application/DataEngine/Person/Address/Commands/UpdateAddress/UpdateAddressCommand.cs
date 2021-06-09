@@ -15,7 +15,7 @@ namespace AdventureWorks.Application.DataEngine.Person.Address.Commands.UpdateAd
     public partial class UpdateAddressCommand : IRequest<AddressLookupModel>, IHaveCustomMapping
     {
         public int AddressID { get; set; }
-        public string AddressLine1 { get; set; }
+        public string AddressLine1 { get; set; } = "";
         public string AddressLine2 { get; set; }
         public string City { get; set; }
         public int StateProvinceID { get; set; }

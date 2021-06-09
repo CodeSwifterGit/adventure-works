@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { ICustomerAddress } from 'app/models/data/entities/sales/customer-address/customer-address';
 import { ICustomerAddressLookupModel } from 'app/models/data/entities/sales/customer-address/customer-address-lookup-model';
 import { ICustomerAddressUpdateModel } from 'app/models/data/entities/sales/customer-address/customer-address-update-model';
 import { ICustomerAddressesListViewModel } from 'app/models/data/entities/sales/customer-address/customer-addresses-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ICustomerAddressPrimaryKey {
   customerID: number;
@@ -23,7 +22,7 @@ export interface ICustomerAddressUpdateItem extends ICustomerAddress {
   providedIn: 'root',
 })
 export class CustomerAddressesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ICustomerAddress, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ICustomerAddressLookupModel>;
   create(model: ICustomerAddress, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ICustomerAddressLookupModel>>;

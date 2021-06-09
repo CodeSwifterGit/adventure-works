@@ -1,5 +1,3 @@
-import { ILocationLookupModel } from 'app/models/data/entities/production/location/location-lookup-model';
-import { IProductLookupModel } from 'app/models/data/entities/production/product/product-lookup-model';
 
 export interface IProductInventoryLookupModel {
   productID: number;

@@ -27,7 +27,7 @@ namespace AdventureWorks.Persistence.Configurations.Person
             .HasDefaultValueSql("((0))");
 
             builder.Property(p => p.Title)
-            .HasColumnType("varchar(255)");
+            .HasColumnType("varchar").HasMaxLength(8000);
 
             builder.Property(p => p.FirstName)
             .HasColumnType("nvarchar(50)")
@@ -54,7 +54,7 @@ namespace AdventureWorks.Persistence.Configurations.Person
             .HasColumnType("nvarchar(25)");
 
             builder.Property(p => p.PasswordHash)
-            .HasColumnType("varchar(255)")
+            .HasColumnType("varchar").HasMaxLength(8000)
             .IsRequired();
 
             builder.Property(p => p.PasswordSalt)
@@ -80,9 +80,6 @@ namespace AdventureWorks.Persistence.Configurations.Person
 
             builder.HasIndex(e => new { e.EmailAddress })
             .HasDatabaseName("IX_Contact_EmailAddress");
-
-            builder.HasIndex(e => new { e.AdditionalContactInfo })
-            .HasDatabaseName("PXML_Contact_AddContact");
 
 
 

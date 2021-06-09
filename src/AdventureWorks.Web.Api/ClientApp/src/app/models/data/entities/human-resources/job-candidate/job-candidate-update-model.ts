@@ -1,4 +1,3 @@
-import { IEmployeeUpdateModel } from 'app/models/data/entities/human-resources/employee/employee-update-model';
 
 export interface IJobCandidateUpdateModel {
   jobCandidateID: number;

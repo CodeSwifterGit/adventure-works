@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdventureWorks.Persistence.Migrations
 {
     [DbContext(typeof(AdventureWorksContext))]
-    [Migration("20210602055938_InitialCreate")]
+    [Migration("20210609211326_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -92,7 +92,8 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("Tsql")
                         .IsRequired()
-                        .HasColumnType("nvarchar(-1)")
+                        .HasMaxLength(4000)
+                        .HasColumnType("nvarchar(4000)")
                         .HasColumnName("TSQL");
 
                     b.Property<string>("XmlEvent")
@@ -217,7 +218,7 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("Gender")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(1)");
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime");
@@ -231,7 +232,7 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("MaritalStatus")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(1)");
 
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime");
@@ -666,7 +667,8 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(8000)
+                        .HasColumnType("varchar(8000)");
 
                     b.Property<string>("PasswordSalt")
                         .IsRequired()
@@ -685,12 +687,10 @@ namespace AdventureWorks.Persistence.Migrations
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(8000)
+                        .HasColumnType("varchar(8000)");
 
                     b.HasKey("ContactID");
-
-                    b.HasIndex("AdditionalContactInfo")
-                        .HasDatabaseName("PXML_Contact_AddContact");
 
                     b.HasIndex("EmailAddress")
                         .HasDatabaseName("IX_Contact_EmailAddress");
@@ -811,7 +811,7 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("StateProvinceCode")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.Property<int>("TerritoryID")
                         .HasColumnType("int");
@@ -888,7 +888,7 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("UnitMeasureCode")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.HasKey("BillOfMaterialsID");
 
@@ -906,7 +906,7 @@ namespace AdventureWorks.Persistence.Migrations
                     b.HasIndex("ComponentID", "ProductAssemblyID", "StartDate")
                         .IsUnique()
                         .HasDatabaseName("AK_BillOfMaterials_ProductAssemblyID_ComponentID_StartDate")
-                        .IsClustered();
+                        .HasFilter("[ProductAssemblyID] IS NOT NULL");
 
                     b.ToTable("BillOfMaterials", "Production");
                 });
@@ -914,7 +914,7 @@ namespace AdventureWorks.Persistence.Migrations
             modelBuilder.Entity("AdventureWorks.Domain.Entities.Production.Culture", b =>
                 {
                     b.Property<string>("CultureID")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(6)");
 
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime");
@@ -957,10 +957,12 @@ namespace AdventureWorks.Persistence.Migrations
                         .HasDefaultValueSql("((0))");
 
                     b.Property<byte[]>("Document")
-                        .HasColumnType("varbinary");
+                        .HasMaxLength(8000)
+                        .HasColumnType("varbinary(8000)");
 
                     b.Property<string>("DocumentSummary")
-                        .HasColumnType("nvarchar(-1)");
+                        .HasMaxLength(4000)
+                        .HasColumnType("nvarchar(4000)");
 
                     b.Property<string>("FileExtension")
                         .IsRequired()
@@ -985,7 +987,7 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("Revision")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(5)");
 
                     b.Property<byte>("Status")
                         .HasColumnType("tinyint");
@@ -1088,7 +1090,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Class")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(2)");
 
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(15)");
@@ -1130,7 +1132,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ProductLine")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(2)");
 
                     b.Property<int?>("ProductModelID")
                         .HasColumnType("int");
@@ -1170,25 +1172,25 @@ namespace AdventureWorks.Persistence.Migrations
                         .HasColumnType("nvarchar(5)");
 
                     b.Property<string>("SizeUnitMeasureCode")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.Property<decimal>("StandardCost")
                         .HasColumnType("money");
 
                     b.Property<string>("Style")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(2)");
 
                     b.Property<string>("UnitMeasureCode")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.Property<string>("UnitMeasureCode1")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.Property<decimal?>("Weight")
                         .HasColumnType("decimal(8,2)");
 
                     b.Property<string>("WeightUnitMeasureCode")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.HasKey("ProductID");
 
@@ -1505,12 +1507,6 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.HasKey("ProductModelID");
 
-                    b.HasIndex("CatalogDescription")
-                        .HasDatabaseName("PXML_ProductModel_CatalogDescription");
-
-                    b.HasIndex("Instructions")
-                        .HasDatabaseName("PXML_ProductModel_Instructions");
-
                     b.HasIndex("Name")
                         .IsUnique()
                         .HasDatabaseName("AK_ProductModel_Name");
@@ -1563,7 +1559,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CultureID")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(6)");
 
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime");
@@ -1602,7 +1598,8 @@ namespace AdventureWorks.Persistence.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<byte[]>("LargePhoto")
-                        .HasColumnType("varbinary");
+                        .HasMaxLength(8000)
+                        .HasColumnType("varbinary(8000)");
 
                     b.Property<string>("LargePhotoFileName")
                         .HasColumnType("nvarchar(50)");
@@ -1621,7 +1618,8 @@ namespace AdventureWorks.Persistence.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<byte[]>("ThumbNailPhoto")
-                        .HasColumnType("varbinary");
+                        .HasMaxLength(8000)
+                        .HasColumnType("varbinary(8000)");
 
                     b.Property<string>("ThumbnailPhotoFileName")
                         .HasColumnType("nvarchar(50)");
@@ -1856,7 +1854,7 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("TransactionType")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(1)");
 
                     b.HasKey("TransactionID");
 
@@ -1913,7 +1911,7 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("TransactionType")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(1)");
 
                     b.HasKey("TransactionID");
 
@@ -1929,7 +1927,7 @@ namespace AdventureWorks.Persistence.Migrations
             modelBuilder.Entity("AdventureWorks.Domain.Entities.Production.UnitMeasure", b =>
                 {
                     b.Property<string>("UnitMeasureCode")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime");
@@ -2127,7 +2125,7 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("UnitMeasureCode")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.HasKey("ProductID", "VendorID");
 
@@ -2514,7 +2512,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .HasColumnType("nvarchar(3)");
 
                     b.Property<string>("CurrencyCode")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime");
@@ -2588,7 +2586,7 @@ namespace AdventureWorks.Persistence.Migrations
             modelBuilder.Entity("AdventureWorks.Domain.Entities.Sales.Currency", b =>
                 {
                     b.Property<string>("CurrencyCode")
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime");
@@ -2636,7 +2634,7 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("FromCurrencyCode")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime");
@@ -2653,7 +2651,7 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.Property<string>("ToCurrencyCode")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(3)");
 
                     b.HasKey("CurrencyRateID");
 
@@ -2683,11 +2681,11 @@ namespace AdventureWorks.Persistence.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("varchar(10)")
-                        .HasComputedColumnSql("(isnull('AW'+[dbo].[ufnLeadingZeros]([CustomerID]),''))", false);
+                        .HasComputedColumnSql("''", false);
 
                     b.Property<string>("CustomerType")
                         .IsRequired()
-                        .HasColumnType("nchar");
+                        .HasColumnType("nchar(1)");
 
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime");
@@ -2811,9 +2809,6 @@ namespace AdventureWorks.Persistence.Migrations
 
                     b.HasIndex("CustomerID")
                         .HasDatabaseName("FK_Individual_Customer_Customer");
-
-                    b.HasIndex("Demographics")
-                        .HasDatabaseName("XMLVALUE_Individual_Demographics");
 
                     b.ToTable("Individual", "Sales");
                 });
@@ -3632,9 +3627,6 @@ namespace AdventureWorks.Persistence.Migrations
                     b.HasIndex("CustomerID")
                         .HasDatabaseName("FK_Store_Customer_Customer");
 
-                    b.HasIndex("Demographics")
-                        .HasDatabaseName("PXML_Store_Demographics");
-
                     b.HasIndex("Rowguid")
                         .IsUnique()
                         .HasDatabaseName("AK_Store_rowguid");
@@ -3701,7 +3693,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("Employees")
                         .HasForeignKey("ContactID")
                         .HasConstraintName("FK_Employee_Contact_Contact_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.HumanResources.Employee", null)
@@ -3711,8 +3703,8 @@ namespace AdventureWorks.Persistence.Migrations
                     b.HasOne("AdventureWorks.Domain.Entities.HumanResources.Employee", "Manager")
                         .WithMany()
                         .HasForeignKey("ManagerID")
-                        .HasConstraintName("FK_Employee_Manager_Employee_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("FK_Employee_Employee_Manager_Constraint")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Contact");
 
@@ -3725,14 +3717,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("EmployeeAddresses")
                         .HasForeignKey("AddressID")
                         .HasConstraintName("FK_EmployeeAddress_Address_Address_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.HumanResources.Employee", "Employee")
                         .WithMany("EmployeeAddresses")
                         .HasForeignKey("EmployeeID")
                         .HasConstraintName("FK_EmployeeAddress_Employee_Employee_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Address");
@@ -3746,21 +3738,21 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("EmployeeDepartmentHistories")
                         .HasForeignKey("DepartmentID")
                         .HasConstraintName("FK_EmployeeDepartmentHistory_Department_Department_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.HumanResources.Employee", "Employee")
                         .WithMany("EmployeeDepartmentHistories")
                         .HasForeignKey("EmployeeID")
                         .HasConstraintName("FK_EmployeeDepartmentHistory_Employee_Employee_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.HumanResources.Shift", "Shift")
                         .WithMany("EmployeeDepartmentHistories")
                         .HasForeignKey("ShiftID")
                         .HasConstraintName("FK_EmployeeDepartmentHistory_Shift_Shift_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Department");
@@ -3776,7 +3768,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("EmployeePayHistories")
                         .HasForeignKey("EmployeeID")
                         .HasConstraintName("FK_EmployeePayHistory_Employee_Employee_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Employee");
@@ -3788,7 +3780,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("EmployeeID")
                         .HasConstraintName("FK_JobCandidate_Employee_Employee_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AdventureWorks.Domain.Entities.HumanResources.Employee", null)
                         .WithMany("JobCandidates")
@@ -3803,7 +3795,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("Addresses")
                         .HasForeignKey("StateProvinceID")
                         .HasConstraintName("FK_Address_StateProvince_StateProvince_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("StateProvince");
@@ -3815,14 +3807,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("StateProvinces")
                         .HasForeignKey("CountryRegionCode")
                         .HasConstraintName("FK_StateProvince_CountryRegion_CountryRegion_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SalesTerritory", "SalesTerritory")
                         .WithMany("StateProvinces")
                         .HasForeignKey("TerritoryID")
                         .HasConstraintName("FK_StateProvince_SalesTerritory_SalesTerritory_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("CountryRegion");
@@ -3836,14 +3828,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("BillOfMaterialsForComponents")
                         .HasForeignKey("ComponentID")
                         .HasConstraintName("FK_BillOfMaterials_Product_ComponentProduct_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.Product", "AssemblyProduct")
                         .WithMany()
                         .HasForeignKey("ProductAssemblyID")
                         .HasConstraintName("FK_BillOfMaterials_Product_AssemblyProduct_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.Product", null)
                         .WithMany("BillOfMaterialsForAssemblies")
@@ -3853,7 +3845,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("BillOfMaterials")
                         .HasForeignKey("UnitMeasureCode")
                         .HasConstraintName("FK_BillOfMaterials_UnitMeasure_UnitMeasure_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("AssemblyProduct");
@@ -3869,7 +3861,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("ProductModelID")
                         .HasConstraintName("FK_Product_ProductModel_ProductModel_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.ProductModel", null)
                         .WithMany("Products")
@@ -3879,7 +3871,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("ProductSubcategoryID")
                         .HasConstraintName("FK_Product_ProductSubcategory_ProductSubcategory_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.ProductSubcategory", null)
                         .WithMany("Products")
@@ -3888,8 +3880,8 @@ namespace AdventureWorks.Persistence.Migrations
                     b.HasOne("AdventureWorks.Domain.Entities.Production.UnitMeasure", "UnitMeasureSize")
                         .WithMany()
                         .HasForeignKey("SizeUnitMeasureCode")
-                        .HasConstraintName("FK_Product_UnitMeasureSize_UnitMeasure_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("FK_Product_UnitMeasure_UnitMeasureSize_Constraint")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.UnitMeasure", null)
                         .WithMany("ProductWeights")
@@ -3902,8 +3894,8 @@ namespace AdventureWorks.Persistence.Migrations
                     b.HasOne("AdventureWorks.Domain.Entities.Production.UnitMeasure", "UnitMeasureWeight")
                         .WithMany()
                         .HasForeignKey("WeightUnitMeasureCode")
-                        .HasConstraintName("FK_Product_UnitMeasureWeight_UnitMeasure_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("FK_Product_UnitMeasure_UnitMeasureWeight_Constraint")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("ProductModel");
 
@@ -3920,7 +3912,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ProductCostHistories")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_ProductCostHistory_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -3932,14 +3924,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ProductDocuments")
                         .HasForeignKey("DocumentID")
                         .HasConstraintName("FK_ProductDocument_Document_Document_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.Product", "Product")
                         .WithMany("ProductDocuments")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_ProductDocument_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Document");
@@ -3953,14 +3945,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ProductInventories")
                         .HasForeignKey("LocationID")
                         .HasConstraintName("FK_ProductInventory_Location_Location_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.Product", "Product")
                         .WithMany("ProductInventories")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_ProductInventory_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Location");
@@ -3974,7 +3966,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ProductListPriceHistories")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_ProductListPriceHistory_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -3986,14 +3978,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ProductModelIllustrations")
                         .HasForeignKey("IllustrationID")
                         .HasConstraintName("FK_ProductModelIllustration_Illustration_Illustration_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.ProductModel", "ProductModel")
                         .WithMany("ProductModelIllustrations")
                         .HasForeignKey("ProductModelID")
                         .HasConstraintName("FK_ProductModelIllustration_ProductModel_ProductModel_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Illustration");
@@ -4007,21 +3999,21 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ProductModelProductDescriptionCultures")
                         .HasForeignKey("CultureID")
                         .HasConstraintName("FK_ProductModelProductDescriptionCulture_Culture_Culture_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.ProductDescription", "ProductDescription")
                         .WithMany("ProductModelProductDescriptionCultures")
                         .HasForeignKey("ProductDescriptionID")
                         .HasConstraintName("FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescription_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.ProductModel", "ProductModel")
                         .WithMany("ProductModelProductDescriptionCultures")
                         .HasForeignKey("ProductModelID")
                         .HasConstraintName("FK_ProductModelProductDescriptionCulture_ProductModel_ProductModel_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Culture");
@@ -4037,14 +4029,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ProductProductPhotos")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_ProductProductPhoto_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.ProductPhoto", "ProductPhoto")
                         .WithMany("ProductProductPhotos")
                         .HasForeignKey("ProductPhotoID")
                         .HasConstraintName("FK_ProductProductPhoto_ProductPhoto_ProductPhoto_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -4058,7 +4050,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ProductReviews")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_ProductReview_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -4070,7 +4062,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ProductSubcategories")
                         .HasForeignKey("ProductCategoryID")
                         .HasConstraintName("FK_ProductSubcategory_ProductCategory_ProductCategory_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("ProductCategory");
@@ -4082,7 +4074,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("TransactionHistories")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_TransactionHistory_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -4094,14 +4086,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("WorkOrders")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_WorkOrder_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.ScrapReason", "ScrapReason")
                         .WithMany()
                         .HasForeignKey("ScrapReasonID")
                         .HasConstraintName("FK_WorkOrder_ScrapReason_ScrapReason_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.ScrapReason", null)
                         .WithMany("WorkOrders")
@@ -4118,14 +4110,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("WorkOrderRoutings")
                         .HasForeignKey("LocationID")
                         .HasConstraintName("FK_WorkOrderRouting_Location_Location_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.WorkOrder", "WorkOrder")
                         .WithMany("WorkOrderRoutings")
                         .HasForeignKey("WorkOrderID")
                         .HasConstraintName("FK_WorkOrderRouting_WorkOrder_WorkOrder_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Location");
@@ -4139,21 +4131,21 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ProductVendors")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_ProductVendor_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Production.UnitMeasure", "UnitMeasure")
                         .WithMany("ProductVendors")
                         .HasForeignKey("UnitMeasureCode")
                         .HasConstraintName("FK_ProductVendor_UnitMeasure_UnitMeasure_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Purchasing.Vendor", "Vendor")
                         .WithMany("ProductVendors")
                         .HasForeignKey("VendorID")
                         .HasConstraintName("FK_ProductVendor_Vendor_Vendor_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -4169,14 +4161,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("PurchaseOrderDetails")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_PurchaseOrderDetail_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Purchasing.PurchaseOrderHeader", "PurchaseOrderHeader")
                         .WithMany("PurchaseOrderDetails")
                         .HasForeignKey("PurchaseOrderID")
                         .HasConstraintName("FK_PurchaseOrderDetail_PurchaseOrderHeader_PurchaseOrderHeader_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -4190,21 +4182,21 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("PurchaseOrderHeaders")
                         .HasForeignKey("EmployeeID")
                         .HasConstraintName("FK_PurchaseOrderHeader_Employee_Employee_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Purchasing.ShipMethod", "ShipMethod")
                         .WithMany("PurchaseOrderHeaders")
                         .HasForeignKey("ShipMethodID")
                         .HasConstraintName("FK_PurchaseOrderHeader_ShipMethod_ShipMethod_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Purchasing.Vendor", "Vendor")
                         .WithMany("PurchaseOrderHeaders")
                         .HasForeignKey("VendorID")
                         .HasConstraintName("FK_PurchaseOrderHeader_Vendor_Vendor_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Employee");
@@ -4220,21 +4212,21 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("VendorAddresses")
                         .HasForeignKey("AddressID")
                         .HasConstraintName("FK_VendorAddress_Address_Address_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Person.AddressType", "AddressType")
                         .WithMany("VendorAddresses")
                         .HasForeignKey("AddressTypeID")
                         .HasConstraintName("FK_VendorAddress_AddressType_AddressType_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Purchasing.Vendor", "Vendor")
                         .WithMany("VendorAddresses")
                         .HasForeignKey("VendorID")
                         .HasConstraintName("FK_VendorAddress_Vendor_Vendor_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Address");
@@ -4250,21 +4242,21 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("VendorContacts")
                         .HasForeignKey("ContactID")
                         .HasConstraintName("FK_VendorContact_Contact_Contact_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Person.ContactType", "ContactType")
                         .WithMany("VendorContacts")
                         .HasForeignKey("ContactTypeID")
                         .HasConstraintName("FK_VendorContact_ContactType_ContactType_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Purchasing.Vendor", "Vendor")
                         .WithMany("VendorContacts")
                         .HasForeignKey("VendorID")
                         .HasConstraintName("FK_VendorContact_Vendor_Vendor_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Contact");
@@ -4280,14 +4272,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ContactCreditCards")
                         .HasForeignKey("ContactID")
                         .HasConstraintName("FK_ContactCreditCard_Contact_Contact_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.CreditCard", "CreditCard")
                         .WithMany("ContactCreditCards")
                         .HasForeignKey("CreditCardID")
                         .HasConstraintName("FK_ContactCreditCard_CreditCard_CreditCard_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Contact");
@@ -4301,14 +4293,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("CountryRegionCurrencies")
                         .HasForeignKey("CountryRegionCode")
                         .HasConstraintName("FK_CountryRegionCurrency_CountryRegion_CountryRegion_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.Currency", "Currency")
                         .WithMany("CountryRegionCurrencies")
                         .HasForeignKey("CurrencyCode")
                         .HasConstraintName("FK_CountryRegionCurrency_Currency_Currency_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("CountryRegion");
@@ -4322,14 +4314,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("CurrencyRatesFrom")
                         .HasForeignKey("FromCurrencyCode")
                         .HasConstraintName("FK_CurrencyRate_Currency_CurrencyFrom_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.Currency", "CurrencyTo")
                         .WithMany("CurrencyRatesTo")
                         .HasForeignKey("ToCurrencyCode")
                         .HasConstraintName("FK_CurrencyRate_Currency_CurrencyTo_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("CurrencyFrom");
@@ -4347,7 +4339,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("TerritoryID")
                         .HasConstraintName("FK_Customer_SalesTerritory_SalesTerritory_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("SalesTerritory");
                 });
@@ -4358,21 +4350,21 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("CustomerAddresses")
                         .HasForeignKey("AddressID")
                         .HasConstraintName("FK_CustomerAddress_Address_Address_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Person.AddressType", "AddressType")
                         .WithMany("CustomerAddresses")
                         .HasForeignKey("AddressTypeID")
                         .HasConstraintName("FK_CustomerAddress_AddressType_AddressType_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.Customer", "Customer")
                         .WithMany("CustomerAddresses")
                         .HasForeignKey("CustomerID")
                         .HasConstraintName("FK_CustomerAddress_Customer_Customer_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Address");
@@ -4388,14 +4380,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("Individuals")
                         .HasForeignKey("ContactID")
                         .HasConstraintName("FK_Individual_Contact_Contact_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.Customer", "Customer")
                         .WithMany("Individuals")
                         .HasForeignKey("CustomerID")
                         .HasConstraintName("FK_Individual_Customer_Customer_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Contact");
@@ -4409,14 +4401,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("SalesOrderDetails")
                         .HasForeignKey("SalesOrderID")
                         .HasConstraintName("FK_SalesOrderDetail_SalesOrderHeader_SalesOrderHeader_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SpecialOfferProduct", "SpecialOfferProduct")
                         .WithMany("SalesOrderSpecialProductDetails")
                         .HasForeignKey("ProductID", "SpecialOfferID")
                         .HasConstraintName("FK_SalesOrderDetail_SpecialOfferProduct_SpecialOfferProduct_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("SalesOrderHeader");
@@ -4430,21 +4422,21 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("SalesOrderBillToHeaders")
                         .HasForeignKey("BillToAddressID")
                         .HasConstraintName("FK_SalesOrderHeader_Address_BillToAddress_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Person.Contact", "Contact")
                         .WithMany("SalesOrderHeaders")
                         .HasForeignKey("ContactID")
                         .HasConstraintName("FK_SalesOrderHeader_Contact_Contact_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.CreditCard", "CreditCard")
                         .WithMany()
                         .HasForeignKey("CreditCardID")
                         .HasConstraintName("FK_SalesOrderHeader_CreditCard_CreditCard_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.CreditCard", null)
                         .WithMany("SalesOrderHeaders")
@@ -4454,7 +4446,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("CurrencyRateID")
                         .HasConstraintName("FK_SalesOrderHeader_CurrencyRate_CurrencyRate_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.CurrencyRate", null)
                         .WithMany("SalesOrderHeaders")
@@ -4464,14 +4456,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("SalesOrderHeaders")
                         .HasForeignKey("CustomerID")
                         .HasConstraintName("FK_SalesOrderHeader_Customer_Customer_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SalesPerson", "SalesPerson")
                         .WithMany()
                         .HasForeignKey("SalesPersonID")
                         .HasConstraintName("FK_SalesOrderHeader_SalesPerson_SalesPerson_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SalesPerson", null)
                         .WithMany("SalesOrderHeaders")
@@ -4485,21 +4477,21 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("SalesOrderHeaders")
                         .HasForeignKey("ShipMethodID")
                         .HasConstraintName("FK_SalesOrderHeader_ShipMethod_ShipMethod_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Person.Address", "ShipToAddress")
                         .WithMany("SalesOrderShipToHeaders")
                         .HasForeignKey("ShipToAddressID")
                         .HasConstraintName("FK_SalesOrderHeader_Address_ShipToAddress_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SalesTerritory", "SalesTerritory")
                         .WithMany()
                         .HasForeignKey("TerritoryID")
                         .HasConstraintName("FK_SalesOrderHeader_SalesTerritory_SalesTerritory_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("BillToAddress");
 
@@ -4526,14 +4518,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("SalesOrderHeaderSalesReasons")
                         .HasForeignKey("SalesOrderID")
                         .HasConstraintName("FK_SalesOrderHeaderSalesReason_SalesOrderHeader_SalesOrderHeader_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SalesReason", "SalesReason")
                         .WithMany("SalesOrderHeaderSalesReasons")
                         .HasForeignKey("SalesReasonID")
                         .HasConstraintName("FK_SalesOrderHeaderSalesReason_SalesReason_SalesReason_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("SalesOrderHeader");
@@ -4547,7 +4539,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("SalesPeople")
                         .HasForeignKey("SalesPersonID")
                         .HasConstraintName("FK_SalesPerson_Employee_Employee_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SalesTerritory", null)
@@ -4558,7 +4550,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("TerritoryID")
                         .HasConstraintName("FK_SalesPerson_SalesTerritory_SalesTerritory_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Employee");
 
@@ -4571,7 +4563,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("SalesPersonQuotaHistories")
                         .HasForeignKey("SalesPersonID")
                         .HasConstraintName("FK_SalesPersonQuotaHistory_SalesPerson_SalesPerson_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("SalesPerson");
@@ -4583,7 +4575,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("SalesTaxRates")
                         .HasForeignKey("StateProvinceID")
                         .HasConstraintName("FK_SalesTaxRate_StateProvince_StateProvince_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("StateProvince");
@@ -4595,14 +4587,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("SalesTerritoryHistories")
                         .HasForeignKey("SalesPersonID")
                         .HasConstraintName("FK_SalesTerritoryHistory_SalesPerson_SalesPerson_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SalesTerritory", "SalesTerritory")
                         .WithMany("SalesTerritoryHistories")
                         .HasForeignKey("TerritoryID")
                         .HasConstraintName("FK_SalesTerritoryHistory_SalesTerritory_SalesTerritory_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("SalesPerson");
@@ -4616,7 +4608,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("ShoppingCartItems")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_ShoppingCartItem_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -4628,14 +4620,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("SpecialOfferProducts")
                         .HasForeignKey("ProductID")
                         .HasConstraintName("FK_SpecialOfferProduct_Product_Product_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SpecialOffer", "SpecialOffer")
                         .WithMany("SpecialOfferProducts")
                         .HasForeignKey("SpecialOfferID")
                         .HasConstraintName("FK_SpecialOfferProduct_SpecialOffer_SpecialOffer_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -4649,14 +4641,14 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("Stores")
                         .HasForeignKey("CustomerID")
                         .HasConstraintName("FK_Store_Customer_Customer_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SalesPerson", "SalesPerson")
                         .WithMany()
                         .HasForeignKey("SalesPersonID")
                         .HasConstraintName("FK_Store_SalesPerson_SalesPerson_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.SalesPerson", null)
                         .WithMany("Stores")
@@ -4673,21 +4665,21 @@ namespace AdventureWorks.Persistence.Migrations
                         .WithMany("StoreContacts")
                         .HasForeignKey("ContactID")
                         .HasConstraintName("FK_StoreContact_Contact_Contact_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Person.ContactType", "ContactType")
                         .WithMany("StoreContacts")
                         .HasForeignKey("ContactTypeID")
                         .HasConstraintName("FK_StoreContact_ContactType_ContactType_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("AdventureWorks.Domain.Entities.Sales.Store", "Store")
                         .WithMany("StoreContacts")
                         .HasForeignKey("CustomerID")
                         .HasConstraintName("FK_StoreContact_Store_Store_Constraint")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Contact");

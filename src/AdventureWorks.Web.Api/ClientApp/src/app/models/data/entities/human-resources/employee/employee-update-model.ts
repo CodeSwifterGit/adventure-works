@@ -1,11 +1,3 @@
-import { IContactUpdateModel } from 'app/models/data/entities/person/contact/contact-update-model';
-import { IEmployeeAddressUpdateModel } from 'app/models/data/entities/human-resources/employee-address/employee-address-update-model';
-import { IEmployeeDepartmentHistoryUpdateModel } from 'app/models/data/entities/human-resources/employee-department-history/employee-department-history-update-model';
-import { IEmployeePayHistoryUpdateModel } from 'app/models/data/entities/human-resources/employee-pay-history/employee-pay-history-update-model';
-import { IEmployeeUpdateModel } from 'app/models/data/entities/human-resources/employee/employee-update-model';
-import { IJobCandidateUpdateModel } from 'app/models/data/entities/human-resources/job-candidate/job-candidate-update-model';
-import { IPurchaseOrderHeaderUpdateModel } from 'app/models/data/entities/purchasing/purchase-order-header/purchase-order-header-update-model';
-import { ISalesPersonUpdateModel } from 'app/models/data/entities/sales/sales-person/sales-person-update-model';
 
 export interface IEmployeeUpdateModel {
   employeeID: number;

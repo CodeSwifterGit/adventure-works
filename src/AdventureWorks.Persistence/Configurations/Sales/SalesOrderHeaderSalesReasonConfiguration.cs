@@ -39,13 +39,13 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.SalesOrderHeader)
             .WithMany(p => p.SalesOrderHeaderSalesReasons)
             .HasForeignKey(e => new { e.SalesOrderID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_SalesOrderHeaderSalesReason_SalesOrderHeader_SalesOrderHeader_Constraint");
 
             builder.HasOne(e => e.SalesReason)
             .WithMany(p => p.SalesOrderHeaderSalesReasons)
             .HasForeignKey(e => new { e.SalesReasonID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_SalesOrderHeaderSalesReason_SalesReason_SalesReason_Constraint");
 
             // Complex Types (Owned properties as tables)

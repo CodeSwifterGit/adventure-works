@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IShift } from 'app/models/data/entities/human-resources/shift/shift';
 import { IShiftLookupModel } from 'app/models/data/entities/human-resources/shift/shift-lookup-model';
 import { IShiftUpdateModel } from 'app/models/data/entities/human-resources/shift/shift-update-model';
 import { IShiftsListViewModel } from 'app/models/data/entities/human-resources/shift/shifts-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IShiftPrimaryKey {
   shiftID: number;
@@ -22,7 +21,7 @@ export interface IShiftUpdateItem extends IShift {
   providedIn: 'root',
 })
 export class ShiftsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IShift, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IShiftLookupModel>;
   create(model: IShift, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IShiftLookupModel>>;

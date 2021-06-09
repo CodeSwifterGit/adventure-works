@@ -1,1 +1,1 @@
-export interface ISalesPersonSummary {}
+export interface ISalesPersonSummary { }

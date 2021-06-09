@@ -1,1 +1,1 @@
-export interface IDepartmentSummary {}
+export interface IDepartmentSummary { }

@@ -1,6 +1,6 @@
 import { IPagingInfo } from 'app/models/data/common/paging-info';
-import { IEmployeeAddressSummary } from 'app/models/data/entities/human-resources/employee-address/employee-address-summary';
 import { IEmployeeAddressLookupModel } from 'app/models/data/entities/human-resources/employee-address/employee-address-lookup-model';
+import { IEmployeeAddressSummary } from 'app/models/data/entities/human-resources/employee-address/employee-address-summary';
 
 export interface IEmployeeAddressesListViewModel {
   employeeAddresses?: Array<IEmployeeAddressLookupModel>;

@@ -55,19 +55,19 @@ namespace AdventureWorks.Persistence.Configurations.HumanResources
             builder.HasOne(e => e.Department)
             .WithMany(p => p.EmployeeDepartmentHistories)
             .HasForeignKey(e => new { e.DepartmentID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_EmployeeDepartmentHistory_Department_Department_Constraint");
 
             builder.HasOne(e => e.Employee)
             .WithMany(p => p.EmployeeDepartmentHistories)
             .HasForeignKey(e => new { e.EmployeeID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_EmployeeDepartmentHistory_Employee_Employee_Constraint");
 
             builder.HasOne(e => e.Shift)
             .WithMany(p => p.EmployeeDepartmentHistories)
             .HasForeignKey(e => new { e.ShiftID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_EmployeeDepartmentHistory_Shift_Shift_Constraint");
 
             // Complex Types (Owned properties as tables)

@@ -1,4 +1,3 @@
-import { IProductModelProductDescriptionCultureLookupModel } from 'app/models/data/entities/production/product-model-product-description-culture/product-model-product-description-culture-lookup-model';
 
 export interface ICultureLookupModel {
   cultureID: string;

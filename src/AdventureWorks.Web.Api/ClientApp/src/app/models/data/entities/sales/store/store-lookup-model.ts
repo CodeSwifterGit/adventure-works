@@ -1,6 +1,3 @@
-import { ICustomerLookupModel } from 'app/models/data/entities/sales/customer/customer-lookup-model';
-import { ISalesPersonLookupModel } from 'app/models/data/entities/sales/sales-person/sales-person-lookup-model';
-import { IStoreContactLookupModel } from 'app/models/data/entities/sales/store-contact/store-contact-lookup-model';
 
 export interface IStoreLookupModel {
   customerID: number;

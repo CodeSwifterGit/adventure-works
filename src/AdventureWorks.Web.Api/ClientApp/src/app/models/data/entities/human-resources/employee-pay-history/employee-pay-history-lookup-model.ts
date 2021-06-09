@@ -1,4 +1,3 @@
-import { IEmployeeLookupModel } from 'app/models/data/entities/human-resources/employee/employee-lookup-model';
 
 export interface IEmployeePayHistoryLookupModel {
   employeeID: number;

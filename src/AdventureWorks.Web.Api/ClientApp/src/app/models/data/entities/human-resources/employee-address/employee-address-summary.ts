@@ -1,1 +1,1 @@
-export interface IEmployeeAddressSummary {}
+export interface IEmployeeAddressSummary { }

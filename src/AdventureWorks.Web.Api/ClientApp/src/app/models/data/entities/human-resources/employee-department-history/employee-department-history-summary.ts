@@ -1,1 +1,1 @@
-export interface IEmployeeDepartmentHistorySummary {}
+export interface IEmployeeDepartmentHistorySummary { }

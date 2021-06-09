@@ -22,10 +22,10 @@ namespace AdventureWorks.Web.Api.Controllers.Api.Sales
     public partial class CurrencyRatesController : BaseApiController
     {
         [Authorize(Policy = SecurityPolicy.SampleSecurityPolicyForReads)]
-        [HttpGet("[action]/{fromCurrencyCode}/{toCurrencyCode}")]
+        [HttpGet("[action]/{fromCurrencyCode}")]
         [ProducesResponseType(typeof(CurrencyRatesListViewModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<CurrencyRatesListViewModel>> GetCurrencyRatesByCurrency(
-            string fromCurrencyCode, string toCurrencyCode,
+        public async Task<ActionResult<CurrencyRatesListViewModel>> GetCurrencyRatesByCurrencyFrom(
+            string fromCurrencyCode,
             [FromQuery] string[] sortByExpression,
             [FromQuery] string filterQuery,
             [FromQuery] string[] filterParameters,
@@ -35,6 +35,23 @@ namespace AdventureWorks.Web.Api.Controllers.Api.Sales
             return Ok(await Mediator.Send(new GetCurrencyRatesByCurrencyListQuery()
             {
                 FromCurrencyCode = fromCurrencyCode,
+                DataTable = DataTableInfo<CurrencyRateSummary>.CreateInstance(sortByExpression, filterQuery, filterParameters, pageIndex, pageSize)
+            }, cancellationToken));
+        }
+
+        [Authorize(Policy = SecurityPolicy.SampleSecurityPolicyForReads)]
+        [HttpGet("[action]/{toCurrencyCode}")]
+        [ProducesResponseType(typeof(CurrencyRatesListViewModel), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<CurrencyRatesListViewModel>> GetCurrencyRatesByCurrencyTo(
+            string toCurrencyCode,
+            [FromQuery] string[] sortByExpression,
+            [FromQuery] string filterQuery,
+            [FromQuery] string[] filterParameters,
+            [FromQuery] int pageIndex,
+            [FromQuery] int pageSize, CancellationToken cancellationToken)
+        {
+            return Ok(await Mediator.Send(new GetCurrencyRatesByCurrencyListQuery()
+            {
                 ToCurrencyCode = toCurrencyCode,
                 DataTable = DataTableInfo<CurrencyRateSummary>.CreateInstance(sortByExpression, filterQuery, filterParameters, pageIndex, pageSize)
             }, cancellationToken));

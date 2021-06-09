@@ -1,1 +1,1 @@
-export interface IAWBuildVersionSummary {}
+export interface IAWBuildVersionSummary { }

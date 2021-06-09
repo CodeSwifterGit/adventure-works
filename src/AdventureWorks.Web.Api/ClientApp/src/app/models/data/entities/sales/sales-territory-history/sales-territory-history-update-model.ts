@@ -1,5 +1,3 @@
-import { ISalesPersonUpdateModel } from 'app/models/data/entities/sales/sales-person/sales-person-update-model';
-import { ISalesTerritoryUpdateModel } from 'app/models/data/entities/sales/sales-territory/sales-territory-update-model';
 
 export interface ISalesTerritoryHistoryUpdateModel {
   salesPersonID: number;

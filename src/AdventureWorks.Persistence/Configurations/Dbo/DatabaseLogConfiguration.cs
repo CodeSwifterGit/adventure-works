@@ -41,7 +41,7 @@ namespace AdventureWorks.Persistence.Configurations.Dbo
 
             builder.Property(p => p.Tsql)
             .HasColumnName("TSQL")
-            .HasColumnType("nvarchar(-1)")
+            .HasColumnType("nvarchar").HasMaxLength(4000)
             .IsRequired();
 
             builder.Property(p => p.XmlEvent)

@@ -1,1 +1,1 @@
-export interface IProductPhotoSummary {}
+export interface IProductPhotoSummary { }

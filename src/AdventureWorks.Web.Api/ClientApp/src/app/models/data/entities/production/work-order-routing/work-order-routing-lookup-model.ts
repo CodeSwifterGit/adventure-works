@@ -1,5 +1,3 @@
-import { ILocationLookupModel } from 'app/models/data/entities/production/location/location-lookup-model';
-import { IWorkOrderLookupModel } from 'app/models/data/entities/production/work-order/work-order-lookup-model';
 
 export interface IWorkOrderRoutingLookupModel {
   workOrderID: number;

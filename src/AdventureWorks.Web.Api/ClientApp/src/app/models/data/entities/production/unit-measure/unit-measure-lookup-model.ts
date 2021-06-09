@@ -1,6 +1,3 @@
-import { IBillOfMaterialsLookupModel } from 'app/models/data/entities/production/bill-of-materials/bill-of-materials-lookup-model';
-import { IProductLookupModel } from 'app/models/data/entities/production/product/product-lookup-model';
-import { IProductVendorLookupModel } from 'app/models/data/entities/purchasing/product-vendor/product-vendor-lookup-model';
 
 export interface IUnitMeasureLookupModel {
   unitMeasureCode: string;

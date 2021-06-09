@@ -23,7 +23,7 @@ namespace AdventureWorks.Persistence.Configurations.Person
             .ValueGeneratedOnAdd();
 
             builder.Property(p => p.StateProvinceCode)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(3)")
             .IsRequired();
 
             builder.Property(p => p.CountryRegionCode)
@@ -72,13 +72,13 @@ namespace AdventureWorks.Persistence.Configurations.Person
             builder.HasOne(e => e.CountryRegion)
             .WithMany(p => p.StateProvinces)
             .HasForeignKey(e => new { e.CountryRegionCode })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_StateProvince_CountryRegion_CountryRegion_Constraint");
 
             builder.HasOne(e => e.SalesTerritory)
             .WithMany(p => p.StateProvinces)
             .HasForeignKey(e => new { e.TerritoryID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_StateProvince_SalesTerritory_SalesTerritory_Constraint");
 
             // Complex Types (Owned properties as tables)

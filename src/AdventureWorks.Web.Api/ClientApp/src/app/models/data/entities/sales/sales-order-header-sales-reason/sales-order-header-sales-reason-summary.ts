@@ -1,1 +1,1 @@
-export interface ISalesOrderHeaderSalesReasonSummary {}
+export interface ISalesOrderHeaderSalesReasonSummary { }

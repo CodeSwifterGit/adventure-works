@@ -1,5 +1,3 @@
-import { ICustomerAddressUpdateModel } from 'app/models/data/entities/sales/customer-address/customer-address-update-model';
-import { IVendorAddressUpdateModel } from 'app/models/data/entities/purchasing/vendor-address/vendor-address-update-model';
 
 export interface IAddressTypeUpdateModel {
   addressTypeID: number;

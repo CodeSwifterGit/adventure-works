@@ -1,5 +1,3 @@
-import { IProductPhotoUpdateModel } from 'app/models/data/entities/production/product-photo/product-photo-update-model';
-import { IProductUpdateModel } from 'app/models/data/entities/production/product/product-update-model';
 
 export interface IProductProductPhotoUpdateModel {
   productID: number;

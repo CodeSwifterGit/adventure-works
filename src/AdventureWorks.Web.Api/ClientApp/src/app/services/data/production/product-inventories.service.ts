@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { IProductInventoriesListViewModel } from 'app/models/data/entities/production/product-inventory/product-inventories-list-view-model';
 import { IProductInventory } from 'app/models/data/entities/production/product-inventory/product-inventory';
 import { IProductInventoryLookupModel } from 'app/models/data/entities/production/product-inventory/product-inventory-lookup-model';
 import { IProductInventoryUpdateModel } from 'app/models/data/entities/production/product-inventory/product-inventory-update-model';
-import { IProductInventoriesListViewModel } from 'app/models/data/entities/production/product-inventory/product-inventories-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IProductInventoryPrimaryKey {
   productID: number;
@@ -23,7 +22,7 @@ export interface IProductInventoryUpdateItem extends IProductInventory {
   providedIn: 'root',
 })
 export class ProductInventoriesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IProductInventory, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductInventoryLookupModel>;
   create(model: IProductInventory, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductInventoryLookupModel>>;

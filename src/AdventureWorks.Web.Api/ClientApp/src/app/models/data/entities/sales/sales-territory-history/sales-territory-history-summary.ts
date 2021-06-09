@@ -1,1 +1,1 @@
-export interface ISalesTerritoryHistorySummary {}
+export interface ISalesTerritoryHistorySummary { }

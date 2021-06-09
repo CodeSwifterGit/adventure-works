@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IDatabaseLog } from 'app/models/data/entities/dbo/database-log/database-log';
 import { IDatabaseLogLookupModel } from 'app/models/data/entities/dbo/database-log/database-log-lookup-model';
 import { IDatabaseLogUpdateModel } from 'app/models/data/entities/dbo/database-log/database-log-update-model';
 import { IDatabaseLogsListViewModel } from 'app/models/data/entities/dbo/database-log/database-logs-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IDatabaseLogPrimaryKey {
   databaseLogID: number;
@@ -22,7 +21,7 @@ export interface IDatabaseLogUpdateItem extends IDatabaseLog {
   providedIn: 'root',
 })
 export class DatabaseLogsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IDatabaseLog, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IDatabaseLogLookupModel>;
   create(model: IDatabaseLog, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IDatabaseLogLookupModel>>;

@@ -18,7 +18,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
 
             // Properties Configuration
             builder.Property(p => p.CultureID)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(6)")
             .IsRequired();
 
             builder.Property(p => p.Name)

@@ -57,10 +57,10 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .HasColumnType("nvarchar(5)");
 
             builder.Property(p => p.SizeUnitMeasureCode)
-            .HasColumnType("nchar");
+            .HasColumnType("nchar(3)");
 
             builder.Property(p => p.WeightUnitMeasureCode)
-            .HasColumnType("nchar");
+            .HasColumnType("nchar(3)");
 
             builder.Property(p => p.Weight)
             .HasColumnType("decimal(8,2)");
@@ -69,13 +69,13 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .HasColumnType("int");
 
             builder.Property(p => p.ProductLine)
-            .HasColumnType("nchar");
+            .HasColumnType("nchar(2)");
 
             builder.Property(p => p.Class)
-            .HasColumnType("nchar");
+            .HasColumnType("nchar(2)");
 
             builder.Property(p => p.Style)
-            .HasColumnType("nchar");
+            .HasColumnType("nchar(2)");
 
             builder.Property(p => p.ProductSubcategoryID)
             .HasColumnType("int");
@@ -129,26 +129,26 @@ namespace AdventureWorks.Persistence.Configurations.Production
             builder.HasOne(e => e.ProductModel)
             .WithMany()
             .HasForeignKey(e => new { e.ProductModelID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_Product_ProductModel_ProductModel_Constraint");
 
             builder.HasOne(e => e.ProductSubcategory)
             .WithMany()
             .HasForeignKey(e => new { e.ProductSubcategoryID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_Product_ProductSubcategory_ProductSubcategory_Constraint");
 
             builder.HasOne(e => e.UnitMeasureSize)
             .WithMany()
             .HasForeignKey(e => new { e.SizeUnitMeasureCode })
-            .OnDelete(DeleteBehavior.Cascade)
-            .HasConstraintName("FK_Product_UnitMeasureSize_UnitMeasure_Constraint");
+            .OnDelete(DeleteBehavior.NoAction)
+            .HasConstraintName("FK_Product_UnitMeasure_UnitMeasureSize_Constraint");
 
             builder.HasOne(e => e.UnitMeasureWeight)
             .WithMany()
             .HasForeignKey(e => new { e.WeightUnitMeasureCode })
-            .OnDelete(DeleteBehavior.Cascade)
-            .HasConstraintName("FK_Product_UnitMeasureWeight_UnitMeasure_Constraint");
+            .OnDelete(DeleteBehavior.NoAction)
+            .HasConstraintName("FK_Product_UnitMeasure_UnitMeasureWeight_Constraint");
 
             // Complex Types (Owned properties as tables)
 

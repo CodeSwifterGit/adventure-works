@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IPurchaseOrderHeader } from 'app/models/data/entities/purchasing/purchase-order-header/purchase-order-header';
 import { IPurchaseOrderHeaderLookupModel } from 'app/models/data/entities/purchasing/purchase-order-header/purchase-order-header-lookup-model';
 import { IPurchaseOrderHeaderUpdateModel } from 'app/models/data/entities/purchasing/purchase-order-header/purchase-order-header-update-model';
 import { IPurchaseOrderHeadersListViewModel } from 'app/models/data/entities/purchasing/purchase-order-header/purchase-order-headers-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IPurchaseOrderHeaderPrimaryKey {
   purchaseOrderID: number;
@@ -22,7 +21,7 @@ export interface IPurchaseOrderHeaderUpdateItem extends IPurchaseOrderHeader {
   providedIn: 'root',
 })
 export class PurchaseOrderHeadersService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IPurchaseOrderHeader, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IPurchaseOrderHeaderLookupModel>;
   create(model: IPurchaseOrderHeader, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IPurchaseOrderHeaderLookupModel>>;

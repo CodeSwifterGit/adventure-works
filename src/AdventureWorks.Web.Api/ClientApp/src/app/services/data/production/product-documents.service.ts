@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IProductDocument } from 'app/models/data/entities/production/product-document/product-document';
 import { IProductDocumentLookupModel } from 'app/models/data/entities/production/product-document/product-document-lookup-model';
 import { IProductDocumentUpdateModel } from 'app/models/data/entities/production/product-document/product-document-update-model';
 import { IProductDocumentsListViewModel } from 'app/models/data/entities/production/product-document/product-documents-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IProductDocumentPrimaryKey {
   productID: number;
@@ -23,7 +22,7 @@ export interface IProductDocumentUpdateItem extends IProductDocument {
   providedIn: 'root',
 })
 export class ProductDocumentsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IProductDocument, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductDocumentLookupModel>;
   create(model: IProductDocument, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductDocumentLookupModel>>;

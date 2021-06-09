@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { ICurrencyRate } from 'app/models/data/entities/sales/currency-rate/currency-rate';
 import { ICurrencyRateLookupModel } from 'app/models/data/entities/sales/currency-rate/currency-rate-lookup-model';
 import { ICurrencyRateUpdateModel } from 'app/models/data/entities/sales/currency-rate/currency-rate-update-model';
 import { ICurrencyRatesListViewModel } from 'app/models/data/entities/sales/currency-rate/currency-rates-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ICurrencyRatePrimaryKey {
   currencyRateID: number;
@@ -22,7 +21,7 @@ export interface ICurrencyRateUpdateItem extends ICurrencyRate {
   providedIn: 'root',
 })
 export class CurrencyRatesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ICurrencyRate, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ICurrencyRateLookupModel>;
   create(model: ICurrencyRate, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ICurrencyRateLookupModel>>;
@@ -120,12 +119,22 @@ export class CurrencyRatesService {
     return this.apiClient.get<ICurrencyRateLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
 
-  getByCurrency(fromCurrencyCode: string, toCurrencyCode: string, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ICurrencyRatesListViewModel>;
-  getByCurrency(fromCurrencyCode: string, toCurrencyCode: string, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ICurrencyRatesListViewModel>>;
-  getByCurrency(fromCurrencyCode: string, toCurrencyCode: string, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ICurrencyRatesListViewModel>>;
-  getByCurrency(fromCurrencyCode: string, toCurrencyCode: string, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
-    let apiUrlBuilder = new ApiUrlBuilder('CurrencyRates/GetCurrencyRatesByCurrency', {
+  getByCurrencyFrom(fromCurrencyCode: string, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ICurrencyRatesListViewModel>;
+  getByCurrencyFrom(fromCurrencyCode: string, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ICurrencyRatesListViewModel>>;
+  getByCurrencyFrom(fromCurrencyCode: string, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ICurrencyRatesListViewModel>>;
+  getByCurrencyFrom(fromCurrencyCode: string, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+    let apiUrlBuilder = new ApiUrlBuilder('CurrencyRates/GetCurrencyRatesByCurrencyFrom', {
       fromCurrencyCode,
+    });
+    options = options || { anonymous: false };
+
+    return this.apiClient.get<ICurrencyRatesListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
+  }
+  getByCurrencyTo(toCurrencyCode: string, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ICurrencyRatesListViewModel>;
+  getByCurrencyTo(toCurrencyCode: string, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ICurrencyRatesListViewModel>>;
+  getByCurrencyTo(toCurrencyCode: string, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ICurrencyRatesListViewModel>>;
+  getByCurrencyTo(toCurrencyCode: string, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+    let apiUrlBuilder = new ApiUrlBuilder('CurrencyRates/GetCurrencyRatesByCurrencyTo', {
       toCurrencyCode,
     });
     options = options || { anonymous: false };

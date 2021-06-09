@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { IProductSubcategoriesListViewModel } from 'app/models/data/entities/production/product-subcategory/product-subcategories-list-view-model';
 import { IProductSubcategory } from 'app/models/data/entities/production/product-subcategory/product-subcategory';
 import { IProductSubcategoryLookupModel } from 'app/models/data/entities/production/product-subcategory/product-subcategory-lookup-model';
 import { IProductSubcategoryUpdateModel } from 'app/models/data/entities/production/product-subcategory/product-subcategory-update-model';
-import { IProductSubcategoriesListViewModel } from 'app/models/data/entities/production/product-subcategory/product-subcategories-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IProductSubcategoryPrimaryKey {
   productSubcategoryID: number;
@@ -22,7 +21,7 @@ export interface IProductSubcategoryUpdateItem extends IProductSubcategory {
   providedIn: 'root',
 })
 export class ProductSubcategoriesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IProductSubcategory, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductSubcategoryLookupModel>;
   create(model: IProductSubcategory, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductSubcategoryLookupModel>>;

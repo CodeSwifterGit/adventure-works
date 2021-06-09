@@ -1,1 +1,1 @@
-export interface IProductInventorySummary {}
+export interface IProductInventorySummary { }

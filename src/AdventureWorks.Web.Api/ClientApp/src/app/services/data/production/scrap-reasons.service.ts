@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IScrapReason } from 'app/models/data/entities/production/scrap-reason/scrap-reason';
 import { IScrapReasonLookupModel } from 'app/models/data/entities/production/scrap-reason/scrap-reason-lookup-model';
 import { IScrapReasonUpdateModel } from 'app/models/data/entities/production/scrap-reason/scrap-reason-update-model';
 import { IScrapReasonsListViewModel } from 'app/models/data/entities/production/scrap-reason/scrap-reasons-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IScrapReasonPrimaryKey {
   scrapReasonID: number;
@@ -22,7 +21,7 @@ export interface IScrapReasonUpdateItem extends IScrapReason {
   providedIn: 'root',
 })
 export class ScrapReasonsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IScrapReason, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IScrapReasonLookupModel>;
   create(model: IScrapReason, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IScrapReasonLookupModel>>;

@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { ICurrenciesListViewModel } from 'app/models/data/entities/sales/currency/currencies-list-view-model';
 import { ICurrency } from 'app/models/data/entities/sales/currency/currency';
 import { ICurrencyLookupModel } from 'app/models/data/entities/sales/currency/currency-lookup-model';
 import { ICurrencyUpdateModel } from 'app/models/data/entities/sales/currency/currency-update-model';
-import { ICurrenciesListViewModel } from 'app/models/data/entities/sales/currency/currencies-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ICurrencyPrimaryKey {
   currencyCode: string;
@@ -22,7 +21,7 @@ export interface ICurrencyUpdateItem extends ICurrency {
   providedIn: 'root',
 })
 export class CurrenciesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ICurrency, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ICurrencyLookupModel>;
   create(model: ICurrency, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ICurrencyLookupModel>>;

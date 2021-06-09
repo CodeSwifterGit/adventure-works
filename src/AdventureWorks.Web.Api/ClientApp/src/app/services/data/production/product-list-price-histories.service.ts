@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { IProductListPriceHistoriesListViewModel } from 'app/models/data/entities/production/product-list-price-history/product-list-price-histories-list-view-model';
 import { IProductListPriceHistory } from 'app/models/data/entities/production/product-list-price-history/product-list-price-history';
 import { IProductListPriceHistoryLookupModel } from 'app/models/data/entities/production/product-list-price-history/product-list-price-history-lookup-model';
 import { IProductListPriceHistoryUpdateModel } from 'app/models/data/entities/production/product-list-price-history/product-list-price-history-update-model';
-import { IProductListPriceHistoriesListViewModel } from 'app/models/data/entities/production/product-list-price-history/product-list-price-histories-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IProductListPriceHistoryPrimaryKey {
   productID: number;
@@ -23,7 +22,7 @@ export interface IProductListPriceHistoryUpdateItem extends IProductListPriceHis
   providedIn: 'root',
 })
 export class ProductListPriceHistoriesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IProductListPriceHistory, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductListPriceHistoryLookupModel>;
   create(model: IProductListPriceHistory, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductListPriceHistoryLookupModel>>;

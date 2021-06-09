@@ -1,1 +1,1 @@
-export interface IShoppingCartItemSummary {}
+export interface IShoppingCartItemSummary { }

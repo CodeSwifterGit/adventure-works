@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { IProductCostHistoriesListViewModel } from 'app/models/data/entities/production/product-cost-history/product-cost-histories-list-view-model';
 import { IProductCostHistory } from 'app/models/data/entities/production/product-cost-history/product-cost-history';
 import { IProductCostHistoryLookupModel } from 'app/models/data/entities/production/product-cost-history/product-cost-history-lookup-model';
 import { IProductCostHistoryUpdateModel } from 'app/models/data/entities/production/product-cost-history/product-cost-history-update-model';
-import { IProductCostHistoriesListViewModel } from 'app/models/data/entities/production/product-cost-history/product-cost-histories-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IProductCostHistoryPrimaryKey {
   productID: number;
@@ -23,7 +22,7 @@ export interface IProductCostHistoryUpdateItem extends IProductCostHistory {
   providedIn: 'root',
 })
 export class ProductCostHistoriesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IProductCostHistory, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductCostHistoryLookupModel>;
   create(model: IProductCostHistory, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductCostHistoryLookupModel>>;

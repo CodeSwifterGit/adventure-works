@@ -1,1 +1,1 @@
-export interface IStoreSummary {}
+export interface IStoreSummary { }

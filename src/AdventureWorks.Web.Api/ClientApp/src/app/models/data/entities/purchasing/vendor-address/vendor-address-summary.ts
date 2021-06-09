@@ -1,1 +1,1 @@
-export interface IVendorAddressSummary {}
+export interface IVendorAddressSummary { }

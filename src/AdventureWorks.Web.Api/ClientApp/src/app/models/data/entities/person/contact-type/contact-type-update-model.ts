@@ -1,5 +1,3 @@
-import { IStoreContactUpdateModel } from 'app/models/data/entities/sales/store-contact/store-contact-update-model';
-import { IVendorContactUpdateModel } from 'app/models/data/entities/purchasing/vendor-contact/vendor-contact-update-model';
 
 export interface IContactTypeUpdateModel {
   contactTypeID: number;

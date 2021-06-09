@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IShoppingCartItem } from 'app/models/data/entities/sales/shopping-cart-item/shopping-cart-item';
 import { IShoppingCartItemLookupModel } from 'app/models/data/entities/sales/shopping-cart-item/shopping-cart-item-lookup-model';
 import { IShoppingCartItemUpdateModel } from 'app/models/data/entities/sales/shopping-cart-item/shopping-cart-item-update-model';
 import { IShoppingCartItemsListViewModel } from 'app/models/data/entities/sales/shopping-cart-item/shopping-cart-items-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IShoppingCartItemPrimaryKey {
   shoppingCartItemID: number;
@@ -22,7 +21,7 @@ export interface IShoppingCartItemUpdateItem extends IShoppingCartItem {
   providedIn: 'root',
 })
 export class ShoppingCartItemsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IShoppingCartItem, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IShoppingCartItemLookupModel>;
   create(model: IShoppingCartItem, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IShoppingCartItemLookupModel>>;

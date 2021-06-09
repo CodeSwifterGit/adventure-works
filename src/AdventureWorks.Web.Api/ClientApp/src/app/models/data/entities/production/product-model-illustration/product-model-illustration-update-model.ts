@@ -1,5 +1,3 @@
-import { IIllustrationUpdateModel } from 'app/models/data/entities/production/illustration/illustration-update-model';
-import { IProductModelUpdateModel } from 'app/models/data/entities/production/product-model/product-model-update-model';
 
 export interface IProductModelIllustrationUpdateModel {
   productModelID: number;

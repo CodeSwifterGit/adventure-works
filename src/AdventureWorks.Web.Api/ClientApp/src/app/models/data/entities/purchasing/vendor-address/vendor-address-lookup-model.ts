@@ -1,6 +1,3 @@
-import { IAddressLookupModel } from 'app/models/data/entities/person/address/address-lookup-model';
-import { IAddressTypeLookupModel } from 'app/models/data/entities/person/address-type/address-type-lookup-model';
-import { IVendorLookupModel } from 'app/models/data/entities/purchasing/vendor/vendor-lookup-model';
 
 export interface IVendorAddressLookupModel {
   vendorID: number;

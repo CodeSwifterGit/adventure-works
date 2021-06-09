@@ -71,7 +71,7 @@ namespace AdventureWorks.Persistence.Migrations
                     ModifiedBy = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     NameStyle = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "((0))"),
-                    Title = table.Column<string>(type: "varchar(255)", nullable: true),
+                    Title = table.Column<string>(type: "varchar(8000)", maxLength: 8000, nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     MiddleName = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(50)", nullable: false),
@@ -79,7 +79,7 @@ namespace AdventureWorks.Persistence.Migrations
                     EmailAddress = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     EmailPromotion = table.Column<int>(type: "int", nullable: false, defaultValueSql: "((0))"),
                     Phone = table.Column<string>(type: "nvarchar(25)", nullable: true),
-                    PasswordHash = table.Column<string>(type: "varchar(255)", nullable: false),
+                    PasswordHash = table.Column<string>(type: "varchar(8000)", maxLength: 8000, nullable: false),
                     PasswordSalt = table.Column<string>(type: "varchar(10)", nullable: false),
                     AdditionalContactInfo = table.Column<string>(type: "xml", nullable: true),
                     rowguid = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
@@ -148,7 +148,7 @@ namespace AdventureWorks.Persistence.Migrations
                 schema: "Production",
                 columns: table => new
                 {
-                    CultureID = table.Column<string>(type: "nchar", nullable: false),
+                    CultureID = table.Column<string>(type: "nchar(6)", nullable: false),
                     ModifiedBy = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
@@ -164,7 +164,7 @@ namespace AdventureWorks.Persistence.Migrations
                 schema: "Sales",
                 columns: table => new
                 {
-                    CurrencyCode = table.Column<string>(type: "nchar", nullable: false),
+                    CurrencyCode = table.Column<string>(type: "nchar(3)", nullable: false),
                     ModifiedBy = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
@@ -189,7 +189,7 @@ namespace AdventureWorks.Persistence.Migrations
                     Event = table.Column<string>(type: "nvarchar(128)", nullable: false),
                     Schema = table.Column<string>(type: "nvarchar(128)", nullable: true),
                     Object = table.Column<string>(type: "nvarchar(128)", nullable: true),
-                    TSQL = table.Column<string>(type: "nvarchar(-1)", nullable: false),
+                    TSQL = table.Column<string>(type: "nvarchar(4000)", maxLength: 4000, nullable: false),
                     XmlEvent = table.Column<string>(type: "xml", nullable: true)
                 },
                 constraints: table =>
@@ -227,11 +227,11 @@ namespace AdventureWorks.Persistence.Migrations
                     Title = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     FileName = table.Column<string>(type: "nvarchar(400)", nullable: false),
                     FileExtension = table.Column<string>(type: "nvarchar(8)", nullable: false),
-                    Revision = table.Column<string>(type: "nchar", nullable: false),
+                    Revision = table.Column<string>(type: "nchar(5)", nullable: false),
                     ChangeNumber = table.Column<int>(type: "int", nullable: false, defaultValueSql: "((0))"),
                     Status = table.Column<byte>(type: "tinyint", nullable: false),
-                    DocumentSummary = table.Column<string>(type: "nvarchar(-1)", nullable: true),
-                    Document = table.Column<byte[]>(type: "varbinary", nullable: true),
+                    DocumentSummary = table.Column<string>(type: "nvarchar(4000)", maxLength: 4000, nullable: true),
+                    Document = table.Column<byte[]>(type: "varbinary(8000)", maxLength: 8000, nullable: true),
                     ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
                 },
                 constraints: table =>
@@ -363,9 +363,9 @@ namespace AdventureWorks.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ModifiedBy = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
-                    ThumbNailPhoto = table.Column<byte[]>(type: "varbinary", nullable: true),
+                    ThumbNailPhoto = table.Column<byte[]>(type: "varbinary(8000)", maxLength: 8000, nullable: true),
                     ThumbnailPhotoFileName = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    LargePhoto = table.Column<byte[]>(type: "varbinary", nullable: true),
+                    LargePhoto = table.Column<byte[]>(type: "varbinary(8000)", maxLength: 8000, nullable: true),
                     LargePhotoFileName = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
                 },
@@ -510,7 +510,7 @@ namespace AdventureWorks.Persistence.Migrations
                     ReferenceOrderID = table.Column<int>(type: "int", nullable: false),
                     ReferenceOrderLineID = table.Column<int>(type: "int", nullable: false, defaultValueSql: "((0))"),
                     TransactionDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())"),
-                    TransactionType = table.Column<string>(type: "nchar", nullable: false),
+                    TransactionType = table.Column<string>(type: "nchar(1)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     ActualCost = table.Column<decimal>(type: "money", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
@@ -525,7 +525,7 @@ namespace AdventureWorks.Persistence.Migrations
                 schema: "Production",
                 columns: table => new
                 {
-                    UnitMeasureCode = table.Column<string>(type: "nchar", nullable: false),
+                    UnitMeasureCode = table.Column<string>(type: "nchar(3)", nullable: false),
                     ModifiedBy = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
@@ -574,8 +574,8 @@ namespace AdventureWorks.Persistence.Migrations
                     ManagerID = table.Column<int>(type: "int", nullable: true),
                     Title = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    MaritalStatus = table.Column<string>(type: "nchar", nullable: false),
-                    Gender = table.Column<string>(type: "nchar", nullable: false),
+                    MaritalStatus = table.Column<string>(type: "nchar(1)", nullable: false),
+                    Gender = table.Column<string>(type: "nchar(1)", nullable: false),
                     HireDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     SalariedFlag = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "((1))"),
                     VacationHours = table.Column<short>(type: "smallint", nullable: false, defaultValueSql: "((0))"),
@@ -592,8 +592,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ContactID,
                         principalSchema: "Person",
                         principalTable: "Contact",
-                        principalColumn: "ContactID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ContactID");
                     table.ForeignKey(
                         name: "FK_Employee_Employee_EmployeeID1",
                         column: x => x.EmployeeID1,
@@ -602,12 +601,11 @@ namespace AdventureWorks.Persistence.Migrations
                         principalColumn: "EmployeeID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Employee_Manager_Employee_Constraint",
+                        name: "FK_Employee_Employee_Manager_Constraint",
                         column: x => x.ManagerID,
                         principalSchema: "HumanResources",
                         principalTable: "Employee",
-                        principalColumn: "EmployeeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "EmployeeID");
                 });
 
             migrationBuilder.CreateTable(
@@ -629,15 +627,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ContactID,
                         principalSchema: "Person",
                         principalTable: "Contact",
-                        principalColumn: "ContactID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ContactID");
                     table.ForeignKey(
                         name: "FK_ContactCreditCard_CreditCard_CreditCard_Constraint",
                         column: x => x.CreditCardID,
                         principalSchema: "Sales",
                         principalTable: "CreditCard",
-                        principalColumn: "CreditCardID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CreditCardID");
                 });
 
             migrationBuilder.CreateTable(
@@ -646,7 +642,7 @@ namespace AdventureWorks.Persistence.Migrations
                 columns: table => new
                 {
                     CountryRegionCode = table.Column<string>(type: "nvarchar(3)", nullable: false),
-                    CurrencyCode = table.Column<string>(type: "nchar", nullable: false),
+                    CurrencyCode = table.Column<string>(type: "nchar(3)", nullable: false),
                     ModifiedBy = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
@@ -659,15 +655,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.CountryRegionCode,
                         principalSchema: "Person",
                         principalTable: "CountryRegion",
-                        principalColumn: "CountryRegionCode",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CountryRegionCode");
                     table.ForeignKey(
                         name: "FK_CountryRegionCurrency_Currency_Currency_Constraint",
                         column: x => x.CurrencyCode,
                         principalSchema: "Sales",
                         principalTable: "Currency",
-                        principalColumn: "CurrencyCode",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CurrencyCode");
                 });
 
             migrationBuilder.CreateTable(
@@ -680,8 +674,8 @@ namespace AdventureWorks.Persistence.Migrations
                     ModifiedBy = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     CurrencyRateDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    FromCurrencyCode = table.Column<string>(type: "nchar", nullable: false),
-                    ToCurrencyCode = table.Column<string>(type: "nchar", nullable: false),
+                    FromCurrencyCode = table.Column<string>(type: "nchar(3)", nullable: false),
+                    ToCurrencyCode = table.Column<string>(type: "nchar(3)", nullable: false),
                     AverageRate = table.Column<decimal>(type: "money", nullable: false),
                     EndOfDayRate = table.Column<decimal>(type: "money", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
@@ -694,15 +688,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.FromCurrencyCode,
                         principalSchema: "Sales",
                         principalTable: "Currency",
-                        principalColumn: "CurrencyCode",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CurrencyCode");
                     table.ForeignKey(
                         name: "FK_CurrencyRate_Currency_CurrencyTo_Constraint",
                         column: x => x.ToCurrencyCode,
                         principalSchema: "Sales",
                         principalTable: "Currency",
-                        principalColumn: "CurrencyCode",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CurrencyCode");
                 });
 
             migrationBuilder.CreateTable(
@@ -727,8 +719,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductCategoryID,
                         principalSchema: "Production",
                         principalTable: "ProductCategory",
-                        principalColumn: "ProductCategoryID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductCategoryID");
                 });
 
             migrationBuilder.CreateTable(
@@ -750,15 +741,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.IllustrationID,
                         principalSchema: "Production",
                         principalTable: "Illustration",
-                        principalColumn: "IllustrationID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IllustrationID");
                     table.ForeignKey(
                         name: "FK_ProductModelIllustration_ProductModel_ProductModel_Constraint",
                         column: x => x.ProductModelID,
                         principalSchema: "Production",
                         principalTable: "ProductModel",
-                        principalColumn: "ProductModelID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductModelID");
                 });
 
             migrationBuilder.CreateTable(
@@ -768,7 +757,7 @@ namespace AdventureWorks.Persistence.Migrations
                 {
                     ProductModelID = table.Column<int>(type: "int", nullable: false),
                     ProductDescriptionID = table.Column<int>(type: "int", nullable: false),
-                    CultureID = table.Column<string>(type: "nchar", nullable: false),
+                    CultureID = table.Column<string>(type: "nchar(6)", nullable: false),
                     ModifiedBy = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
@@ -781,22 +770,19 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.CultureID,
                         principalSchema: "Production",
                         principalTable: "Culture",
-                        principalColumn: "CultureID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CultureID");
                     table.ForeignKey(
                         name: "FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescription_Constraint",
                         column: x => x.ProductDescriptionID,
                         principalSchema: "Production",
                         principalTable: "ProductDescription",
-                        principalColumn: "ProductDescriptionID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductDescriptionID");
                     table.ForeignKey(
                         name: "FK_ProductModelProductDescriptionCulture_ProductModel_ProductModel_Constraint",
                         column: x => x.ProductModelID,
                         principalSchema: "Production",
                         principalTable: "ProductModel",
-                        principalColumn: "ProductModelID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductModelID");
                 });
 
             migrationBuilder.CreateTable(
@@ -810,8 +796,8 @@ namespace AdventureWorks.Persistence.Migrations
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     SalesTerritoryTerritoryID = table.Column<int>(type: "int", nullable: true),
                     TerritoryID = table.Column<int>(type: "int", nullable: true),
-                    AccountNumber = table.Column<string>(type: "varchar(10)", nullable: false, computedColumnSql: "(isnull('AW'+[dbo].[ufnLeadingZeros]([CustomerID]),''))", stored: false),
-                    CustomerType = table.Column<string>(type: "nchar", nullable: false),
+                    AccountNumber = table.Column<string>(type: "varchar(10)", nullable: false, computedColumnSql: "''", stored: false),
+                    CustomerType = table.Column<string>(type: "nchar(1)", nullable: false),
                     rowguid = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
                     ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
                 },
@@ -823,8 +809,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.TerritoryID,
                         principalSchema: "Sales",
                         principalTable: "SalesTerritory",
-                        principalColumn: "TerritoryID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "TerritoryID");
                     table.ForeignKey(
                         name: "FK_Customer_SalesTerritory_SalesTerritoryTerritoryID",
                         column: x => x.SalesTerritoryTerritoryID,
@@ -843,7 +828,7 @@ namespace AdventureWorks.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ModifiedBy = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
-                    StateProvinceCode = table.Column<string>(type: "nchar", nullable: false),
+                    StateProvinceCode = table.Column<string>(type: "nchar(3)", nullable: false),
                     CountryRegionCode = table.Column<string>(type: "nvarchar(3)", nullable: false),
                     IsOnlyStateProvinceFlag = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "((1))"),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
@@ -859,15 +844,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.CountryRegionCode,
                         principalSchema: "Person",
                         principalTable: "CountryRegion",
-                        principalColumn: "CountryRegionCode",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CountryRegionCode");
                     table.ForeignKey(
                         name: "FK_StateProvince_SalesTerritory_SalesTerritory_Constraint",
                         column: x => x.TerritoryID,
                         principalSchema: "Sales",
                         principalTable: "SalesTerritory",
-                        principalColumn: "TerritoryID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "TerritoryID");
                 });
 
             migrationBuilder.CreateTable(
@@ -890,22 +873,19 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ContactID,
                         principalSchema: "Person",
                         principalTable: "Contact",
-                        principalColumn: "ContactID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ContactID");
                     table.ForeignKey(
                         name: "FK_VendorContact_ContactType_ContactType_Constraint",
                         column: x => x.ContactTypeID,
                         principalSchema: "Person",
                         principalTable: "ContactType",
-                        principalColumn: "ContactTypeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ContactTypeID");
                     table.ForeignKey(
                         name: "FK_VendorContact_Vendor_Vendor_Constraint",
                         column: x => x.VendorID,
                         principalSchema: "Purchasing",
                         principalTable: "Vendor",
-                        principalColumn: "VendorID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "VendorID");
                 });
 
             migrationBuilder.CreateTable(
@@ -930,22 +910,19 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.DepartmentID,
                         principalSchema: "HumanResources",
                         principalTable: "Department",
-                        principalColumn: "DepartmentID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "DepartmentID");
                     table.ForeignKey(
                         name: "FK_EmployeeDepartmentHistory_Employee_Employee_Constraint",
                         column: x => x.EmployeeID,
                         principalSchema: "HumanResources",
                         principalTable: "Employee",
-                        principalColumn: "EmployeeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "EmployeeID");
                     table.ForeignKey(
                         name: "FK_EmployeeDepartmentHistory_Shift_Shift_Constraint",
                         column: x => x.ShiftID,
                         principalSchema: "HumanResources",
                         principalTable: "Shift",
-                        principalColumn: "ShiftID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ShiftID");
                 });
 
             migrationBuilder.CreateTable(
@@ -969,8 +946,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.EmployeeID,
                         principalSchema: "HumanResources",
                         principalTable: "Employee",
-                        principalColumn: "EmployeeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "EmployeeID");
                 });
 
             migrationBuilder.CreateTable(
@@ -995,8 +971,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.EmployeeID,
                         principalSchema: "HumanResources",
                         principalTable: "Employee",
-                        principalColumn: "EmployeeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "EmployeeID");
                     table.ForeignKey(
                         name: "FK_JobCandidate_Employee_EmployeeID1",
                         column: x => x.EmployeeID1,
@@ -1036,22 +1011,19 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.EmployeeID,
                         principalSchema: "HumanResources",
                         principalTable: "Employee",
-                        principalColumn: "EmployeeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "EmployeeID");
                     table.ForeignKey(
                         name: "FK_PurchaseOrderHeader_ShipMethod_ShipMethod_Constraint",
                         column: x => x.ShipMethodID,
                         principalSchema: "Purchasing",
                         principalTable: "ShipMethod",
-                        principalColumn: "ShipMethodID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ShipMethodID");
                     table.ForeignKey(
                         name: "FK_PurchaseOrderHeader_Vendor_Vendor_Constraint",
                         column: x => x.VendorID,
                         principalSchema: "Purchasing",
                         principalTable: "Vendor",
-                        principalColumn: "VendorID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "VendorID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1080,15 +1052,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.SalesPersonID,
                         principalSchema: "HumanResources",
                         principalTable: "Employee",
-                        principalColumn: "EmployeeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "EmployeeID");
                     table.ForeignKey(
                         name: "FK_SalesPerson_SalesTerritory_SalesTerritory_Constraint",
                         column: x => x.TerritoryID,
                         principalSchema: "Sales",
                         principalTable: "SalesTerritory",
-                        principalColumn: "TerritoryID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "TerritoryID");
                     table.ForeignKey(
                         name: "FK_SalesPerson_SalesTerritory_SalesTerritoryTerritoryID",
                         column: x => x.SalesTerritoryTerritoryID,
@@ -1109,8 +1079,8 @@ namespace AdventureWorks.Persistence.Migrations
                     ModifiedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     ProductModelID1 = table.Column<int>(type: "int", nullable: true),
                     ProductSubcategoryID1 = table.Column<int>(type: "int", nullable: true),
-                    UnitMeasureCode = table.Column<string>(type: "nchar", nullable: true),
-                    UnitMeasureCode1 = table.Column<string>(type: "nchar", nullable: true),
+                    UnitMeasureCode = table.Column<string>(type: "nchar(3)", nullable: true),
+                    UnitMeasureCode1 = table.Column<string>(type: "nchar(3)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     ProductNumber = table.Column<string>(type: "nvarchar(25)", nullable: false),
                     MakeFlag = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "((1))"),
@@ -1121,13 +1091,13 @@ namespace AdventureWorks.Persistence.Migrations
                     StandardCost = table.Column<decimal>(type: "money", nullable: false),
                     ListPrice = table.Column<decimal>(type: "money", nullable: false),
                     Size = table.Column<string>(type: "nvarchar(5)", nullable: true),
-                    SizeUnitMeasureCode = table.Column<string>(type: "nchar", nullable: true),
-                    WeightUnitMeasureCode = table.Column<string>(type: "nchar", nullable: true),
+                    SizeUnitMeasureCode = table.Column<string>(type: "nchar(3)", nullable: true),
+                    WeightUnitMeasureCode = table.Column<string>(type: "nchar(3)", nullable: true),
                     Weight = table.Column<decimal>(type: "decimal(8,2)", nullable: true),
                     DaysToManufacture = table.Column<int>(type: "int", nullable: false),
-                    ProductLine = table.Column<string>(type: "nchar", nullable: true),
-                    Class = table.Column<string>(type: "nchar", nullable: true),
-                    Style = table.Column<string>(type: "nchar", nullable: true),
+                    ProductLine = table.Column<string>(type: "nchar(2)", nullable: true),
+                    Class = table.Column<string>(type: "nchar(2)", nullable: true),
+                    Style = table.Column<string>(type: "nchar(2)", nullable: true),
                     ProductSubcategoryID = table.Column<int>(type: "int", nullable: true),
                     ProductModelID = table.Column<int>(type: "int", nullable: true),
                     SellStartDate = table.Column<DateTime>(type: "datetime", nullable: false),
@@ -1144,8 +1114,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductModelID,
                         principalSchema: "Production",
                         principalTable: "ProductModel",
-                        principalColumn: "ProductModelID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductModelID");
                     table.ForeignKey(
                         name: "FK_Product_ProductModel_ProductModelID1",
                         column: x => x.ProductModelID1,
@@ -1158,8 +1127,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductSubcategoryID,
                         principalSchema: "Production",
                         principalTable: "ProductSubcategory",
-                        principalColumn: "ProductSubcategoryID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductSubcategoryID");
                     table.ForeignKey(
                         name: "FK_Product_ProductSubcategory_ProductSubcategoryID1",
                         column: x => x.ProductSubcategoryID1,
@@ -1182,19 +1150,17 @@ namespace AdventureWorks.Persistence.Migrations
                         principalColumn: "UnitMeasureCode",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Product_UnitMeasureSize_UnitMeasure_Constraint",
+                        name: "FK_Product_UnitMeasure_UnitMeasureSize_Constraint",
                         column: x => x.SizeUnitMeasureCode,
                         principalSchema: "Production",
                         principalTable: "UnitMeasure",
-                        principalColumn: "UnitMeasureCode",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "UnitMeasureCode");
                     table.ForeignKey(
-                        name: "FK_Product_UnitMeasureWeight_UnitMeasure_Constraint",
+                        name: "FK_Product_UnitMeasure_UnitMeasureWeight_Constraint",
                         column: x => x.WeightUnitMeasureCode,
                         principalSchema: "Production",
                         principalTable: "UnitMeasure",
-                        principalColumn: "UnitMeasureCode",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "UnitMeasureCode");
                 });
 
             migrationBuilder.CreateTable(
@@ -1217,15 +1183,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ContactID,
                         principalSchema: "Person",
                         principalTable: "Contact",
-                        principalColumn: "ContactID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ContactID");
                     table.ForeignKey(
                         name: "FK_Individual_Customer_Customer_Constraint",
                         column: x => x.CustomerID,
                         principalSchema: "Sales",
                         principalTable: "Customer",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CustomerID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1253,8 +1217,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.StateProvinceID,
                         principalSchema: "Person",
                         principalTable: "StateProvince",
-                        principalColumn: "StateProvinceID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "StateProvinceID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1281,8 +1244,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.StateProvinceID,
                         principalSchema: "Person",
                         principalTable: "StateProvince",
-                        principalColumn: "StateProvinceID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "StateProvinceID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1306,8 +1268,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.SalesPersonID,
                         principalSchema: "Sales",
                         principalTable: "SalesPerson",
-                        principalColumn: "SalesPersonID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SalesPersonID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1332,15 +1293,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.SalesPersonID,
                         principalSchema: "Sales",
                         principalTable: "SalesPerson",
-                        principalColumn: "SalesPersonID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SalesPersonID");
                     table.ForeignKey(
                         name: "FK_SalesTerritoryHistory_SalesTerritory_SalesTerritory_Constraint",
                         column: x => x.TerritoryID,
                         principalSchema: "Sales",
                         principalTable: "SalesTerritory",
-                        principalColumn: "TerritoryID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "TerritoryID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1366,15 +1325,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.CustomerID,
                         principalSchema: "Sales",
                         principalTable: "Customer",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CustomerID");
                     table.ForeignKey(
                         name: "FK_Store_SalesPerson_SalesPerson_Constraint",
                         column: x => x.SalesPersonID,
                         principalSchema: "Sales",
                         principalTable: "SalesPerson",
-                        principalColumn: "SalesPersonID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SalesPersonID");
                     table.ForeignKey(
                         name: "FK_Store_SalesPerson_SalesPersonID1",
                         column: x => x.SalesPersonID1,
@@ -1398,7 +1355,7 @@ namespace AdventureWorks.Persistence.Migrations
                     ComponentID = table.Column<int>(type: "int", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())"),
                     EndDate = table.Column<DateTime>(type: "datetime", nullable: true),
-                    UnitMeasureCode = table.Column<string>(type: "nchar", nullable: false),
+                    UnitMeasureCode = table.Column<string>(type: "nchar(3)", nullable: false),
                     BOMLevel = table.Column<short>(type: "smallint", nullable: false),
                     PerAssemblyQty = table.Column<decimal>(type: "decimal(8,2)", nullable: false, defaultValueSql: "((1.00))"),
                     ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
@@ -1411,15 +1368,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductAssemblyID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                     table.ForeignKey(
                         name: "FK_BillOfMaterials_Product_ComponentProduct_Constraint",
                         column: x => x.ComponentID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                     table.ForeignKey(
                         name: "FK_BillOfMaterials_Product_ProductID",
                         column: x => x.ProductID,
@@ -1432,8 +1387,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.UnitMeasureCode,
                         principalSchema: "Production",
                         principalTable: "UnitMeasure",
-                        principalColumn: "UnitMeasureCode",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "UnitMeasureCode");
                 });
 
             migrationBuilder.CreateTable(
@@ -1457,8 +1411,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1480,15 +1433,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.DocumentID,
                         principalSchema: "Production",
                         principalTable: "Document",
-                        principalColumn: "DocumentID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "DocumentID");
                     table.ForeignKey(
                         name: "FK_ProductDocument_Product_Product_Constraint",
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1514,15 +1465,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.LocationID,
                         principalSchema: "Production",
                         principalTable: "Location",
-                        principalColumn: "LocationID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "LocationID");
                     table.ForeignKey(
                         name: "FK_ProductInventory_Product_Product_Constraint",
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1546,8 +1495,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1570,15 +1518,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                     table.ForeignKey(
                         name: "FK_ProductProductPhoto_ProductPhoto_ProductPhoto_Constraint",
                         column: x => x.ProductPhotoID,
                         principalSchema: "Production",
                         principalTable: "ProductPhoto",
-                        principalColumn: "ProductPhotoID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductPhotoID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1606,8 +1552,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1626,7 +1571,7 @@ namespace AdventureWorks.Persistence.Migrations
                     MinOrderQty = table.Column<int>(type: "int", nullable: false),
                     MaxOrderQty = table.Column<int>(type: "int", nullable: false),
                     OnOrderQty = table.Column<int>(type: "int", nullable: true),
-                    UnitMeasureCode = table.Column<string>(type: "nchar", nullable: false),
+                    UnitMeasureCode = table.Column<string>(type: "nchar(3)", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
                 },
                 constraints: table =>
@@ -1637,22 +1582,19 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                     table.ForeignKey(
                         name: "FK_ProductVendor_UnitMeasure_UnitMeasure_Constraint",
                         column: x => x.UnitMeasureCode,
                         principalSchema: "Production",
                         principalTable: "UnitMeasure",
-                        principalColumn: "UnitMeasureCode",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "UnitMeasureCode");
                     table.ForeignKey(
                         name: "FK_ProductVendor_Vendor_Vendor_Constraint",
                         column: x => x.VendorID,
                         principalSchema: "Purchasing",
                         principalTable: "Vendor",
-                        principalColumn: "VendorID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "VendorID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1683,15 +1625,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                     table.ForeignKey(
                         name: "FK_PurchaseOrderDetail_PurchaseOrderHeader_PurchaseOrderHeader_Constraint",
                         column: x => x.PurchaseOrderID,
                         principalSchema: "Purchasing",
                         principalTable: "PurchaseOrderHeader",
-                        principalColumn: "PurchaseOrderID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "PurchaseOrderID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1717,8 +1657,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1741,15 +1680,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                     table.ForeignKey(
                         name: "FK_SpecialOfferProduct_SpecialOffer_SpecialOffer_Constraint",
                         column: x => x.SpecialOfferID,
                         principalSchema: "Sales",
                         principalTable: "SpecialOffer",
-                        principalColumn: "SpecialOfferID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SpecialOfferID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1765,7 +1702,7 @@ namespace AdventureWorks.Persistence.Migrations
                     ReferenceOrderID = table.Column<int>(type: "int", nullable: false),
                     ReferenceOrderLineID = table.Column<int>(type: "int", nullable: false, defaultValueSql: "((0))"),
                     TransactionDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())"),
-                    TransactionType = table.Column<string>(type: "nchar", nullable: false),
+                    TransactionType = table.Column<string>(type: "nchar(1)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     ActualCost = table.Column<decimal>(type: "money", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
@@ -1778,8 +1715,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1810,15 +1746,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ProductID,
                         principalSchema: "Production",
                         principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ProductID");
                     table.ForeignKey(
                         name: "FK_WorkOrder_ScrapReason_ScrapReason_Constraint",
                         column: x => x.ScrapReasonID,
                         principalSchema: "Production",
                         principalTable: "ScrapReason",
-                        principalColumn: "ScrapReasonID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ScrapReasonID");
                     table.ForeignKey(
                         name: "FK_WorkOrder_ScrapReason_ScrapReasonID1",
                         column: x => x.ScrapReasonID1,
@@ -1849,22 +1783,19 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.AddressID,
                         principalSchema: "Person",
                         principalTable: "Address",
-                        principalColumn: "AddressID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "AddressID");
                     table.ForeignKey(
                         name: "FK_CustomerAddress_AddressType_AddressType_Constraint",
                         column: x => x.AddressTypeID,
                         principalSchema: "Person",
                         principalTable: "AddressType",
-                        principalColumn: "AddressTypeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "AddressTypeID");
                     table.ForeignKey(
                         name: "FK_CustomerAddress_Customer_Customer_Constraint",
                         column: x => x.CustomerID,
                         principalSchema: "Sales",
                         principalTable: "Customer",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CustomerID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1887,15 +1818,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.AddressID,
                         principalSchema: "Person",
                         principalTable: "Address",
-                        principalColumn: "AddressID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "AddressID");
                     table.ForeignKey(
                         name: "FK_EmployeeAddress_Employee_Employee_Constraint",
                         column: x => x.EmployeeID,
                         principalSchema: "HumanResources",
                         principalTable: "Employee",
-                        principalColumn: "EmployeeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "EmployeeID");
                 });
 
             migrationBuilder.CreateTable(
@@ -1946,29 +1875,25 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.BillToAddressID,
                         principalSchema: "Person",
                         principalTable: "Address",
-                        principalColumn: "AddressID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "AddressID");
                     table.ForeignKey(
                         name: "FK_SalesOrderHeader_Address_ShipToAddress_Constraint",
                         column: x => x.ShipToAddressID,
                         principalSchema: "Person",
                         principalTable: "Address",
-                        principalColumn: "AddressID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "AddressID");
                     table.ForeignKey(
                         name: "FK_SalesOrderHeader_Contact_Contact_Constraint",
                         column: x => x.ContactID,
                         principalSchema: "Person",
                         principalTable: "Contact",
-                        principalColumn: "ContactID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ContactID");
                     table.ForeignKey(
                         name: "FK_SalesOrderHeader_CreditCard_CreditCard_Constraint",
                         column: x => x.CreditCardID,
                         principalSchema: "Sales",
                         principalTable: "CreditCard",
-                        principalColumn: "CreditCardID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CreditCardID");
                     table.ForeignKey(
                         name: "FK_SalesOrderHeader_CreditCard_CreditCardID1",
                         column: x => x.CreditCardID1,
@@ -1981,8 +1906,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.CurrencyRateID,
                         principalSchema: "Sales",
                         principalTable: "CurrencyRate",
-                        principalColumn: "CurrencyRateID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CurrencyRateID");
                     table.ForeignKey(
                         name: "FK_SalesOrderHeader_CurrencyRate_CurrencyRateID1",
                         column: x => x.CurrencyRateID1,
@@ -1995,15 +1919,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.CustomerID,
                         principalSchema: "Sales",
                         principalTable: "Customer",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CustomerID");
                     table.ForeignKey(
                         name: "FK_SalesOrderHeader_SalesPerson_SalesPerson_Constraint",
                         column: x => x.SalesPersonID,
                         principalSchema: "Sales",
                         principalTable: "SalesPerson",
-                        principalColumn: "SalesPersonID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SalesPersonID");
                     table.ForeignKey(
                         name: "FK_SalesOrderHeader_SalesPerson_SalesPersonID1",
                         column: x => x.SalesPersonID1,
@@ -2016,8 +1938,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.TerritoryID,
                         principalSchema: "Sales",
                         principalTable: "SalesTerritory",
-                        principalColumn: "TerritoryID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "TerritoryID");
                     table.ForeignKey(
                         name: "FK_SalesOrderHeader_SalesTerritory_SalesTerritoryTerritoryID",
                         column: x => x.SalesTerritoryTerritoryID,
@@ -2030,8 +1951,7 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ShipMethodID,
                         principalSchema: "Purchasing",
                         principalTable: "ShipMethod",
-                        principalColumn: "ShipMethodID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ShipMethodID");
                 });
 
             migrationBuilder.CreateTable(
@@ -2054,22 +1974,19 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.AddressID,
                         principalSchema: "Person",
                         principalTable: "Address",
-                        principalColumn: "AddressID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "AddressID");
                     table.ForeignKey(
                         name: "FK_VendorAddress_AddressType_AddressType_Constraint",
                         column: x => x.AddressTypeID,
                         principalSchema: "Person",
                         principalTable: "AddressType",
-                        principalColumn: "AddressTypeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "AddressTypeID");
                     table.ForeignKey(
                         name: "FK_VendorAddress_Vendor_Vendor_Constraint",
                         column: x => x.VendorID,
                         principalSchema: "Purchasing",
                         principalTable: "Vendor",
-                        principalColumn: "VendorID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "VendorID");
                 });
 
             migrationBuilder.CreateTable(
@@ -2093,22 +2010,19 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.ContactID,
                         principalSchema: "Person",
                         principalTable: "Contact",
-                        principalColumn: "ContactID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ContactID");
                     table.ForeignKey(
                         name: "FK_StoreContact_ContactType_ContactType_Constraint",
                         column: x => x.ContactTypeID,
                         principalSchema: "Person",
                         principalTable: "ContactType",
-                        principalColumn: "ContactTypeID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ContactTypeID");
                     table.ForeignKey(
                         name: "FK_StoreContact_Store_Store_Constraint",
                         column: x => x.CustomerID,
                         principalSchema: "Sales",
                         principalTable: "Store",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CustomerID");
                 });
 
             migrationBuilder.CreateTable(
@@ -2139,15 +2053,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.LocationID,
                         principalSchema: "Production",
                         principalTable: "Location",
-                        principalColumn: "LocationID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "LocationID");
                     table.ForeignKey(
                         name: "FK_WorkOrderRouting_WorkOrder_WorkOrder_Constraint",
                         column: x => x.WorkOrderID,
                         principalSchema: "Production",
                         principalTable: "WorkOrder",
-                        principalColumn: "WorkOrderID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "WorkOrderID");
                 });
 
             migrationBuilder.CreateTable(
@@ -2178,15 +2090,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.SalesOrderID,
                         principalSchema: "Sales",
                         principalTable: "SalesOrderHeader",
-                        principalColumn: "SalesOrderID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SalesOrderID");
                     table.ForeignKey(
                         name: "FK_SalesOrderDetail_SpecialOfferProduct_SpecialOfferProduct_Constraint",
                         columns: x => new { x.ProductID, x.SpecialOfferID },
                         principalSchema: "Sales",
                         principalTable: "SpecialOfferProduct",
-                        principalColumns: new[] { "SpecialOfferID", "ProductID" },
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumns: new[] { "SpecialOfferID", "ProductID" });
                 });
 
             migrationBuilder.CreateTable(
@@ -2208,15 +2118,13 @@ namespace AdventureWorks.Persistence.Migrations
                         column: x => x.SalesOrderID,
                         principalSchema: "Sales",
                         principalTable: "SalesOrderHeader",
-                        principalColumn: "SalesOrderID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SalesOrderID");
                     table.ForeignKey(
                         name: "FK_SalesOrderHeaderSalesReason_SalesReason_SalesReason_Constraint",
                         column: x => x.SalesReasonID,
                         principalSchema: "Sales",
                         principalTable: "SalesReason",
-                        principalColumn: "SalesReasonID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "SalesReasonID");
                 });
 
             migrationBuilder.CreateIndex(
@@ -2259,8 +2167,8 @@ namespace AdventureWorks.Persistence.Migrations
                 schema: "Production",
                 table: "BillOfMaterials",
                 columns: new[] { "ComponentID", "ProductAssemblyID", "StartDate" },
-                unique: true)
-                .Annotation("SqlServer:Clustered", true);
+                unique: true,
+                filter: "[ProductAssemblyID] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "FK_BillOfMaterials_AssemblyProduct_Product",
@@ -2298,12 +2206,6 @@ namespace AdventureWorks.Persistence.Migrations
                 schema: "Person",
                 table: "Contact",
                 column: "EmailAddress");
-
-            migrationBuilder.CreateIndex(
-                name: "PXML_Contact_AddContact",
-                schema: "Person",
-                table: "Contact",
-                column: "AdditionalContactInfo");
 
             migrationBuilder.CreateIndex(
                 name: "FK_ContactCreditCard_Contact_Contact",
@@ -2543,12 +2445,6 @@ namespace AdventureWorks.Persistence.Migrations
                 column: "CustomerID");
 
             migrationBuilder.CreateIndex(
-                name: "XMLVALUE_Individual_Demographics",
-                schema: "Sales",
-                table: "Individual",
-                column: "Demographics");
-
-            migrationBuilder.CreateIndex(
                 name: "FK_JobCandidate_Employee_Employee",
                 schema: "HumanResources",
                 table: "JobCandidate",
@@ -2706,18 +2602,6 @@ namespace AdventureWorks.Persistence.Migrations
                 table: "ProductModel",
                 column: "rowguid",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "PXML_ProductModel_CatalogDescription",
-                schema: "Production",
-                table: "ProductModel",
-                column: "CatalogDescription");
-
-            migrationBuilder.CreateIndex(
-                name: "PXML_ProductModel_Instructions",
-                schema: "Production",
-                table: "ProductModel",
-                column: "Instructions");
 
             migrationBuilder.CreateIndex(
                 name: "FK_ProductModelIllustration_Illustration_Illustration",
@@ -3192,12 +3076,6 @@ namespace AdventureWorks.Persistence.Migrations
                 schema: "Sales",
                 table: "Store",
                 column: "SalesPersonID1");
-
-            migrationBuilder.CreateIndex(
-                name: "PXML_Store_Demographics",
-                schema: "Sales",
-                table: "Store",
-                column: "Demographics");
 
             migrationBuilder.CreateIndex(
                 name: "AK_StoreContact_rowguid",

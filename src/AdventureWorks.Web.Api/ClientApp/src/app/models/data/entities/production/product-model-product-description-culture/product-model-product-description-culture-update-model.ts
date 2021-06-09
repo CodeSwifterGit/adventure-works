@@ -1,6 +1,3 @@
-import { ICultureUpdateModel } from 'app/models/data/entities/production/culture/culture-update-model';
-import { IProductDescriptionUpdateModel } from 'app/models/data/entities/production/product-description/product-description-update-model';
-import { IProductModelUpdateModel } from 'app/models/data/entities/production/product-model/product-model-update-model';
 
 export interface IProductModelProductDescriptionCultureUpdateModel {
   productModelID: number;

@@ -39,13 +39,13 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.Contact)
             .WithMany(p => p.ContactCreditCards)
             .HasForeignKey(e => new { e.ContactID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ContactCreditCard_Contact_Contact_Constraint");
 
             builder.HasOne(e => e.CreditCard)
             .WithMany(p => p.ContactCreditCards)
             .HasForeignKey(e => new { e.CreditCardID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ContactCreditCard_CreditCard_CreditCard_Constraint");
 
             // Complex Types (Owned properties as tables)

@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IAWBuildVersion } from 'app/models/data/entities/dbo/a-w-build-version/a-w-build-version';
 import { IAWBuildVersionLookupModel } from 'app/models/data/entities/dbo/a-w-build-version/a-w-build-version-lookup-model';
 import { IAWBuildVersionUpdateModel } from 'app/models/data/entities/dbo/a-w-build-version/a-w-build-version-update-model';
 import { IAWBuildVersionsListViewModel } from 'app/models/data/entities/dbo/a-w-build-version/a-w-build-versions-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IAWBuildVersionPrimaryKey {
   systemInformationID: number;
@@ -22,7 +21,7 @@ export interface IAWBuildVersionUpdateItem extends IAWBuildVersion {
   providedIn: 'root',
 })
 export class AWBuildVersionsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IAWBuildVersion, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IAWBuildVersionLookupModel>;
   create(model: IAWBuildVersion, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IAWBuildVersionLookupModel>>;

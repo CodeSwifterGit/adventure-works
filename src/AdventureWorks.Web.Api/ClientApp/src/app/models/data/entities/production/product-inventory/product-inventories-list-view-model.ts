@@ -1,6 +1,6 @@
 import { IPagingInfo } from 'app/models/data/common/paging-info';
-import { IProductInventorySummary } from 'app/models/data/entities/production/product-inventory/product-inventory-summary';
 import { IProductInventoryLookupModel } from 'app/models/data/entities/production/product-inventory/product-inventory-lookup-model';
+import { IProductInventorySummary } from 'app/models/data/entities/production/product-inventory/product-inventory-summary';
 
 export interface IProductInventoriesListViewModel {
   productInventories?: Array<IProductInventoryLookupModel>;

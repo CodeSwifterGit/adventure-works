@@ -1,1 +1,1 @@
-export interface IProductListPriceHistorySummary {}
+export interface IProductListPriceHistorySummary { }

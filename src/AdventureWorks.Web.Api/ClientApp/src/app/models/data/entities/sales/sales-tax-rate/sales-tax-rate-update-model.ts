@@ -1,4 +1,3 @@
-import { IStateProvinceUpdateModel } from 'app/models/data/entities/person/state-province/state-province-update-model';
 
 export interface ISalesTaxRateUpdateModel {
   salesTaxRateID: number;

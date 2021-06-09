@@ -1,1 +1,1 @@
-export interface IPurchaseOrderDetailSummary {}
+export interface IPurchaseOrderDetailSummary { }

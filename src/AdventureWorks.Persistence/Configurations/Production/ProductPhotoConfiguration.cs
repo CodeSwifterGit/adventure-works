@@ -23,13 +23,13 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .ValueGeneratedOnAdd();
 
             builder.Property(p => p.ThumbNailPhoto)
-            .HasColumnType("varbinary");
+            .HasColumnType("varbinary").HasMaxLength(8000);
 
             builder.Property(p => p.ThumbnailPhotoFileName)
             .HasColumnType("nvarchar(50)");
 
             builder.Property(p => p.LargePhoto)
-            .HasColumnType("varbinary");
+            .HasColumnType("varbinary").HasMaxLength(8000);
 
             builder.Property(p => p.LargePhotoFileName)
             .HasColumnType("nvarchar(50)");

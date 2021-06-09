@@ -1,1 +1,1 @@
-export interface ICustomerAddressSummary {}
+export interface ICustomerAddressSummary { }

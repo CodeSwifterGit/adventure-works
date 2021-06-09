@@ -1,6 +1,3 @@
-import { IProductUpdateModel } from 'app/models/data/entities/production/product/product-update-model';
-import { ISalesOrderDetailUpdateModel } from 'app/models/data/entities/sales/sales-order-detail/sales-order-detail-update-model';
-import { ISpecialOfferUpdateModel } from 'app/models/data/entities/sales/special-offer/special-offer-update-model';
 
 export interface ISpecialOfferProductUpdateModel {
   specialOfferID: number;

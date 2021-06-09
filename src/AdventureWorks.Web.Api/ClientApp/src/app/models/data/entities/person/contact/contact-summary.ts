@@ -1,1 +1,1 @@
-export interface IContactSummary {}
+export interface IContactSummary { }

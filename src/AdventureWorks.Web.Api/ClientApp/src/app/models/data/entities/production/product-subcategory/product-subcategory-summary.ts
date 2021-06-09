@@ -1,1 +1,1 @@
-export interface IProductSubcategorySummary {}
+export interface IProductSubcategorySummary { }

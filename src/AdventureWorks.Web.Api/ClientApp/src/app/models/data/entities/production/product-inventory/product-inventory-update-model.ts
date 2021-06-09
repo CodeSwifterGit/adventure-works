@@ -1,5 +1,3 @@
-import { ILocationUpdateModel } from 'app/models/data/entities/production/location/location-update-model';
-import { IProductUpdateModel } from 'app/models/data/entities/production/product/product-update-model';
 
 export interface IProductInventoryUpdateModel {
   productID: number;

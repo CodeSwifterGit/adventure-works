@@ -1,6 +1,6 @@
 import { IPagingInfo } from 'app/models/data/common/paging-info';
-import { IVendorAddressSummary } from 'app/models/data/entities/purchasing/vendor-address/vendor-address-summary';
 import { IVendorAddressLookupModel } from 'app/models/data/entities/purchasing/vendor-address/vendor-address-lookup-model';
+import { IVendorAddressSummary } from 'app/models/data/entities/purchasing/vendor-address/vendor-address-summary';
 
 export interface IVendorAddressesListViewModel {
   vendorAddresses?: Array<IVendorAddressLookupModel>;

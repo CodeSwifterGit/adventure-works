@@ -1,7 +1,3 @@
-import { IAddressUpdateModel } from 'app/models/data/entities/person/address/address-update-model';
-import { ICountryRegionUpdateModel } from 'app/models/data/entities/person/country-region/country-region-update-model';
-import { ISalesTaxRateUpdateModel } from 'app/models/data/entities/sales/sales-tax-rate/sales-tax-rate-update-model';
-import { ISalesTerritoryUpdateModel } from 'app/models/data/entities/sales/sales-territory/sales-territory-update-model';
 
 export interface IStateProvinceUpdateModel {
   stateProvinceID: number;

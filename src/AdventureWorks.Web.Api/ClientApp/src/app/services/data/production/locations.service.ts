@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { ILocation } from 'app/models/data/entities/production/location/location';
 import { ILocationLookupModel } from 'app/models/data/entities/production/location/location-lookup-model';
 import { ILocationUpdateModel } from 'app/models/data/entities/production/location/location-update-model';
 import { ILocationsListViewModel } from 'app/models/data/entities/production/location/locations-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ILocationPrimaryKey {
   locationID: number;
@@ -22,7 +21,7 @@ export interface ILocationUpdateItem extends ILocation {
   providedIn: 'root',
 })
 export class LocationsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ILocation, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ILocationLookupModel>;
   create(model: ILocation, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ILocationLookupModel>>;

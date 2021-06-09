@@ -1,1 +1,1 @@
-export interface ILocationSummary {}
+export interface ILocationSummary { }

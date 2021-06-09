@@ -1,1 +1,1 @@
-export interface IShipMethodSummary {}
+export interface IShipMethodSummary { }

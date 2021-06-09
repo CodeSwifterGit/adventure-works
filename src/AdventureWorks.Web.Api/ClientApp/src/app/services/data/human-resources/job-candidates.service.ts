@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IJobCandidate } from 'app/models/data/entities/human-resources/job-candidate/job-candidate';
 import { IJobCandidateLookupModel } from 'app/models/data/entities/human-resources/job-candidate/job-candidate-lookup-model';
 import { IJobCandidateUpdateModel } from 'app/models/data/entities/human-resources/job-candidate/job-candidate-update-model';
 import { IJobCandidatesListViewModel } from 'app/models/data/entities/human-resources/job-candidate/job-candidates-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IJobCandidatePrimaryKey {
   jobCandidateID: number;
@@ -22,7 +21,7 @@ export interface IJobCandidateUpdateItem extends IJobCandidate {
   providedIn: 'root',
 })
 export class JobCandidatesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IJobCandidate, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IJobCandidateLookupModel>;
   create(model: IJobCandidate, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJobCandidateLookupModel>>;

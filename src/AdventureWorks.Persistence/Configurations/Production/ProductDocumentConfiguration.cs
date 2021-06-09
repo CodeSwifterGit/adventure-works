@@ -39,13 +39,13 @@ namespace AdventureWorks.Persistence.Configurations.Production
             builder.HasOne(e => e.Document)
             .WithMany(p => p.ProductDocuments)
             .HasForeignKey(e => new { e.DocumentID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductDocument_Document_Document_Constraint");
 
             builder.HasOne(e => e.Product)
             .WithMany(p => p.ProductDocuments)
             .HasForeignKey(e => new { e.ProductID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductDocument_Product_Product_Constraint");
 
             // Complex Types (Owned properties as tables)

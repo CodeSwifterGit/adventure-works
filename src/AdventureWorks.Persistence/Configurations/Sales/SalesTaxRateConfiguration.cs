@@ -60,7 +60,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.StateProvince)
             .WithMany(p => p.SalesTaxRates)
             .HasForeignKey(e => new { e.StateProvinceID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_SalesTaxRate_StateProvince_StateProvince_Constraint");
 
             // Complex Types (Owned properties as tables)

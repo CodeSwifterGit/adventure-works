@@ -1,1 +1,1 @@
-export interface IProductDescriptionSummary {}
+export interface IProductDescriptionSummary { }

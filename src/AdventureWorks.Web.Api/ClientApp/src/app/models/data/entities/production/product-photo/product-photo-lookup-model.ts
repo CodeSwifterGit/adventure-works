@@ -1,4 +1,3 @@
-import { IProductProductPhotoLookupModel } from 'app/models/data/entities/production/product-product-photo/product-product-photo-lookup-model';
 
 export interface IProductPhotoLookupModel {
   productPhotoID: number;

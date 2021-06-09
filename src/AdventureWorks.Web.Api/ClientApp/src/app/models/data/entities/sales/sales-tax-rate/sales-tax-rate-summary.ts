@@ -1,1 +1,1 @@
-export interface ISalesTaxRateSummary {}
+export interface ISalesTaxRateSummary { }

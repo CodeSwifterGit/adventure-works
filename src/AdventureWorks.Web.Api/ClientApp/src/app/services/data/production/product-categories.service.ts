@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { IProductCategoriesListViewModel } from 'app/models/data/entities/production/product-category/product-categories-list-view-model';
 import { IProductCategory } from 'app/models/data/entities/production/product-category/product-category';
 import { IProductCategoryLookupModel } from 'app/models/data/entities/production/product-category/product-category-lookup-model';
 import { IProductCategoryUpdateModel } from 'app/models/data/entities/production/product-category/product-category-update-model';
-import { IProductCategoriesListViewModel } from 'app/models/data/entities/production/product-category/product-categories-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IProductCategoryPrimaryKey {
   productCategoryID: number;
@@ -22,7 +21,7 @@ export interface IProductCategoryUpdateItem extends IProductCategory {
   providedIn: 'root',
 })
 export class ProductCategoriesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IProductCategory, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductCategoryLookupModel>;
   create(model: IProductCategory, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductCategoryLookupModel>>;

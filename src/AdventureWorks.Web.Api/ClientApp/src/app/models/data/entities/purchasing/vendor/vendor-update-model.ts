@@ -1,7 +1,3 @@
-import { IProductVendorUpdateModel } from 'app/models/data/entities/purchasing/product-vendor/product-vendor-update-model';
-import { IPurchaseOrderHeaderUpdateModel } from 'app/models/data/entities/purchasing/purchase-order-header/purchase-order-header-update-model';
-import { IVendorAddressUpdateModel } from 'app/models/data/entities/purchasing/vendor-address/vendor-address-update-model';
-import { IVendorContactUpdateModel } from 'app/models/data/entities/purchasing/vendor-contact/vendor-contact-update-model';
 
 export interface IVendorUpdateModel {
   vendorID: number;

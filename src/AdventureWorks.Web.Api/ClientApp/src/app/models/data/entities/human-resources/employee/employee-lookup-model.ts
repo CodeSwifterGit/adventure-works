@@ -1,11 +1,3 @@
-import { IContactLookupModel } from 'app/models/data/entities/person/contact/contact-lookup-model';
-import { IEmployeeAddressLookupModel } from 'app/models/data/entities/human-resources/employee-address/employee-address-lookup-model';
-import { IEmployeeDepartmentHistoryLookupModel } from 'app/models/data/entities/human-resources/employee-department-history/employee-department-history-lookup-model';
-import { IEmployeeLookupModel } from 'app/models/data/entities/human-resources/employee/employee-lookup-model';
-import { IEmployeePayHistoryLookupModel } from 'app/models/data/entities/human-resources/employee-pay-history/employee-pay-history-lookup-model';
-import { IJobCandidateLookupModel } from 'app/models/data/entities/human-resources/job-candidate/job-candidate-lookup-model';
-import { IPurchaseOrderHeaderLookupModel } from 'app/models/data/entities/purchasing/purchase-order-header/purchase-order-header-lookup-model';
-import { ISalesPersonLookupModel } from 'app/models/data/entities/sales/sales-person/sales-person-lookup-model';
 
 export interface IEmployeeLookupModel {
   employeeID: number;

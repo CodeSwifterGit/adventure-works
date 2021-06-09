@@ -1,5 +1,3 @@
-import { ICountryRegionCurrencyLookupModel } from 'app/models/data/entities/sales/country-region-currency/country-region-currency-lookup-model';
-import { ICurrencyRateLookupModel } from 'app/models/data/entities/sales/currency-rate/currency-rate-lookup-model';
 
 export interface ICurrencyLookupModel {
   currencyCode: string;

@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IEmployee } from 'app/models/data/entities/human-resources/employee/employee';
 import { IEmployeeLookupModel } from 'app/models/data/entities/human-resources/employee/employee-lookup-model';
 import { IEmployeeUpdateModel } from 'app/models/data/entities/human-resources/employee/employee-update-model';
 import { IEmployeesListViewModel } from 'app/models/data/entities/human-resources/employee/employees-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IEmployeePrimaryKey {
   employeeID: number;
@@ -22,7 +21,7 @@ export interface IEmployeeUpdateItem extends IEmployee {
   providedIn: 'root',
 })
 export class EmployeesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IEmployee, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IEmployeeLookupModel>;
   create(model: IEmployee, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IEmployeeLookupModel>>;

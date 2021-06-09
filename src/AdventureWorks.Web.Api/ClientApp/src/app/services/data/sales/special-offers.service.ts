@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { ISpecialOffer } from 'app/models/data/entities/sales/special-offer/special-offer';
 import { ISpecialOfferLookupModel } from 'app/models/data/entities/sales/special-offer/special-offer-lookup-model';
 import { ISpecialOfferUpdateModel } from 'app/models/data/entities/sales/special-offer/special-offer-update-model';
 import { ISpecialOffersListViewModel } from 'app/models/data/entities/sales/special-offer/special-offers-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ISpecialOfferPrimaryKey {
   specialOfferID: number;
@@ -22,7 +21,7 @@ export interface ISpecialOfferUpdateItem extends ISpecialOffer {
   providedIn: 'root',
 })
 export class SpecialOffersService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ISpecialOffer, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISpecialOfferLookupModel>;
   create(model: ISpecialOffer, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISpecialOfferLookupModel>>;

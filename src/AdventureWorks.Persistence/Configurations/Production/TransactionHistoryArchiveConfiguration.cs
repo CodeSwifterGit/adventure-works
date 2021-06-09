@@ -35,7 +35,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .HasDefaultValueSql("(getdate())");
 
             builder.Property(p => p.TransactionType)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(1)")
             .IsRequired();
 
             builder.Property(p => p.Quantity)

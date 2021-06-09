@@ -42,7 +42,7 @@ namespace AdventureWorks.Persistence.Configurations.HumanResources
             builder.HasOne(e => e.Employee)
             .WithMany()
             .HasForeignKey(e => new { e.EmployeeID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_JobCandidate_Employee_Employee_Constraint");
 
             // Complex Types (Owned properties as tables)

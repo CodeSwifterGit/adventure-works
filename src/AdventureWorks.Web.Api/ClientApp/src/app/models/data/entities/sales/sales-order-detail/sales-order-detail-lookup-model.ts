@@ -1,5 +1,3 @@
-import { ISalesOrderHeaderLookupModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-lookup-model';
-import { ISpecialOfferProductLookupModel } from 'app/models/data/entities/sales/special-offer-product/special-offer-product-lookup-model';
 
 export interface ISalesOrderDetailLookupModel {
   salesOrderID: number;

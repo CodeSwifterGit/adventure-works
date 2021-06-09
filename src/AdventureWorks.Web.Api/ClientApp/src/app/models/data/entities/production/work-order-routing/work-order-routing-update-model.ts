@@ -1,5 +1,3 @@
-import { ILocationUpdateModel } from 'app/models/data/entities/production/location/location-update-model';
-import { IWorkOrderUpdateModel } from 'app/models/data/entities/production/work-order/work-order-update-model';
 
 export interface IWorkOrderRoutingUpdateModel {
   workOrderID: number;

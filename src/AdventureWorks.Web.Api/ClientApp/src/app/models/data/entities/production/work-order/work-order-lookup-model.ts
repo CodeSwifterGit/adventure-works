@@ -1,6 +1,3 @@
-import { IProductLookupModel } from 'app/models/data/entities/production/product/product-lookup-model';
-import { IScrapReasonLookupModel } from 'app/models/data/entities/production/scrap-reason/scrap-reason-lookup-model';
-import { IWorkOrderRoutingLookupModel } from 'app/models/data/entities/production/work-order-routing/work-order-routing-lookup-model';
 
 export interface IWorkOrderLookupModel {
   workOrderID: number;

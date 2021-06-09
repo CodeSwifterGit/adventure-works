@@ -1,5 +1,3 @@
-import { ICustomerAddressLookupModel } from 'app/models/data/entities/sales/customer-address/customer-address-lookup-model';
-import { IVendorAddressLookupModel } from 'app/models/data/entities/purchasing/vendor-address/vendor-address-lookup-model';
 
 export interface IAddressTypeLookupModel {
   addressTypeID: number;

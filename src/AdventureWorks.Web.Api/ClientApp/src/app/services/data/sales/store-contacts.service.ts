@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IStoreContact } from 'app/models/data/entities/sales/store-contact/store-contact';
 import { IStoreContactLookupModel } from 'app/models/data/entities/sales/store-contact/store-contact-lookup-model';
 import { IStoreContactUpdateModel } from 'app/models/data/entities/sales/store-contact/store-contact-update-model';
 import { IStoreContactsListViewModel } from 'app/models/data/entities/sales/store-contact/store-contacts-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IStoreContactPrimaryKey {
   customerID: number;
@@ -23,7 +22,7 @@ export interface IStoreContactUpdateItem extends IStoreContact {
   providedIn: 'root',
 })
 export class StoreContactsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IStoreContact, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IStoreContactLookupModel>;
   create(model: IStoreContact, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IStoreContactLookupModel>>;

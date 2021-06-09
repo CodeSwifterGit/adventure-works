@@ -1,6 +1,3 @@
-import { IDepartmentUpdateModel } from 'app/models/data/entities/human-resources/department/department-update-model';
-import { IEmployeeUpdateModel } from 'app/models/data/entities/human-resources/employee/employee-update-model';
-import { IShiftUpdateModel } from 'app/models/data/entities/human-resources/shift/shift-update-model';
 
 export interface IEmployeeDepartmentHistoryUpdateModel {
   employeeID: number;

@@ -67,13 +67,13 @@ namespace AdventureWorks.Persistence.Configurations.Production
             builder.HasOne(e => e.Location)
             .WithMany(p => p.WorkOrderRoutings)
             .HasForeignKey(e => new { e.LocationID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_WorkOrderRouting_Location_Location_Constraint");
 
             builder.HasOne(e => e.WorkOrder)
             .WithMany(p => p.WorkOrderRoutings)
             .HasForeignKey(e => new { e.WorkOrderID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_WorkOrderRouting_WorkOrder_WorkOrder_Constraint");
 
             // Complex Types (Owned properties as tables)

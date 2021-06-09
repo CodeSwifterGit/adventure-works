@@ -1,1 +1,1 @@
-export interface ICurrencyRateSummary {}
+export interface ICurrencyRateSummary { }

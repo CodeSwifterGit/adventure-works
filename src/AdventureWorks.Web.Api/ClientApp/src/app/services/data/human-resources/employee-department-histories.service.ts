@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { IEmployeeDepartmentHistoriesListViewModel } from 'app/models/data/entities/human-resources/employee-department-history/employee-department-histories-list-view-model';
 import { IEmployeeDepartmentHistory } from 'app/models/data/entities/human-resources/employee-department-history/employee-department-history';
 import { IEmployeeDepartmentHistoryLookupModel } from 'app/models/data/entities/human-resources/employee-department-history/employee-department-history-lookup-model';
 import { IEmployeeDepartmentHistoryUpdateModel } from 'app/models/data/entities/human-resources/employee-department-history/employee-department-history-update-model';
-import { IEmployeeDepartmentHistoriesListViewModel } from 'app/models/data/entities/human-resources/employee-department-history/employee-department-histories-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IEmployeeDepartmentHistoryPrimaryKey {
   employeeID: number;
@@ -25,7 +24,7 @@ export interface IEmployeeDepartmentHistoryUpdateItem extends IEmployeeDepartmen
   providedIn: 'root',
 })
 export class EmployeeDepartmentHistoriesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IEmployeeDepartmentHistory, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IEmployeeDepartmentHistoryLookupModel>;
   create(model: IEmployeeDepartmentHistory, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IEmployeeDepartmentHistoryLookupModel>>;

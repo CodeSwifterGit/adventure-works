@@ -1,6 +1,3 @@
-import { IDepartmentLookupModel } from 'app/models/data/entities/human-resources/department/department-lookup-model';
-import { IEmployeeLookupModel } from 'app/models/data/entities/human-resources/employee/employee-lookup-model';
-import { IShiftLookupModel } from 'app/models/data/entities/human-resources/shift/shift-lookup-model';
 
 export interface IEmployeeDepartmentHistoryLookupModel {
   employeeID: number;

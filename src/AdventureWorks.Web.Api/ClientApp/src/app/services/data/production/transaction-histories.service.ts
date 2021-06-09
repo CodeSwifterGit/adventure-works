@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { ITransactionHistoriesListViewModel } from 'app/models/data/entities/production/transaction-history/transaction-histories-list-view-model';
 import { ITransactionHistory } from 'app/models/data/entities/production/transaction-history/transaction-history';
 import { ITransactionHistoryLookupModel } from 'app/models/data/entities/production/transaction-history/transaction-history-lookup-model';
 import { ITransactionHistoryUpdateModel } from 'app/models/data/entities/production/transaction-history/transaction-history-update-model';
-import { ITransactionHistoriesListViewModel } from 'app/models/data/entities/production/transaction-history/transaction-histories-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ITransactionHistoryPrimaryKey {
   transactionID: number;
@@ -22,7 +21,7 @@ export interface ITransactionHistoryUpdateItem extends ITransactionHistory {
   providedIn: 'root',
 })
 export class TransactionHistoriesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ITransactionHistory, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ITransactionHistoryLookupModel>;
   create(model: ITransactionHistory, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ITransactionHistoryLookupModel>>;

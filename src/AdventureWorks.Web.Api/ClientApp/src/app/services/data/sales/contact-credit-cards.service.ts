@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IContactCreditCard } from 'app/models/data/entities/sales/contact-credit-card/contact-credit-card';
 import { IContactCreditCardLookupModel } from 'app/models/data/entities/sales/contact-credit-card/contact-credit-card-lookup-model';
 import { IContactCreditCardUpdateModel } from 'app/models/data/entities/sales/contact-credit-card/contact-credit-card-update-model';
 import { IContactCreditCardsListViewModel } from 'app/models/data/entities/sales/contact-credit-card/contact-credit-cards-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IContactCreditCardPrimaryKey {
   contactID: number;
@@ -23,7 +22,7 @@ export interface IContactCreditCardUpdateItem extends IContactCreditCard {
   providedIn: 'root',
 })
 export class ContactCreditCardsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IContactCreditCard, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IContactCreditCardLookupModel>;
   create(model: IContactCreditCard, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IContactCreditCardLookupModel>>;

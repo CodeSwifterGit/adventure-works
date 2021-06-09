@@ -1,4 +1,3 @@
-import { IProductUpdateModel } from 'app/models/data/entities/production/product/product-update-model';
 
 export interface IProductReviewUpdateModel {
   productReviewID: number;

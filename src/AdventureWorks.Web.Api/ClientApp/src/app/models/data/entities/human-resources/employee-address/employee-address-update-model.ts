@@ -1,5 +1,3 @@
-import { IAddressUpdateModel } from 'app/models/data/entities/person/address/address-update-model';
-import { IEmployeeUpdateModel } from 'app/models/data/entities/human-resources/employee/employee-update-model';
 
 export interface IEmployeeAddressUpdateModel {
   employeeID: number;

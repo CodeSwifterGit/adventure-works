@@ -1,6 +1,6 @@
 import { IPagingInfo } from 'app/models/data/common/paging-info';
-import { IContactTypeSummary } from 'app/models/data/entities/person/contact-type/contact-type-summary';
 import { IContactTypeLookupModel } from 'app/models/data/entities/person/contact-type/contact-type-lookup-model';
+import { IContactTypeSummary } from 'app/models/data/entities/person/contact-type/contact-type-summary';
 
 export interface IContactTypesListViewModel {
   contactTypes?: Array<IContactTypeLookupModel>;

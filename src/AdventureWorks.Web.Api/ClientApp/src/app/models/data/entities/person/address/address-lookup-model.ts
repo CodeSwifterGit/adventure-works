@@ -1,5 +1,4 @@
 
-
 export interface IAddressLookupModel {
   addressID: number;
   addressLine1: string;
@@ -18,7 +17,7 @@ export interface IAddressLookupModel {
 
 export class AddressLookupModel implements IAddressLookupModel {
   addressID: number;
-  addressLine1: string = "";
+  addressLine1: string = '';
   addressLine2: string;
   city: string;
   stateProvinceID: number;

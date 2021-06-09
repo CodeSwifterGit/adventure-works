@@ -1,5 +1,3 @@
-import { IIllustrationLookupModel } from 'app/models/data/entities/production/illustration/illustration-lookup-model';
-import { IProductModelLookupModel } from 'app/models/data/entities/production/product-model/product-model-lookup-model';
 
 export interface IProductModelIllustrationLookupModel {
   productModelID: number;

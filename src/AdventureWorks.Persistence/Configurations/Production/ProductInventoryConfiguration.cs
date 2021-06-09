@@ -55,13 +55,13 @@ namespace AdventureWorks.Persistence.Configurations.Production
             builder.HasOne(e => e.Location)
             .WithMany(p => p.ProductInventories)
             .HasForeignKey(e => new { e.LocationID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductInventory_Location_Location_Constraint");
 
             builder.HasOne(e => e.Product)
             .WithMany(p => p.ProductInventories)
             .HasForeignKey(e => new { e.ProductID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductInventory_Product_Product_Constraint");
 
             // Complex Types (Owned properties as tables)

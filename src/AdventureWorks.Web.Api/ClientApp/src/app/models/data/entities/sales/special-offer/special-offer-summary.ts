@@ -1,1 +1,1 @@
-export interface ISpecialOfferSummary {}
+export interface ISpecialOfferSummary { }

@@ -1,1 +1,1 @@
-export interface IWorkOrderSummary {}
+export interface IWorkOrderSummary { }

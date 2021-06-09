@@ -67,7 +67,7 @@ namespace AdventureWorks.Persistence.Configurations.Person
             builder.HasOne(e => e.StateProvince)
             .WithMany(p => p.Addresses)
             .HasForeignKey(e => new { e.StateProvinceID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_Address_StateProvince_StateProvince_Constraint");
 
             // Complex Types (Owned properties as tables)

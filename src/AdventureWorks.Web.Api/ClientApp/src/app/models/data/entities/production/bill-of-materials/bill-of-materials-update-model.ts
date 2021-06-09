@@ -1,5 +1,3 @@
-import { IProductUpdateModel } from 'app/models/data/entities/production/product/product-update-model';
-import { IUnitMeasureUpdateModel } from 'app/models/data/entities/production/unit-measure/unit-measure-update-model';
 
 export interface IBillOfMaterialsUpdateModel {
   billOfMaterialsID: number;

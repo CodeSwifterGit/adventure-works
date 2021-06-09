@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { IEmployeePayHistoriesListViewModel } from 'app/models/data/entities/human-resources/employee-pay-history/employee-pay-histories-list-view-model';
 import { IEmployeePayHistory } from 'app/models/data/entities/human-resources/employee-pay-history/employee-pay-history';
 import { IEmployeePayHistoryLookupModel } from 'app/models/data/entities/human-resources/employee-pay-history/employee-pay-history-lookup-model';
 import { IEmployeePayHistoryUpdateModel } from 'app/models/data/entities/human-resources/employee-pay-history/employee-pay-history-update-model';
-import { IEmployeePayHistoriesListViewModel } from 'app/models/data/entities/human-resources/employee-pay-history/employee-pay-histories-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IEmployeePayHistoryPrimaryKey {
   employeeID: number;
@@ -23,7 +22,7 @@ export interface IEmployeePayHistoryUpdateItem extends IEmployeePayHistory {
   providedIn: 'root',
 })
 export class EmployeePayHistoriesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IEmployeePayHistory, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IEmployeePayHistoryLookupModel>;
   create(model: IEmployeePayHistory, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IEmployeePayHistoryLookupModel>>;

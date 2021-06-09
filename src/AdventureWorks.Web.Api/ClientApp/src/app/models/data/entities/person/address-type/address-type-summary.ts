@@ -1,1 +1,1 @@
-export interface IAddressTypeSummary {}
+export interface IAddressTypeSummary { }

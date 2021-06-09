@@ -1,8 +1,3 @@
-import { ICustomerUpdateModel } from 'app/models/data/entities/sales/customer/customer-update-model';
-import { ISalesOrderHeaderUpdateModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-update-model';
-import { ISalesPersonUpdateModel } from 'app/models/data/entities/sales/sales-person/sales-person-update-model';
-import { ISalesTerritoryHistoryUpdateModel } from 'app/models/data/entities/sales/sales-territory-history/sales-territory-history-update-model';
-import { IStateProvinceUpdateModel } from 'app/models/data/entities/person/state-province/state-province-update-model';
 
 export interface ISalesTerritoryUpdateModel {
   territoryID: number;

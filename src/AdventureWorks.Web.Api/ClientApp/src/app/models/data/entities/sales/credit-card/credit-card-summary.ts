@@ -1,1 +1,1 @@
-export interface ICreditCardSummary {}
+export interface ICreditCardSummary { }

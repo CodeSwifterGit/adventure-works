@@ -35,7 +35,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .IsRequired();
 
             builder.Property(p => p.Revision)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(5)")
             .IsRequired();
 
             builder.Property(p => p.ChangeNumber)
@@ -46,10 +46,10 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .HasColumnType("tinyint");
 
             builder.Property(p => p.DocumentSummary)
-            .HasColumnType("nvarchar(-1)");
+            .HasColumnType("nvarchar").HasMaxLength(4000);
 
             builder.Property(p => p.Document)
-            .HasColumnType("varbinary");
+            .HasColumnType("varbinary").HasMaxLength(8000);
 
             builder.Property(p => p.ModifiedDate)
             .HasColumnType("datetime")

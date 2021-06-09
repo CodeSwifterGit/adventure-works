@@ -1,5 +1,3 @@
-import { IProductUpdateModel } from 'app/models/data/entities/production/product/product-update-model';
-import { IPurchaseOrderHeaderUpdateModel } from 'app/models/data/entities/purchasing/purchase-order-header/purchase-order-header-update-model';
 
 export interface IPurchaseOrderDetailUpdateModel {
   purchaseOrderID: number;

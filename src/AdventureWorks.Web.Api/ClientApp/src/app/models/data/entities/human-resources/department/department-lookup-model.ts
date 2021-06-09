@@ -1,4 +1,3 @@
-import { IEmployeeDepartmentHistoryLookupModel } from 'app/models/data/entities/human-resources/employee-department-history/employee-department-history-lookup-model';
 
 export interface IDepartmentLookupModel {
   departmentID: number;

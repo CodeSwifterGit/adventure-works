@@ -1,7 +1,3 @@
-import { IEmployeeLookupModel } from 'app/models/data/entities/human-resources/employee/employee-lookup-model';
-import { IPurchaseOrderDetailLookupModel } from 'app/models/data/entities/purchasing/purchase-order-detail/purchase-order-detail-lookup-model';
-import { IShipMethodLookupModel } from 'app/models/data/entities/purchasing/ship-method/ship-method-lookup-model';
-import { IVendorLookupModel } from 'app/models/data/entities/purchasing/vendor/vendor-lookup-model';
 
 export interface IPurchaseOrderHeaderLookupModel {
   purchaseOrderID: number;

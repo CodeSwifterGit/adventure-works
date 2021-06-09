@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { ISalesTerritoriesListViewModel } from 'app/models/data/entities/sales/sales-territory/sales-territories-list-view-model';
 import { ISalesTerritory } from 'app/models/data/entities/sales/sales-territory/sales-territory';
 import { ISalesTerritoryLookupModel } from 'app/models/data/entities/sales/sales-territory/sales-territory-lookup-model';
 import { ISalesTerritoryUpdateModel } from 'app/models/data/entities/sales/sales-territory/sales-territory-update-model';
-import { ISalesTerritoriesListViewModel } from 'app/models/data/entities/sales/sales-territory/sales-territories-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ISalesTerritoryPrimaryKey {
   territoryID: number;
@@ -22,7 +21,7 @@ export interface ISalesTerritoryUpdateItem extends ISalesTerritory {
   providedIn: 'root',
 })
 export class SalesTerritoriesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ISalesTerritory, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISalesTerritoryLookupModel>;
   create(model: ISalesTerritory, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISalesTerritoryLookupModel>>;

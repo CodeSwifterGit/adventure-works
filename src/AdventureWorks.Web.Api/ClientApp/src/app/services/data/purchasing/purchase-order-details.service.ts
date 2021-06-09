@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IPurchaseOrderDetail } from 'app/models/data/entities/purchasing/purchase-order-detail/purchase-order-detail';
 import { IPurchaseOrderDetailLookupModel } from 'app/models/data/entities/purchasing/purchase-order-detail/purchase-order-detail-lookup-model';
 import { IPurchaseOrderDetailUpdateModel } from 'app/models/data/entities/purchasing/purchase-order-detail/purchase-order-detail-update-model';
 import { IPurchaseOrderDetailsListViewModel } from 'app/models/data/entities/purchasing/purchase-order-detail/purchase-order-details-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IPurchaseOrderDetailPrimaryKey {
   purchaseOrderID: number;
@@ -23,7 +22,7 @@ export interface IPurchaseOrderDetailUpdateItem extends IPurchaseOrderDetail {
   providedIn: 'root',
 })
 export class PurchaseOrderDetailsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IPurchaseOrderDetail, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IPurchaseOrderDetailLookupModel>;
   create(model: IPurchaseOrderDetail, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IPurchaseOrderDetailLookupModel>>;

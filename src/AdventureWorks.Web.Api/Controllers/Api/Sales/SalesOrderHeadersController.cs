@@ -22,10 +22,10 @@ namespace AdventureWorks.Web.Api.Controllers.Api.Sales
     public partial class SalesOrderHeadersController : BaseApiController
     {
         [Authorize(Policy = SecurityPolicy.SampleSecurityPolicyForReads)]
-        [HttpGet("[action]/{billToAddressID}/{shipToAddressID}")]
+        [HttpGet("[action]/{billToAddressID}")]
         [ProducesResponseType(typeof(SalesOrderHeadersListViewModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<SalesOrderHeadersListViewModel>> GetSalesOrderHeadersByAddress(
-            int billToAddressID, int shipToAddressID,
+        public async Task<ActionResult<SalesOrderHeadersListViewModel>> GetSalesOrderHeadersByBillToAddress(
+            int billToAddressID,
             [FromQuery] string[] sortByExpression,
             [FromQuery] string filterQuery,
             [FromQuery] string[] filterParameters,
@@ -35,6 +35,23 @@ namespace AdventureWorks.Web.Api.Controllers.Api.Sales
             return Ok(await Mediator.Send(new GetSalesOrderHeadersByAddressListQuery()
             {
                 BillToAddressID = billToAddressID,
+                DataTable = DataTableInfo<SalesOrderHeaderSummary>.CreateInstance(sortByExpression, filterQuery, filterParameters, pageIndex, pageSize)
+            }, cancellationToken));
+        }
+
+        [Authorize(Policy = SecurityPolicy.SampleSecurityPolicyForReads)]
+        [HttpGet("[action]/{shipToAddressID}")]
+        [ProducesResponseType(typeof(SalesOrderHeadersListViewModel), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<SalesOrderHeadersListViewModel>> GetSalesOrderHeadersByShipToAddress(
+            int shipToAddressID,
+            [FromQuery] string[] sortByExpression,
+            [FromQuery] string filterQuery,
+            [FromQuery] string[] filterParameters,
+            [FromQuery] int pageIndex,
+            [FromQuery] int pageSize, CancellationToken cancellationToken)
+        {
+            return Ok(await Mediator.Send(new GetSalesOrderHeadersByAddressListQuery()
+            {
                 ShipToAddressID = shipToAddressID,
                 DataTable = DataTableInfo<SalesOrderHeaderSummary>.CreateInstance(sortByExpression, filterQuery, filterParameters, pageIndex, pageSize)
             }, cancellationToken));

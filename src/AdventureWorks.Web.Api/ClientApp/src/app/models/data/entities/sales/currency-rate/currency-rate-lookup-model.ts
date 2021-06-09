@@ -1,5 +1,3 @@
-import { ICurrencyLookupModel } from 'app/models/data/entities/sales/currency/currency-lookup-model';
-import { ISalesOrderHeaderLookupModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-lookup-model';
 
 export interface ICurrencyRateLookupModel {
   currencyRateID: number;

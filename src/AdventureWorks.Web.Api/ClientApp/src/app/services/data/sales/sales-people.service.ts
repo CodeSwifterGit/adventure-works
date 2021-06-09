@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
+import { ISalesPeopleListViewModel } from 'app/models/data/entities/sales/sales-person/sales-people-list-view-model';
 import { ISalesPerson } from 'app/models/data/entities/sales/sales-person/sales-person';
 import { ISalesPersonLookupModel } from 'app/models/data/entities/sales/sales-person/sales-person-lookup-model';
 import { ISalesPersonUpdateModel } from 'app/models/data/entities/sales/sales-person/sales-person-update-model';
-import { ISalesPeopleListViewModel } from 'app/models/data/entities/sales/sales-person/sales-people-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ISalesPersonPrimaryKey {
   salesPersonID: number;
@@ -22,7 +21,7 @@ export interface ISalesPersonUpdateItem extends ISalesPerson {
   providedIn: 'root',
 })
 export class SalesPeopleService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ISalesPerson, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISalesPersonLookupModel>;
   create(model: ISalesPerson, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISalesPersonLookupModel>>;

@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IProductReview } from 'app/models/data/entities/production/product-review/product-review';
 import { IProductReviewLookupModel } from 'app/models/data/entities/production/product-review/product-review-lookup-model';
 import { IProductReviewUpdateModel } from 'app/models/data/entities/production/product-review/product-review-update-model';
 import { IProductReviewsListViewModel } from 'app/models/data/entities/production/product-review/product-reviews-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IProductReviewPrimaryKey {
   productReviewID: number;
@@ -22,7 +21,7 @@ export interface IProductReviewUpdateItem extends IProductReview {
   providedIn: 'root',
 })
 export class ProductReviewsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IProductReview, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductReviewLookupModel>;
   create(model: IProductReview, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductReviewLookupModel>>;

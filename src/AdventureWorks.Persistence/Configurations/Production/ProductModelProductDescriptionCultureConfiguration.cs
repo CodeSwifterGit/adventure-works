@@ -24,7 +24,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .HasColumnType("int");
 
             builder.Property(p => p.CultureID)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(6)")
             .IsRequired();
 
             builder.Property(p => p.ModifiedDate)
@@ -46,19 +46,19 @@ namespace AdventureWorks.Persistence.Configurations.Production
             builder.HasOne(e => e.Culture)
             .WithMany(p => p.ProductModelProductDescriptionCultures)
             .HasForeignKey(e => new { e.CultureID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductModelProductDescriptionCulture_Culture_Culture_Constraint");
 
             builder.HasOne(e => e.ProductDescription)
             .WithMany(p => p.ProductModelProductDescriptionCultures)
             .HasForeignKey(e => new { e.ProductDescriptionID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescription_Constraint");
 
             builder.HasOne(e => e.ProductModel)
             .WithMany(p => p.ProductModelProductDescriptionCultures)
             .HasForeignKey(e => new { e.ProductModelID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductModelProductDescriptionCulture_ProductModel_ProductModel_Constraint");
 
             // Complex Types (Owned properties as tables)

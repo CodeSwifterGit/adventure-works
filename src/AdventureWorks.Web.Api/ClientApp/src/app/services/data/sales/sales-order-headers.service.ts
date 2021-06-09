@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { ISalesOrderHeader } from 'app/models/data/entities/sales/sales-order-header/sales-order-header';
 import { ISalesOrderHeaderLookupModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-lookup-model';
 import { ISalesOrderHeaderUpdateModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-update-model';
 import { ISalesOrderHeadersListViewModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-headers-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ISalesOrderHeaderPrimaryKey {
   salesOrderID: number;
@@ -22,7 +21,7 @@ export interface ISalesOrderHeaderUpdateItem extends ISalesOrderHeader {
   providedIn: 'root',
 })
 export class SalesOrderHeadersService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ISalesOrderHeader, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISalesOrderHeaderLookupModel>;
   create(model: ISalesOrderHeader, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISalesOrderHeaderLookupModel>>;
@@ -120,12 +119,22 @@ export class SalesOrderHeadersService {
     return this.apiClient.get<ISalesOrderHeaderLookupModel>(apiUrlBuilder.build(), options, observe, reportProgress);
   }
 
-  getByAddress(billToAddressID: number, shipToAddressID: number, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISalesOrderHeadersListViewModel>;
-  getByAddress(billToAddressID: number, shipToAddressID: number, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISalesOrderHeadersListViewModel>>;
-  getByAddress(billToAddressID: number, shipToAddressID: number, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ISalesOrderHeadersListViewModel>>;
-  getByAddress(billToAddressID: number, shipToAddressID: number, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
-    let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/GetSalesOrderHeadersByAddress', {
+  getByBillToAddress(billToAddressID: number, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISalesOrderHeadersListViewModel>;
+  getByBillToAddress(billToAddressID: number, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISalesOrderHeadersListViewModel>>;
+  getByBillToAddress(billToAddressID: number, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ISalesOrderHeadersListViewModel>>;
+  getByBillToAddress(billToAddressID: number, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+    let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/GetSalesOrderHeadersByBillToAddress', {
       billToAddressID,
+    });
+    options = options || { anonymous: false };
+
+    return this.apiClient.get<ISalesOrderHeadersListViewModel>(apiUrlBuilder.build(), options, observe, reportProgress);
+  }
+  getByShipToAddress(shipToAddressID: number, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISalesOrderHeadersListViewModel>;
+  getByShipToAddress(shipToAddressID: number, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISalesOrderHeadersListViewModel>>;
+  getByShipToAddress(shipToAddressID: number, options?: IRequestOptions, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ISalesOrderHeadersListViewModel>>;
+  getByShipToAddress(shipToAddressID: number, options?: IRequestOptions, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+    let apiUrlBuilder = new ApiUrlBuilder('SalesOrderHeaders/GetSalesOrderHeadersByShipToAddress', {
       shipToAddressID,
     });
     options = options || { anonymous: false };

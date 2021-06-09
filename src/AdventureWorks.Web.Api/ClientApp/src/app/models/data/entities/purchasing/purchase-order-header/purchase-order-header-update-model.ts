@@ -1,7 +1,3 @@
-import { IEmployeeUpdateModel } from 'app/models/data/entities/human-resources/employee/employee-update-model';
-import { IPurchaseOrderDetailUpdateModel } from 'app/models/data/entities/purchasing/purchase-order-detail/purchase-order-detail-update-model';
-import { IShipMethodUpdateModel } from 'app/models/data/entities/purchasing/ship-method/ship-method-update-model';
-import { IVendorUpdateModel } from 'app/models/data/entities/purchasing/vendor/vendor-update-model';
 
 export interface IPurchaseOrderHeaderUpdateModel {
   purchaseOrderID: number;

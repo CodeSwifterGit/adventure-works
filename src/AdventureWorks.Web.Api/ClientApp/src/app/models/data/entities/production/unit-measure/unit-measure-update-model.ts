@@ -1,6 +1,3 @@
-import { IBillOfMaterialsUpdateModel } from 'app/models/data/entities/production/bill-of-materials/bill-of-materials-update-model';
-import { IProductUpdateModel } from 'app/models/data/entities/production/product/product-update-model';
-import { IProductVendorUpdateModel } from 'app/models/data/entities/purchasing/product-vendor/product-vendor-update-model';
 
 export interface IUnitMeasureUpdateModel {
   unitMeasureCode: string;

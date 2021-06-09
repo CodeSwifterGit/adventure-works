@@ -1,1 +1,1 @@
-export interface ICurrencySummary {}
+export interface ICurrencySummary { }

@@ -17,7 +17,7 @@ export interface IAddressUpdateModel {
 
 export class AddressUpdateModel implements IAddressUpdateModel {
   addressID: number;
-  addressLine1: string;
+  addressLine1: string = '';
   addressLine2: string;
   city: string;
   stateProvinceID: number;

@@ -1,5 +1,3 @@
-import { IDocumentUpdateModel } from 'app/models/data/entities/production/document/document-update-model';
-import { IProductUpdateModel } from 'app/models/data/entities/production/product/product-update-model';
 
 export interface IProductDocumentUpdateModel {
   productID: number;

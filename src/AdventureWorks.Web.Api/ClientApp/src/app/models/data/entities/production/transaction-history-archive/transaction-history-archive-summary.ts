@@ -1,1 +1,1 @@
-export interface ITransactionHistoryArchiveSummary {}
+export interface ITransactionHistoryArchiveSummary { }

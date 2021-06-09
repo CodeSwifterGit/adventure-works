@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IStateProvince } from 'app/models/data/entities/person/state-province/state-province';
 import { IStateProvinceLookupModel } from 'app/models/data/entities/person/state-province/state-province-lookup-model';
 import { IStateProvinceUpdateModel } from 'app/models/data/entities/person/state-province/state-province-update-model';
 import { IStateProvincesListViewModel } from 'app/models/data/entities/person/state-province/state-provinces-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IStateProvincePrimaryKey {
   stateProvinceID: number;
@@ -22,7 +21,7 @@ export interface IStateProvinceUpdateItem extends IStateProvince {
   providedIn: 'root',
 })
 export class StateProvincesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IStateProvince, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IStateProvinceLookupModel>;
   create(model: IStateProvince, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IStateProvinceLookupModel>>;

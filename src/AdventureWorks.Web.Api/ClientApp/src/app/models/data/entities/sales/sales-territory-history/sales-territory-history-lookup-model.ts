@@ -1,5 +1,3 @@
-import { ISalesPersonLookupModel } from 'app/models/data/entities/sales/sales-person/sales-person-lookup-model';
-import { ISalesTerritoryLookupModel } from 'app/models/data/entities/sales/sales-territory/sales-territory-lookup-model';
 
 export interface ISalesTerritoryHistoryLookupModel {
   salesPersonID: number;

@@ -1,8 +1,3 @@
-import { ICustomerLookupModel } from 'app/models/data/entities/sales/customer/customer-lookup-model';
-import { ISalesOrderHeaderLookupModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-lookup-model';
-import { ISalesPersonLookupModel } from 'app/models/data/entities/sales/sales-person/sales-person-lookup-model';
-import { ISalesTerritoryHistoryLookupModel } from 'app/models/data/entities/sales/sales-territory-history/sales-territory-history-lookup-model';
-import { IStateProvinceLookupModel } from 'app/models/data/entities/person/state-province/state-province-lookup-model';
 
 export interface ISalesTerritoryLookupModel {
   territoryID: number;

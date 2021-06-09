@@ -67,13 +67,13 @@ namespace AdventureWorks.Persistence.Configurations.Production
             builder.HasOne(e => e.Product)
             .WithMany(p => p.WorkOrders)
             .HasForeignKey(e => new { e.ProductID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_WorkOrder_Product_Product_Constraint");
 
             builder.HasOne(e => e.ScrapReason)
             .WithMany()
             .HasForeignKey(e => new { e.ScrapReasonID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_WorkOrder_ScrapReason_ScrapReason_Constraint");
 
             // Complex Types (Owned properties as tables)

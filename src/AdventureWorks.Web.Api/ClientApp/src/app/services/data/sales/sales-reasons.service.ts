@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { ISalesReason } from 'app/models/data/entities/sales/sales-reason/sales-reason';
 import { ISalesReasonLookupModel } from 'app/models/data/entities/sales/sales-reason/sales-reason-lookup-model';
 import { ISalesReasonUpdateModel } from 'app/models/data/entities/sales/sales-reason/sales-reason-update-model';
 import { ISalesReasonsListViewModel } from 'app/models/data/entities/sales/sales-reason/sales-reasons-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ISalesReasonPrimaryKey {
   salesReasonID: number;
@@ -22,7 +21,7 @@ export interface ISalesReasonUpdateItem extends ISalesReason {
   providedIn: 'root',
 })
 export class SalesReasonsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ISalesReason, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISalesReasonLookupModel>;
   create(model: ISalesReason, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISalesReasonLookupModel>>;

@@ -1,1 +1,1 @@
-export interface IDatabaseLogSummary {}
+export interface IDatabaseLogSummary { }

@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IVendorAddress } from 'app/models/data/entities/purchasing/vendor-address/vendor-address';
 import { IVendorAddressLookupModel } from 'app/models/data/entities/purchasing/vendor-address/vendor-address-lookup-model';
 import { IVendorAddressUpdateModel } from 'app/models/data/entities/purchasing/vendor-address/vendor-address-update-model';
 import { IVendorAddressesListViewModel } from 'app/models/data/entities/purchasing/vendor-address/vendor-addresses-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IVendorAddressPrimaryKey {
   vendorID: number;
@@ -23,7 +22,7 @@ export interface IVendorAddressUpdateItem extends IVendorAddress {
   providedIn: 'root',
 })
 export class VendorAddressesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IVendorAddress, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IVendorAddressLookupModel>;
   create(model: IVendorAddress, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IVendorAddressLookupModel>>;

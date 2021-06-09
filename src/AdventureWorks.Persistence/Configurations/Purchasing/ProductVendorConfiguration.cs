@@ -45,7 +45,7 @@ namespace AdventureWorks.Persistence.Configurations.Purchasing
             .HasColumnType("int");
 
             builder.Property(p => p.UnitMeasureCode)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(3)")
             .IsRequired();
 
             builder.Property(p => p.ModifiedDate)
@@ -71,19 +71,19 @@ namespace AdventureWorks.Persistence.Configurations.Purchasing
             builder.HasOne(e => e.Product)
             .WithMany(p => p.ProductVendors)
             .HasForeignKey(e => new { e.ProductID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductVendor_Product_Product_Constraint");
 
             builder.HasOne(e => e.UnitMeasure)
             .WithMany(p => p.ProductVendors)
             .HasForeignKey(e => new { e.UnitMeasureCode })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductVendor_UnitMeasure_UnitMeasure_Constraint");
 
             builder.HasOne(e => e.Vendor)
             .WithMany(p => p.ProductVendors)
             .HasForeignKey(e => new { e.VendorID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_ProductVendor_Vendor_Vendor_Constraint");
 
             // Complex Types (Owned properties as tables)

@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IShipMethod } from 'app/models/data/entities/purchasing/ship-method/ship-method';
 import { IShipMethodLookupModel } from 'app/models/data/entities/purchasing/ship-method/ship-method-lookup-model';
 import { IShipMethodUpdateModel } from 'app/models/data/entities/purchasing/ship-method/ship-method-update-model';
 import { IShipMethodsListViewModel } from 'app/models/data/entities/purchasing/ship-method/ship-methods-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IShipMethodPrimaryKey {
   shipMethodID: number;
@@ -22,7 +21,7 @@ export interface IShipMethodUpdateItem extends IShipMethod {
   providedIn: 'root',
 })
 export class ShipMethodsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IShipMethod, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IShipMethodLookupModel>;
   create(model: IShipMethod, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IShipMethodLookupModel>>;

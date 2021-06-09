@@ -1,4 +1,3 @@
-import { IWorkOrderUpdateModel } from 'app/models/data/entities/production/work-order/work-order-update-model';
 
 export interface IScrapReasonUpdateModel {
   scrapReasonID: number;

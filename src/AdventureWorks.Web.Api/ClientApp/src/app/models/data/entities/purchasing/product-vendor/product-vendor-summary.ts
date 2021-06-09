@@ -1,1 +1,1 @@
-export interface IProductVendorSummary {}
+export interface IProductVendorSummary { }

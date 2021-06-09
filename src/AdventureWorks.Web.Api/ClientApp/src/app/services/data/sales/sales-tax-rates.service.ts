@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { ISalesTaxRate } from 'app/models/data/entities/sales/sales-tax-rate/sales-tax-rate';
 import { ISalesTaxRateLookupModel } from 'app/models/data/entities/sales/sales-tax-rate/sales-tax-rate-lookup-model';
 import { ISalesTaxRateUpdateModel } from 'app/models/data/entities/sales/sales-tax-rate/sales-tax-rate-update-model';
 import { ISalesTaxRatesListViewModel } from 'app/models/data/entities/sales/sales-tax-rate/sales-tax-rates-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface ISalesTaxRatePrimaryKey {
   salesTaxRateID: number;
@@ -22,7 +21,7 @@ export interface ISalesTaxRateUpdateItem extends ISalesTaxRate {
   providedIn: 'root',
 })
 export class SalesTaxRatesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: ISalesTaxRate, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<ISalesTaxRateLookupModel>;
   create(model: ISalesTaxRate, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISalesTaxRateLookupModel>>;

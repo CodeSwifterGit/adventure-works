@@ -68,13 +68,13 @@ namespace AdventureWorks.Persistence.Configurations.Purchasing
             builder.HasOne(e => e.Product)
             .WithMany(p => p.PurchaseOrderDetails)
             .HasForeignKey(e => new { e.ProductID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_PurchaseOrderDetail_Product_Product_Constraint");
 
             builder.HasOne(e => e.PurchaseOrderHeader)
             .WithMany(p => p.PurchaseOrderDetails)
             .HasForeignKey(e => new { e.PurchaseOrderID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_PurchaseOrderDetail_PurchaseOrderHeader_PurchaseOrderHeader_Constraint");
 
             // Complex Types (Owned properties as tables)

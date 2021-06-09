@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IProductModelProductDescriptionCulture } from 'app/models/data/entities/production/product-model-product-description-culture/product-model-product-description-culture';
 import { IProductModelProductDescriptionCultureLookupModel } from 'app/models/data/entities/production/product-model-product-description-culture/product-model-product-description-culture-lookup-model';
 import { IProductModelProductDescriptionCultureUpdateModel } from 'app/models/data/entities/production/product-model-product-description-culture/product-model-product-description-culture-update-model';
 import { IProductModelProductDescriptionCulturesListViewModel } from 'app/models/data/entities/production/product-model-product-description-culture/product-model-product-description-cultures-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IProductModelProductDescriptionCulturePrimaryKey {
   productModelID: number;
@@ -24,7 +23,7 @@ export interface IProductModelProductDescriptionCultureUpdateItem extends IProdu
   providedIn: 'root',
 })
 export class ProductModelProductDescriptionCulturesService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IProductModelProductDescriptionCulture, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IProductModelProductDescriptionCultureLookupModel>;
   create(model: IProductModelProductDescriptionCulture, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IProductModelProductDescriptionCultureLookupModel>>;

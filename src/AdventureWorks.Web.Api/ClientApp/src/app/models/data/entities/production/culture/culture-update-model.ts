@@ -1,4 +1,3 @@
-import { IProductModelProductDescriptionCultureUpdateModel } from 'app/models/data/entities/production/product-model-product-description-culture/product-model-product-description-culture-update-model';
 
 export interface ICultureUpdateModel {
   cultureID: string;

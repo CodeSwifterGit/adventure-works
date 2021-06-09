@@ -1,4 +1,3 @@
-import { ISpecialOfferProductLookupModel } from 'app/models/data/entities/sales/special-offer-product/special-offer-product-lookup-model';
 
 export interface ISpecialOfferLookupModel {
   specialOfferID: number;

@@ -1,7 +1,3 @@
-import { IAddressLookupModel } from 'app/models/data/entities/person/address/address-lookup-model';
-import { ICountryRegionLookupModel } from 'app/models/data/entities/person/country-region/country-region-lookup-model';
-import { ISalesTaxRateLookupModel } from 'app/models/data/entities/sales/sales-tax-rate/sales-tax-rate-lookup-model';
-import { ISalesTerritoryLookupModel } from 'app/models/data/entities/sales/sales-territory/sales-territory-lookup-model';
 
 export interface IStateProvinceLookupModel {
   stateProvinceID: number;

@@ -58,19 +58,19 @@ namespace AdventureWorks.Persistence.Configurations.Sales
             builder.HasOne(e => e.Contact)
             .WithMany(p => p.StoreContacts)
             .HasForeignKey(e => new { e.ContactID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_StoreContact_Contact_Contact_Constraint");
 
             builder.HasOne(e => e.ContactType)
             .WithMany(p => p.StoreContacts)
             .HasForeignKey(e => new { e.ContactTypeID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_StoreContact_ContactType_ContactType_Constraint");
 
             builder.HasOne(e => e.Store)
             .WithMany(p => p.StoreContacts)
             .HasForeignKey(e => new { e.CustomerID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_StoreContact_Store_Store_Constraint");
 
             // Complex Types (Owned properties as tables)

@@ -1,1 +1,1 @@
-export interface IIllustrationSummary {}
+export interface IIllustrationSummary { }

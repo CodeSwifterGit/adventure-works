@@ -37,7 +37,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
             .HasDefaultValueSql("(getdate())");
 
             builder.Property(p => p.TransactionType)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(1)")
             .IsRequired();
 
             builder.Property(p => p.Quantity)
@@ -63,7 +63,7 @@ namespace AdventureWorks.Persistence.Configurations.Production
             builder.HasOne(e => e.Product)
             .WithMany(p => p.TransactionHistories)
             .HasForeignKey(e => new { e.ProductID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_TransactionHistory_Product_Product_Constraint");
 
             // Complex Types (Owned properties as tables)

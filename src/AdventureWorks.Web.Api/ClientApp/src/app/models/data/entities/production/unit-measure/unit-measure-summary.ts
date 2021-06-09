@@ -1,1 +1,1 @@
-export interface IUnitMeasureSummary {}
+export interface IUnitMeasureSummary { }

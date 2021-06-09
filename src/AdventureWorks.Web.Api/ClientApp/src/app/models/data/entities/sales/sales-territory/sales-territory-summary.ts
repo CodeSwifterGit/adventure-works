@@ -1,1 +1,1 @@
-export interface ISalesTerritorySummary {}
+export interface ISalesTerritorySummary { }

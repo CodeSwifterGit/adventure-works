@@ -1,4 +1,3 @@
-import { IProductLookupModel } from 'app/models/data/entities/production/product/product-lookup-model';
 
 export interface IProductReviewLookupModel {
   productReviewID: number;

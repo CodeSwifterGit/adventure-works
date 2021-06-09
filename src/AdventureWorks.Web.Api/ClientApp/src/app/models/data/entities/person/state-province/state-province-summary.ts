@@ -1,1 +1,1 @@
-export interface IStateProvinceSummary {}
+export interface IStateProvinceSummary { }

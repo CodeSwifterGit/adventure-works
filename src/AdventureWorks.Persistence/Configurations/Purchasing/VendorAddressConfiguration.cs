@@ -46,19 +46,19 @@ namespace AdventureWorks.Persistence.Configurations.Purchasing
             builder.HasOne(e => e.Address)
             .WithMany(p => p.VendorAddresses)
             .HasForeignKey(e => new { e.AddressID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_VendorAddress_Address_Address_Constraint");
 
             builder.HasOne(e => e.AddressType)
             .WithMany(p => p.VendorAddresses)
             .HasForeignKey(e => new { e.AddressTypeID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_VendorAddress_AddressType_AddressType_Constraint");
 
             builder.HasOne(e => e.Vendor)
             .WithMany(p => p.VendorAddresses)
             .HasForeignKey(e => new { e.VendorID })
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.NoAction)
             .HasConstraintName("FK_VendorAddress_Vendor_Vendor_Constraint");
 
             // Complex Types (Owned properties as tables)

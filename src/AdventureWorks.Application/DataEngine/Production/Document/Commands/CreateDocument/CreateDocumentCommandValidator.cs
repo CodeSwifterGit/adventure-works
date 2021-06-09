@@ -13,7 +13,7 @@ namespace AdventureWorks.Application.DataEngine.Production.Document.Commands.Cre
             RuleFor(v => v.Revision).NotEmpty().MaximumLength(5);
             RuleFor(v => v.ChangeNumber).NotEmpty();
             RuleFor(v => v.Status).NotEmpty();
-            RuleFor(v => v.DocumentSummary).NotEmpty().MaximumLength(-1);
+            RuleFor(v => v.DocumentSummary).NotEmpty();
             RuleFor(v => v.Document).NotEmpty();
             RuleFor(v => v.ModifiedDate).NotEmpty();
         }

@@ -1,6 +1,3 @@
-import { IProductUpdateModel } from 'app/models/data/entities/production/product/product-update-model';
-import { IUnitMeasureUpdateModel } from 'app/models/data/entities/production/unit-measure/unit-measure-update-model';
-import { IVendorUpdateModel } from 'app/models/data/entities/purchasing/vendor/vendor-update-model';
 
 export interface IProductVendorUpdateModel {
   productID: number;

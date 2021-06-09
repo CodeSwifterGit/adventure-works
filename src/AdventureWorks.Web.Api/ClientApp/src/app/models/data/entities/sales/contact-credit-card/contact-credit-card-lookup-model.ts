@@ -1,5 +1,3 @@
-import { IContactLookupModel } from 'app/models/data/entities/person/contact/contact-lookup-model';
-import { ICreditCardLookupModel } from 'app/models/data/entities/sales/credit-card/credit-card-lookup-model';
 
 export interface IContactCreditCardLookupModel {
   contactID: number;

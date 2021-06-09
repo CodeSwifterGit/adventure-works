@@ -1,14 +1,13 @@
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
 import { IRequestOptions } from 'app/models/data/common/request-options';
 import { IVendorContact } from 'app/models/data/entities/purchasing/vendor-contact/vendor-contact';
 import { IVendorContactLookupModel } from 'app/models/data/entities/purchasing/vendor-contact/vendor-contact-lookup-model';
 import { IVendorContactUpdateModel } from 'app/models/data/entities/purchasing/vendor-contact/vendor-contact-update-model';
 import { IVendorContactsListViewModel } from 'app/models/data/entities/purchasing/vendor-contact/vendor-contacts-list-view-model';
 import { DataService } from 'app/services/common/data.service';
-import { ISortedPropertyInfo } from 'app/models/data/common/sorted-property-info';
-import { ApiUrlBuilder } from 'app/encoders/api-url-builder';
+import { Observable } from 'rxjs';
 
 export interface IVendorContactPrimaryKey {
   vendorID: number;
@@ -23,7 +22,7 @@ export interface IVendorContactUpdateItem extends IVendorContact {
   providedIn: 'root',
 })
 export class VendorContactsService {
-  constructor(protected apiClient: DataService) {}
+  constructor(protected apiClient: DataService) { }
 
   create(model: IVendorContact, options?: IRequestOptions, observe?: 'body', reportProgress?: boolean): Observable<IVendorContactLookupModel>;
   create(model: IVendorContact, options?: IRequestOptions, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IVendorContactLookupModel>>;

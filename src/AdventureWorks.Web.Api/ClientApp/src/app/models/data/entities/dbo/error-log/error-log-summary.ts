@@ -1,1 +1,1 @@
-export interface IErrorLogSummary {}
+export interface IErrorLogSummary { }

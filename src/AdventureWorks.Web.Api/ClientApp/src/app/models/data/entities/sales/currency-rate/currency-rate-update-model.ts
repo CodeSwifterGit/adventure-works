@@ -1,5 +1,3 @@
-import { ICurrencyUpdateModel } from 'app/models/data/entities/sales/currency/currency-update-model';
-import { ISalesOrderHeaderUpdateModel } from 'app/models/data/entities/sales/sales-order-header/sales-order-header-update-model';
 
 export interface ICurrencyRateUpdateModel {
   currencyRateID: number;

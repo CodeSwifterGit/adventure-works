@@ -1,1 +1,1 @@
-export interface ICultureSummary {}
+export interface ICultureSummary { }

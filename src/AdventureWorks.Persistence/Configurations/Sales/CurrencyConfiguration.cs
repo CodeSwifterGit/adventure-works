@@ -18,7 +18,7 @@ namespace AdventureWorks.Persistence.Configurations.Sales
 
             // Properties Configuration
             builder.Property(p => p.CurrencyCode)
-            .HasColumnType("nchar")
+            .HasColumnType("nchar(3)")
             .IsRequired();
 
             builder.Property(p => p.Name)

@@ -22,6 +22,7 @@ namespace AdventureWorks.Domain.Entities.Sales
         #region Navigation Properties
 
         public Currency CurrencyFrom { get; set; }
+
         public Currency CurrencyTo { get; set; }
         public ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
 
